@@ -1,0 +1,2114 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+<!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+    
+    <!-- Website Title & Description -->
+    <title>海归“中国梦”报道</title>
+    <meta name="description" content="Dreamer - Responsive One Page Parallax Template">
+    
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    
+
+    
+    <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+    
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="stylesheets/portfolio.css">
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/supersized.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="stylesheets/supersized.shutter.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="stylesheets/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" />
+    
+    <!-- Google Web Fonts -->
+
+    
+	<!-- Included JS Files -->
+	<script src="javascripts/modernizr.foundation.js"></script>
+	<script src="javascripts/jquery.js"></script>
+	<script src="javascripts/custom.js"></script>
+	<!--<script src="javascripts/twitter.js"></script>-->
+	<script src="javascripts/raphael.js" type="text/javascript"></script>
+	<script src="javascripts/init.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('.parallax-one').css("margin-top", $(window).height());
+			
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+				
+			var windowsize = $(window).width();
+
+			$(window).resize(function() {
+			  var windowsize = $(window).width();
+			});
+			
+			if (windowsize > 1024) {
+			  	//if the window is greater than 1024px wide then load one orbit settings
+				//.parallax(xPosition, speedFactor, outerHeight) options:
+				//xPosition - Horizontal position of the element
+				//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+				//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+				$('.parallax-one').parallax("50%", 0.5);
+				$('.parallax-two').parallax("50%", 0.5);
+				$('.parallax-three').parallax("50%", 0.5);
+				$('.parallax-four').parallax("50%", 0.5);
+				$('.parallax-five').parallax("50%", 0.5);
+				$('.parallax-six').parallax("50%", 0.5);
+			}
+			
+			//if submit button is clicked
+			$('#submit').click(function () {
+				
+				//Get the data from all the fields
+				var name = $('input[name=name]');
+				var email = $('input[name=email]');
+				var phonenumber = $('input[name=phonenumber]');
+				var website = $('input[name=website]');
+				var projectbudget = $('input[name=projectbudget]');
+				var timeframe = $('input[name=timeframe]');
+				var youreinterestedin = $('input[name=youreinterestedin]');
+				var howdidyouhearaboutus = $('input[name=howdidyouhearaboutus]');
+				var comment = $('textarea[name=comment]');
+		
+				//Simple validation to make sure user entered something
+				//If error found, add hightlight class to the text field
+				if (name.val()=='') {
+					name.addClass('hightlight');
+					return false;
+				} else name.removeClass('hightlight');
+				
+				if (email.val()=='') {
+					email.addClass('hightlight');
+					return false;
+				} else email.removeClass('hightlight');
+				
+				if (comment.val()=='') {
+					comment.addClass('hightlight-message');
+					return false;
+				} else comment.removeClass('hightlight-message');
+				
+				//organize the data properly
+				var data = 'name=' + name.val() + '&email=' + email.val() + '&phonenumber=' + phonenumber.val() + '&website=' + website.val() + '&projectbudget=' + projectbudget.val() + '&timeframe=' + timeframe.val() + '&youreinterestedin=' + youreinterestedin.val() + '&howdidyouhearaboutus=' + howdidyouhearaboutus.val() + '&comment='  + encodeURIComponent(comment.val());
+				
+				//disabled all the text fields
+				$('.text').attr('disabled','true');
+				
+				//show the loading sign
+				document.getElementById("submit").disabled=true;
+				document.getElementById("submit").value='Please Wait..';
+				
+				//start the ajax
+				$.ajax({
+					//this is the php file that processes the data and send mail
+					url: "contact-form.php",	
+					
+					//GET method is used
+					type: "GET",
+		
+					//pass the data			
+					data: data,		
+					
+					//Do not cache the page
+					cache: false,
+					
+					//success
+					success: function (html) {				
+						//if process.php returned 1/true (send mail success)
+						if (html==1) {					
+							//hide the form
+							$('.contact-form-div').fadeOut('slow');					
+							
+							//show the success message
+							$('.done').fadeIn('slow');
+							
+						//if process.php returned 0/false (send mail failed)
+						} else alert('Sorry, unexpected error. Please try again later.');				
+					}		
+				});
+				
+				//cancel the submit button default behaviours
+				return false;
+			});	
+		})
+    </script>
+    
+    <!-- Hook up the Loader -->
+	<script type="text/javascript">
+		$(window).load(function() {
+			$("#loading").fadeOut("1000", function() {
+			// Animation complete
+				$('#loading img').css("display","none");
+				$('#loading').css("display","none");
+				$('#loading').css("background","none");
+				$('#loading').css("width","0");
+				$('#loading').css("height","0");
+		  	});
+		});
+	</script>
+    
+</head>
+<body>
+
+	<!-- Loader -->
+	<div id="loading">
+    	<img src="images/loader.gif" alt="Website Loader"/>
+    </div>
+    
+    <!-- Slideshow Pattern & Overlay -->
+    <div class="slideshow-pattern"></div>
+    <div class="slideshow-overlay"></div>
+    
+    <div class="triangle-top"></div>
+    <div class="triangle-bottom"></div>
+    <!--菜单与导航部分-->
+	<div class="header-container">
+    
+        <!-- Basic Needs -->
+        <div class="row">
+        <!--菜单-->
+            <nav class="top-bar">
+                <!--菜单部分图片-->
+                <ul>
+                	<li class="name"><a href="#homepage"><img src="images/logo.png" alt="Dreamer Logo"></a></li>
+                </ul>
+                <!--移动端菜单部分-->
+                <section class="hide-for-small">
+                    <ul class="right">
+                    	<li><a href="#homepage">追梦人</a></li>
+                    	<li><a href="#our-team">争议</a></li>
+                    	<li><a href="#about-us">强国梦</a></li>
+                    	<li><a href="#portfolio">世界梦</a></li>
+                    	<li><a href="#services">世纪梦</a></li>
+
+                    	<li><a href="#contact">特别鸣谢</a></li>
+                    </ul>
+                </section>
+                <!--菜单部分-->
+                <select class="responsive-nav show-for-small" onChange="moveTo(this.value)" onFocus="moveTo(this.value)">
+                    <option value="" selected="">主导航</option>
+                    <option value="#homepage">中国梦</option>
+                    <option value="#our-team">争议</option>
+                    <option value="#about-us">强国梦</option>
+                    <option value="#portfolio">世界梦</option>
+                    <option value="#services">世纪梦</option>
+
+                    <option value="#contact">特别鸣谢</option>
+                </select>
+            </nav>
+            <!--<a href="#/AvaPremiumThemes" class="facebook-header" target="_blank"></a>-->
+            <!--<a href="https://twitter.com/AVAThemes" class="twitter-header" target="_blank"></a>-->
+        </div>
+    </div>
+    <!--大标题与副标题 封面-->
+    <div class="homepage-text">
+    	<div class="top-icon">
+        	<img src="images/homepage-text-top-icon.png" alt="Homepage Top Icon">
+        </div>
+    	<div class="top-divider"></div>
+        <h1>“海归”-中国追梦人</h1>
+    	<div class="bottom-divider"></div>
+        <h2>中国“海归”百年浪潮是“中国梦”的重要实践者。</h2>
+        <h3>中国“海归”汲取世界智慧改变中国，带领中国走向世界。</h3>
+    	<div class="bottom-icon">
+        	<a href="#parallax-one"><img src="images/homepage-text-bottom-icon.png" alt="Homepage Bottom Icon"></a>
+        </div>
+    </div>
+    
+    <!-- Main Content Starts HERE -->
+    <div class="content-container">
+    
+    	<div id="homepage"></div>
+    
+        <!-- 引入标题 - Content -->
+        <div class="parallax-one">
+            <div class="quote1-pattern" id="parallax-one"><div class="quote1-shape"></div></div>
+        	<div class="row">
+           	  	<div class="twelve columns parallax-container">
+                	<h1 class="parallax-title">争议：海归已死？</h1>
+                	<div class="parallax-divider">
+                  		<img src="images/icons/60px/white/appbar.people.multiple.png" alt="Read More About Us">
+                    </div>
+                	<h2 class="parallax-subtitle">海归对中国的影响力是否已经削弱，各大媒体又是如何作答。</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- 引入部分 -->
+        <div class="page-container pattern-2" id="our-team">
+        
+        	<div class="row">
+            
+            	<div class="twelve columns page-content">
+                	<h1 class="page-title">海归影响力媒体争论</h1>
+                	<h2 class="page-subtitle"> <span>《2011年海归就业力调查报告》</span>显示海归在国内影响力日益俱下，海归自身就业压力上升。但欧美会100周年之际，习总书记表达了对海归人才的渴望。同时，今年的两会上，李克强总理作 <span>《政府工作报告》</span>中强调了“大众创新，万众创新”，“创客们的白银时代”中海归能否再次影响中国？</h2>
+                </div>
+                
+            	<div class="three columns padding-four-columns team-member mobile-two">
+                	<img src="images/team/team-1.png" alt="Our Team">
+                    <h3 class="our-team-title">网易新闻</h3>
+                    <h3 class="our-team-subtitle">《海归已死》</h3>
+                    <div class="our-team-divider"></div>
+                    <p class="our-team-text">根据2011年海归就业报告中的数据中显示，随着海归人士不断涌入内地就业大军，就业难、待遇低正变成群体性尴尬，在这个没法靠洋文凭混日子的时代，远涉重洋却没学到真本事的海归们被淘汰实属必然。</p>
+
+                </div>
+                
+            	<div class="three columns padding-four-columns team-member mobile-two">
+                	<img src="images/team/team-2.png" alt="Our Team">
+                    <h3 class="our-team-title">环球时报</h3>
+                    <h3 class="our-team-subtitle">海归在今天中国更加重要</h3>
+                    <div class="our-team-divider"></div>
+                    <p class="our-team-text">2014年12月习近平强调“新形势下，留学工作要适应国家发展大势和党和国家工作大局，统筹谋划出国留学和来华留学，综合运用国际国内两种资源，培养造就更多优秀人才，努力开创留学工作新局面”。</p>
+
+                </div>
+                
+            	<div class="three columns padding-four-columns team-member mobile-two">
+                	<img src="images/team/team-3.png" alt="Our Team">
+                    <h3 class="our-team-title">腾讯今日话题</h3>
+                    <h3 class="our-team-subtitle">海归-留洋的水货？</h3>
+                    <div class="our-team-divider"></div>
+                    <p class="our-team-text">海归”变“海待”早已算不上什么新闻，但是国人“出国镀金”的心气却越来越旺，甚至还出现了“低龄化”的趋势。一些父母为了孩子的前途，不惜倾家荡产也要送其出国读书。</p>
+
+                </div>
+                
+            	<div class="three columns padding-four-columns team-member mobile-two">
+                	<img src="images/team/team-4.png" alt="Our Team">
+                    <h3 class="our-team-title">中国日报网</h3>
+                    <h3 class="our-team-subtitle">海归回国创业正当时</h3>
+                    <div class="our-team-divider"></div>
+                    <p class="our-team-text">中国科技部部长万钢3月11日答记者问时表示，创业正在走向大众趋势，很多海归留学生都参与创业，创新创业已经成为一种价值导向、生活方式。政府正在与市场联手，利用互联网为海归创业打造联合平台。</p>
+
+                </div>
+            
+            	<div class="twelve columns page-section">
+                	<h1 class="page-title">海归已死？</h1>
+                	<h2 class="page-subtitle"><span>“海归时代”</span>到来的同时，关于海归变成“海带”“海归搁浅”、海归优势不再、海归带回意识形态风险等声音不时见于各种媒体。于此同时，<span>党和国家</span>对留学事业和海归人才的高度认可和重视，也将继续推动留学人员为中国的发展同心戮力。</h2>
+                </div>
+                
+            	<div class="twelve columns">
+                  <div class="section-divider testimonial-margin">
+                        <img src="images/crown.png" alt="Read More About Us">
+                    </div>
+                </div>
+                
+       	  	  <div class="twelve columns testimonial">
+                    
+                    <div class="four columns testimonial-date hide-for-small">
+                    	<div class="nine columns">
+                            <div class="testimonial-day">5</div>
+                        </div>
+                        <div class="three columns mobile-four">
+                            <div class="testimonial-month">十一月</div>
+                            <div class="testimonial-circle">日</div>
+                        </div>
+                    </div>
+                    
+                    <div class="six columns testimonial-content mobile-four">
+                        <div class="testimonial-content-inner">
+                            <h4 class="testimonial-title mobile-four"><span style="color:#e44d26">2011年海归就业力调查报告</span></h4>
+                            <p class="testimonial-content mobile-four">该调查由启德教育国际教育研究院负责执行，以全国7000余名各行各业的海归为样本，揭示海归职场生存现状。从调查结果来看，顺利步入职场的海归身居要职拿高薪的为数不多。调查中还发现，民营企业成为吸纳海归人才的主力军，有多达46%的海归在民企找到了职业发展的平台。</p>
+                            <p class="testimonial-signature mobile-four">东方早报<span> 第20届启德国际教育研究院</span></p>
+                        </div>
+                    </div>
+                
+                	<div class="two columns hide-for-small"></div>
+                
+                </div>
+                
+       	  	  <div class="twelve columns testimonial-bottom">
+                
+                    <div class="two columns hide-for-small"></div>
+                    
+                    <div class="four columns testimonial-date hide-for-small">
+                    	<div class="nine columns">
+                            <div class="testimonial-day">21</div>
+                        </div>
+                        <div class="three columns mobile-four">
+                            <div class="testimonial-month">十月</div>
+                            <div class="testimonial-circle">日</div>
+                        </div>
+                    </div>
+                        
+                    <div class="six columns testimonial-content mobile-four">
+                        <div class="testimonial-content-inner">
+                            <h4 class="testimonial-title mobile-four"><span style="color:#e44d26">习近平在欧美同学会成立100周年讲话</span></h4>
+                            <p class="testimonial-content mobile-four">全面建成小康社会，推进社会主义现代化，实现中华民族伟大复兴，是光荣而伟大的事业，是光明和灿烂的前景。一切有志于这项伟大事业的人们都可以大有作为。在亿万中国人民前行的伟大征程上，广大留学人员创新正当其时、圆梦适得其势。广大留学人员要把爱国之情、强国之志、报国之行统一起来，把自己的梦想融入人民实现中国梦的壮阔奋斗之中，把自己的名字写在中华民族伟大复兴的光辉史册之上。</p>
+                            <p class="testimonial-signature mobile-four">人民日报<span>中共中央总书记习近平讲话</span></p>
+                        </div>
+                    </div>
+                </div>
+          	</div>
+        </div>
+        <!-- 强国梦标题 - Content -->
+        <div class="parallax-two">
+            <div class="quote2-pattern"><div class="quote2-shape"></div></div>
+        	<div class="row">
+           	  	<div class="twelve columns parallax-container">
+                	<h1 class="parallax-title">强国梦</h1>
+                	<div class="parallax-divider">
+                  		<img src="images/icons/60px/white/appbar.book.open.writing.png" alt="Read More About Us">
+                    </div>
+                	<h2 class="parallax-subtitle">“以西方之学术，灌输于中国，使中国日趋于文明富强之境”<br>——容闳，中国“留学生之父”</h2>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 强国梦 -->
+        <div class="page-container pattern-1" id="about-us">
+        
+        	<div class="row">
+            
+            	<div class="twelve columns page-content">
+                	<h1 class="page-title">中国近代强国梦</h1>
+                	<h2 class="page-subtitle">清末的有识之士大都感到，传统书塾教育培养出来的人才，已经无法应对历史的挑战，实现振兴中华的目标。<span>“强国梦”</span>，促使人们打破传统思维。出国留学、寻求真理，然后回到本土，改造社会、富国强民，成为“时务”，成了有志青年的人生选择。</h2>
+                </div>
+                
+            	<div class="four columns about mobile-three-one">
+                    <img src="images/about-us/1.png" alt="About US">
+                    <h3 class="about-us-title">走向世界，学成强国</h3>
+                    <p class="about-us-text">政府为改变中国落后挨打的面貌，派留学生到西方求取“真经”，进而回国改造社会；更有不少有志青年甚至自费出洋留学。“海归”在中国近现代史上之所以尽显风流，其接受了西方先进技术与开明思想，在归国之后直面中国的问题，致力于中国的改革和革命事业。</p>
+                    
+                </div>
+                
+            	<div class="four columns about mobile-three-one">
+                    <img src="images/about-us/2.png" alt="About US">
+                	<h3 class="about-us-title">十代海归，师夷长技</h3>
+                    <p class="about-us-text">光绪初年官派赴美的幼童成为近代中国留学之先声。1877年清廷派出的海军留学生是为第二代。在成就斐然的第三代、第四代留学生中，除了文化运动的主将，庚款生中还有许多大科学家。第五代是留法勤工俭学的学生。第六、七、八代是20世纪建国前的留苏学生。新中国成立后十年间的留苏、留欧学生是第九代。文革”以后的留学生则可以称为第十代 </p>
+                </div>
+                
+            	<div class="four columns about mobile-three-one">
+                    <img src="images/about-us/3.png" alt="About US">
+                	<h3 class="about-us-title">剪掉辫子，丢入大海</h3>
+                    <p class="about-us-text">这一幕场景在20世纪初的大时代中，或许并不让人惊奇。它更像个隐喻：新一代的知识分子远赴西方求学之际，首先是在宣告自己与一些羁绊中国自强自立的文化因素的决裂。中国人当摆脱封建的束缚，漂洋过海走向先进的西方发达国家，师夷长技，以实现强国之梦。</p>
+                </div>
+            
+            	<div class="twelve columns page-section hide-for-760">
+                	<h1 class="page-title">百年留学潮，强国当自强</h1>
+                	<h2 class="page-subtitle"> <span>“大江歌罢掉头东，邃密群科济世穷。面壁十年图破壁，难酬蹈海亦英雄”</span>--周恩来<br><span>“出去是为了归来”</span>，个人的选择虽然多样，可是背后的家国之思却是灵魂之所系，正是现代中国的命运，在一次又一次界定着“海归”真正的意义和内涵。</h2>
+                </div>
+                
+            	<div class="twelve columns hide-for-760">
+                    <div class="section-divider">
+                        <img src="images/crown.png" alt="Our Skills">
+                    </div>
+                </div>
+                <div><h3 class="about-us-title">20世纪初期海归数据统计图</h3></div>
+
+                <div class="eight columns mobile-four hide-for-760">
+                	<div id="diagram" class=""></div>
+                    <div class="get">
+                        <div class="arc">
+                            <span class="text">两弹一星功勋奖</span>
+                            <input type="hidden" class="percent" value="91" />
+                            <input type="hidden" class="color" value="#C0CEC8" />
+                        </div>
+                        <div class="arc">
+                            <span class="text">中国科学院院士</span>
+                            <input type="hidden" class="percent" value="84" />
+                            <input type="hidden" class="color" value="#7e898c" />
+                        </div>
+                        <div class="arc">
+                            <span class="text">部属高校校长</span>
+                            <input type="hidden" class="percent" value="78" />
+                            <input type="hidden" class="color" value="#01414e" />
+                        </div>
+
+                        <div class="arc">
+                            <span class="text">中国工程院院士</span>
+                            <input type="hidden" class="percent" value="75" />
+                            <input type="hidden" class="color" value="#2B879E" />
+                        </div>
+                        <div class="arc">
+                            <span class="text">博士生导师</span>
+                            <input type="hidden" class="percent" value="62" />
+                            <input type="hidden" class="color" value="#87a094" />
+                        </div>
+
+                    </div>
+                </div>
+                
+            	<div class="four columns statistics hide-for-small">
+
+                    <div class="twelve columns by-numbers projects-numbers mobile-two">
+                        <p class="by-numbers-text"><span>15</span>清末留学幼童出国最低年限</p>
+                    </div>
+                    <div class="twelve columns by-numbers clients-numbers mobile-two">
+                        <p class="by-numbers-text"><span>120</span>中国首批留学幼童人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers code-numbers mobile-two">
+                        <p class="by-numbers-text"><span>30</span>首批留学生从事工矿、铁路、电报工作人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers iphone-numbers mobile-two">
+                        <p class="by-numbers-text"><span>5</span>首批留学生从事教育工作人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers coffee-numbers mobile-two">
+                        <p class="by-numbers-text"><span>24</span>首批留学生从事外交、行政工作人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers projects-numbers mobile-two">
+                        <p class="by-numbers-text"><span>20</span>首批留学生从事海军人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers clients-numbers mobile-two">
+                        <p class="by-numbers-text"><span>70</span>第二批庚款留学留美学生人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers code-numbers mobile-two">
+                        <p class="by-numbers-text"><span>1915/10</span>历史上第一个民间现代科学学术团体</p>
+                    </div>
+                    <div class="twelve columns by-numbers clients-numbers mobile-two">
+                        <p class="by-numbers-text"><span>1885</span>1904-1908年，日本法政大学中国留学生</p>
+                    </div>
+                    <div class="twelve columns by-numbers iphone-numbers mobile-two">
+                        <p class="by-numbers-text"><span>800</span>1911年中国陆军留日人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers projects-numbers mobile-two">
+                        <p class="by-numbers-text"><span>250</span>20世纪20年代海归教授基本月薪</p>
+                    </div>
+                    <div class="twelve columns by-numbers coffee-numbers mobile-two">
+                        <p class="by-numbers-text"><span>81</span>1948年国民政府中央研究院院士人数</p>
+                    </div>
+                    <div class="twelve columns by-numbers coffee-numbers mobile-two">
+                        <p class="by-numbers-text"><span>2000</span>1956年返回中国大陆的海归科学家人数</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 世界梦标题 - Content -->
+        <div class="parallax-three">
+            <div class="quote3-pattern"><div class="quote3-shape"></div></div>
+        	<div class="row">
+           	  	<div class="twelve columns parallax-container">
+                	<h1 class="parallax-title">世界梦</h1>
+                	<div class="parallax-divider">
+                  		<img src="images/icons/60px/white/appbar.camera.png" alt="Read More About Us">
+                    </div>
+                	<h2 class="parallax-subtitle">1978年，改革开放的浪潮掀起，中国开始新的时代。<br>同时代的青年人渴望走出去、渴望<span>开眼看世界</span>。</h2>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 世界梦-->
+        <div class="page-container pattern-2" id="portfolio">
+        
+        	<div class="row">
+            
+            	<div class="twelve columns page-content">
+                	<h1 class="page-title">中国学生走向世界</h1>
+                	<h2 class="page-subtitle">对于千千万万出国留学人员而言，<span>1978年</span>也是一个有标志性意义的一年。就在这一年，<span>邓小平</span>说：“要成千上万地派留学生，越多越好。”走向世界又学成归来的海归名流，给祖国的<span>各个领域</span>带来了翻天覆地的变化。从马克思主义的传播到中国共产党的成立，留学生都发挥了极其重要的作用。中国共产党和新中国的诞生，也同<span>“海归”</span>结下了不解之缘。中国共产党1921年7月1日召开成立大会，出席代表12人中有8人是归国留学生，占<span>2/3</span>。中华人民共和国10位开国元帅中有<span>6位</span>在国外留学或工作过。中华人民共和国第一届中央人民政府主席、副主席和政府委员共63人，在国外留学或工作过的有<span>42人</span>，占2/3。</h2>
+                </div>
+            
+            	<div class="twelve columns portfolio-filter hide-for-760">
+                    <ul class="filterOptions">
+                        <li><a href="#" class="all"><img src="images/icons/40px/123.png" alt="all" ><span>代表人物</span></a></li>
+                        <li><a href="#" class="culture"><img src="images/icons/40px/96.png" alt="culture"><span>文化领域</span></a></li>
+                        <li><a href="#" class="military"><img src="images/icons/40px/121.png" alt="military"><span>军工领域</span></a></li>
+                        <li><a href="#" class="economy"><img src="images/icons/40px/155.png" alt="economy"><span>经济领域</span></a></li>
+                        <li><a href="#" class="information"><img src="images/icons/40px/88.png" alt="information"><span>信息领域</span></a></li>
+                    </ul>
+                </div>
+            
+            	<div class="twelve columns portfolio">
+                    <ul class="ourHolder">
+                        <!--data-type对应的是上面<li>标签中的class属性，可以进行选择 -->
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="culture">
+                            <div class="portfolio-item">
+                            	<div class="portfolio-cat-image">
+                           	    	<img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                            	<div class="portfolio-hover-details hide-for-small">
+                                	<div class="open-portfolio">
+                                        <!--点开放大按钮后对应的图片 -->
+                                    	<a href="images/portfolio/1.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                    	<!--pop up windows在<a>标签的data-reveal-id的属性里-->
+                                        <a href="#" data-reveal-id="single-news-XBH" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                                <!--进去后所显示的图片 -->
+                            	<a href="images/portfolio/1.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/1.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                	<h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-XBH">中国近代绘画大师</a></h4>
+                                	<div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">徐悲鸿</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="military">
+                            <div class="portfolio-item">
+                            	<div class="portfolio-cat-image">
+                           	    	<img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                            	<div class="portfolio-hover-details hide-for-small">
+                                	<div class="open-portfolio">
+                                    	<a href="images/portfolio/2.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                    	<a href="#" data-reveal-id="single-news-DJX" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                            	<a href="images/portfolio/large/2.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/2.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                	<h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-DJX">两弹元勋</a></h4>
+                                	<div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">邓稼先</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="economy">
+                            <div class="portfolio-item">
+                            	<div class="portfolio-cat-image">
+                           	    	<img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                            	<div class="portfolio-hover-details hide-for-small">
+                                	<div class="open-portfolio">
+                                    	<a href="images/portfolio/3.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                    	<a href="#" data-reveal-id="single-news-DXP" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                            	<a href="images/portfolio/large/3.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/3.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                	<h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-DXP">中国改革开放总设计师</a></h4>
+                                	<div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">邓小平</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="culture">
+                            <div class="portfolio-item">
+                            	<div class="portfolio-cat-image">
+                           	    	<img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                            	<div class="portfolio-hover-details hide-for-small">
+                                	<div class="open-portfolio">
+                                    	<a href="images/portfolio/4.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                    	<a href="#" data-reveal-id="single-news-HLG" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                            	<a href="images/portfolio/large/4.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/4.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                	<h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-HLG">中国现代数学之父</a></h4>
+                                	<div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">华罗庚</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="military">
+                            <div class="portfolio-item">
+                            	<div class="portfolio-cat-image">
+                           	    	<img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                            	<div class="portfolio-hover-details hide-for-small">
+                                	<div class="open-portfolio">
+                                    	<a href="images/portfolio/5.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                    	<a href="#" data-reveal-id="single-project-photo-qian" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                            	<a href="images/portfolio/large/5.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/5.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                	<h4 class="portfolio-title"><a href="#" data-reveal-id="single-project-photo-qian">中国航天之父</a></h4>
+                                	<div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">钱学森</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="economy">
+                            <div class="portfolio-item">
+                            	<div class="portfolio-cat-image">
+                           	    	<img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                            	<div class="portfolio-hover-details hide-for-small">
+                                	<div class="open-portfolio">
+                                    	<a href="images/portfolio/6.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                    	<a href="#" data-reveal-id="single-news-WJL" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                            	<a href="images/portfolio/large/6.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/6.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                	<h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-WJL">中国经济学界泰斗</a></h4>
+                                	<div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">吴敬琏</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="economy">
+                            <div class="portfolio-item">
+                                <div class="portfolio-cat-image">
+                                    <img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                                <div class="portfolio-hover-details hide-for-small">
+                                    <div class="open-portfolio">
+                                        <a href="images/portfolio/7.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                        <a href="#" data-reveal-id="single-news-LYF" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                                <a href="images/portfolio/large/7.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/7.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                    <h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-LYF">中国现代经济学家</a></h4>
+                                    <div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">林毅夫</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="information">
+                            <div class="portfolio-item">
+                                <div class="portfolio-cat-image">
+                                    <img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                                <div class="portfolio-hover-details hide-for-small">
+                                    <div class="open-portfolio">
+                                        <a href="images/portfolio/8.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                        <a href="#" data-reveal-id="single-news-LYH" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                                <a href="images/portfolio/large/8.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/8.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                    <h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-LYH">百度搜索CEO</a></h4>
+                                    <div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">李彦宏</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="four columns item mobile-two" data-id="id-1" data-type="information">
+                            <div class="portfolio-item">
+                                <div class="portfolio-cat-image">
+                                    <img src="images/icons/40px/white/96.png" alt="Portfolio Category Image">
+                                </div>
+                                <div class="portfolio-hover-details hide-for-small">
+                                    <div class="open-portfolio">
+                                        <a href="images/portfolio/9.jpg" class="open-portfolio-large" rel="prettyPhoto"></a>
+                                        <a href="#" data-reveal-id="single-news-DZH" class="open-portfolio-link"></a>
+                                    </div>
+                                </div>
+                                <a href="images/portfolio/large/9.jpg" class="photo-link" rel="prettyPhoto"><img src="images/portfolio/9.jpg" alt="Portfolio Item" class="wide-image"></a>
+                                <div class="portfolio-details">
+                                    <h4 class="portfolio-title"><a href="#" data-reveal-id="single-news-DZH">中星微集团创始人</a></h4>
+                                    <div class="portfolio-divider"></div>
+                                    <p class="portfolio-categories">邓中翰</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    
+        <!-- 世纪梦标题 - Content -->
+        <div class="parallax-four">
+            <div class="quote4-pattern"><div class="quote4-shape"></div></div>
+        	<div class="row">
+           	  	<div class="twelve columns parallax-container">
+                	<h1 class="parallax-title">世纪梦</h1>
+                	<div class="parallax-divider">
+                  		<img src="images/icons/60px/white/appbar.cogs.png" alt="Read More About Us">
+                    </div>
+                	<h2 class="parallax-subtitle">进入21世纪，中国的历史翻开新的一页。<br>更好的国际环境、更强的发展实力、更多的竞争能力，祖国成为海归的新舞台。</h2>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 世纪梦 -->
+        <div class="page-container pattern-1" id="services">
+        
+        	<div class="row">
+            	<div class="twelve columns page-content">
+                    <h1 class="page-title">世纪梦</h1>
+                    <h2 class="page-subtitle">
+                        进入<span>21世纪</span>之后，中国与国际接轨日益增多，许多人都把出国留学当作成为提升竞争力的必要过程，中国留学人员数量急剧上升。尤其是<span>2001年</span>当中国加入WTO，出国留学人数相比前一年暴涨<span>115.38%</span>。到<span>2006年底</span>，中国出国留学人员已经突破了<span>百万大关</span>。出国潮也带动了海归潮，21世纪之后，留学回国人数也在大幅增长，出国留学人员虽然在快速增长，但增速要明显低于留学回国人员。
+                    </h2>
+                </div>
+            </div>
+        
+
+
+                    <!--echart1-->
+
+                    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                    <div id="main" style="width:1280px;height:700px;margin: 0 auto;padding:40px"></div>
+                    <!-- ECharts单文件引入 -->
+                    <script src="ec/dist/echarts.js"></script>
+                    <script type="text/javascript">
+                        // 路径配置
+                        require.config({
+                            paths: {
+                                echarts: 'ec/dist'
+                            }
+                        });
+
+                        // 使用
+                        require(
+                                [
+                                    'echarts',
+                                    'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+                                    'echarts/chart/line'
+
+                                ],
+                                function (ec) {// 基于准备好的dom，初始化echarts图表
+                                    var myChart = ec.init(document.getElementById('main'));
+
+                                    var option = {
+                                        title : {
+                                            text: '出国留学和留学回国',
+                                            subtext: '新世纪以来中国出国留学和留学回国人数及其增长率',
+                                            x: 'center'
+                                        },
+                                        tooltip : {
+                                            trigger: 'axis',
+                                            formatter: function(params) {
+                                                return params[0].name + '年<br/>'
+                                                        + params[1].seriesName + ' : ' + params[1].value + '(万人)<br/>'
+                                                        + params[0].seriesName + ' : ' + params[0].value + '(万人)<br/>'
+                                                        + params[3].seriesName + ' : ' + params[3].value + '%<br/>'
+                                                        + params[2].seriesName + ' : ' + params[2].value + '%<br/>'
+                                            }
+                                        },
+                                        legend: {
+                                            data:['留学回国人数','出国留学人数','留学回国人数增长率','出国留学人数增长率'],
+                                            x: 'left'
+
+                                        },
+                                        toolbox: {
+                                            show : false,
+                                            feature : {
+                                                mark : {show: true},
+                                                dataView : {show: true, readOnly: false},
+                                                magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                                                restore : {show: true},
+                                                saveAsImage : {show: true}
+                                            }
+                                        },
+                                        calculable : true,
+                                        dataZoom : {
+                                            show : true,
+                                            realTime : true,
+                                            start : 0,
+                                            end : 100
+                                        },
+                                        xAxis : [
+                                            {
+                                                type : 'category',
+                                                data : ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014'],
+                                                axisLabel : {
+                                                    formatter: '{value}年'},
+                                                axisLine :{
+                                                    onZero :false
+                                                }
+
+
+                                            }
+                                        ],
+                                        yAxis : [
+                                            {
+                                                type : 'value',
+                                                name : '人数',
+                                                axisLabel : {
+                                                    formatter: '{value}万'
+                                                }
+                                            },
+                                            {
+                                                type : 'value',
+                                                name : '增长率',
+                                                axisLabel : {
+                                                    formatter: '{value}%'
+
+                                                }
+
+                                            }
+                                        ],
+                                        series : [
+                                            {
+                                                name:'留学回国人数',
+                                                type:'bar',
+
+                                                data:[0.9, 1.2, 1.8, 2.0, 2.5, 3.5, 4.2,4.4,6.9,10.8,13.5,18.6,27.3,35.4,36.5],
+                                                markPoint : {
+                                                    data : [
+                                                        {type : 'max', name: '最大值'},
+                                                        {type : 'min', name: '最小值'}
+                                                    ]
+                                                },
+                                                markLine : {
+                                                    data : [
+                                                        {type : 'average', name: '平均值'}
+                                                    ]}
+                                            },
+                                            {
+                                                name:'出国留学人数',
+                                                type:'bar',
+
+                                                data:[3.9, 8.4, 12.5, 11.7, 11.5, 11.9, 13.4,14.4,18.0,22.9,28.5,34.0,40.0,41.4,46.0],
+                                                markPoint : {
+                                                    data : [
+                                                        {type : 'max', name: '最大值'},
+                                                        {type : 'min', name: '最小值'}
+                                                    ]
+                                                },
+                                                markLine : {
+                                                    data : [
+                                                        {type : 'average', name: '平均值'}
+                                                    ]}
+                                            },
+                                            {
+                                                name:'留学回国人数增长率',
+                                                type:'line',
+                                                yAxisIndex: 1,
+                                                data:[23.43, 28.93, 53.06, 11.67, 24.38, 40.00, 20.00,4.76,57.50,56.28,24.47,38.13,46.56,29.53,3.20],
+                                                markPoint : {
+                                                    data : [
+                                                        {type : 'max', name: '最大值'}
+
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                name: '出国留学人数增长率',
+                                                type: 'line',
+                                                yAxisIndex: 1,
+                                                data: [62.50, 115.38, 48.81, -6.16, -2.22, 3.31, 13.08, 7.46, 24.86, 27.53, 24.16, 19.32, 17.63, 3.58, 11.09],
+                                                markPoint : {
+                                                    data : [
+                                                        {type : 'max', name: '最大值'}
+
+                                                    ]
+                                                }
+                                            }
+
+                                        ]
+                                    };
+
+                                    // 为echarts对象加载数据
+                                    myChart.setOption(option);
+
+                                }
+                        );
+                    </script>
+                    <!--echart2 -->
+
+            <div id="title1" style="text-align: center;font-size:x-large;"><h3>2013年海归回国创业与就业状况</h3></div>
+            <div id="class1" style="width:1280px;height:50px;margin: 0 auto;padding:40px">
+                <div id="left1" style="width:50%;height:500px;float: left; "></div>
+                <div id="right1" style="width: 50%;height: 500px;float: left ;"></div>
+            </div>
+            <script src="ec/dist/echarts.js"></script>
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('left1'));
+                            var option = {
+                                title : {
+                                    text: '海归回国创业行业分布',
+                                    x:'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    x : 'left',
+                                    orient: 'vertical',
+                                    data:['电子信息技术','生物医药','文化创意产业','新能源','新材料','其他']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel']
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'面积模式',
+                                        type:'pie',
+                                        radius : [30, 110],
+                                        center : ['50%', 200],
+                                        roseType : 'area',
+                                        x: '50%',               // for funnel
+                                        max: 40,                // for funnel
+                                        sort : 'ascending',     // for funnel
+                                        data:[
+                                            {value:32.9, name:'电子信息技术'},
+                                            {value:18.7, name:'生物医药'},
+                                            {value:13.3, name:'文化创意产业'},
+                                            {value:9.6, name:'新能源'},
+                                            {value:6.3, name:'新材料'},
+                                            {value:19.2, name:'其他'}
+                                        ]
+                                    }
+                                ]
+                            };
+
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('right1'));
+                            var option = {
+                                title : {
+                                    text: '海归回国创业地域分布',
+                                    x:'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    x : 'right',
+                                    orient: 'vertical',
+                                    data:['北京','江苏','广州','上海','其他']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel']
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'面积模式',
+                                        type:'pie',
+                                        radius : [30, 110],
+                                        center : ['50%', 200],
+                                        roseType : 'area',
+                                        x: '50%',               // for funnel
+                                        max: 40,                // for funnel
+                                        sort : 'ascending',     // for funnel
+                                        data:[
+                                            {value:36.1, name:'北京'},
+                                            {value:14.8, name:'江苏'},
+                                            {value:11.5, name:'广州'},
+                                            {value:8.2, name:'上海'},
+                                            {value:29.4, name:'其他'}
+                                        ]
+                                    }
+                                ]
+                            };
+
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+
+             <div id="class2" style="width:1280px;height:500px;margin: 0 auto;padding:40px">
+                <div id="left2" style="width:50%;height:500px;float: left;"></div>
+                <div id="right2" style="width: 50%;height: 500px;float: left; "></div>
+            </div>
+            <script src="ec/dist/echarts.js"></script>
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('left2'));
+                            var option = {
+                                title : {
+                                    text: '海归回国就业行业分布',
+
+                                    x:'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    orient : 'vertical',
+                                    x : 'left',
+                                    data:['金融及相关服务业','教育科研','电子信息技术','文化创意产业','生物医药','新能源新材料','政府和公共事业','其他']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel'],
+                                            option: {
+                                                funnel: {
+                                                    x: '25%',
+                                                    width: '50%',
+                                                    funnelAlign: 'left',
+                                                    max: 1548
+                                                }
+                                            }
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'海归回国就业行业分布',
+                                        type:'pie',
+                                        radius : '55%',
+                                        center: ['52%', '55%'],
+                                        data:[
+                                            {value:48.5, name:'金融及相关服务业'},
+                                            {value:9.1, name:'教育科研'},
+                                            {value:8.7, name:'电子信息技术'},
+                                            {value:7.4, name:'文化创意产业'},
+                                            {value:7.4, name:'生物医药'},
+                                            {value:7.0, name:'新能源新材料'},
+                                            {value:6.9, name:'政府和公共事业'},
+                                            {value:5, name:'其他'}
+                                        ]
+                                    }
+                                ]
+                            };
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('right2'));
+                            var option = {
+                                title : {
+                                    text: '海归回国就业地区分布',
+
+                                    x:'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                                },
+                                legend: {
+                                    orient : 'vertical',
+                                    x : 'right',
+                                    data:['北京','上海','广东','江苏','浙江','山东','其他']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel'],
+                                            option: {
+                                                funnel: {
+                                                    x: '25%',
+                                                    width: '50%',
+                                                    funnelAlign: 'left',
+                                                    max: 1548
+                                                }
+                                            }
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'海归回国就业地区分布',
+                                        type:'pie',
+                                        radius : '55%',
+                                        center: ['50%', '55%'],
+                                        data:[
+                                            {value:41.6, name:'北京'},
+                                            {value:14.2, name:'上海'},
+                                            {value:8.7, name:'广东'},
+                                            {value:6.4, name:'江苏'},
+                                            {value:5.3, name:'浙江'},
+                                            {value:5.2, name:'山东'},
+                                            {value:18.6, name:'其他'}
+                                        ]
+                                    }
+                                ]
+                            };
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+           <!--echart4 -->
+
+            <div>
+                <div id="main3" style="width:1280px;height:500px;margin: 0 auto;padding:80px">
+                    <div id="left3" style="width:33%;height:500px;float: left;"></div>
+                    <div id="middle3" style="width:33%;height: 500px;float: left; "></div>
+                    <div id="right3" style="width: 33%;height: 500px;float: right; "></div>
+                </div>
+            </div>
+
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('left3'));
+                            var option = {
+                                title : {
+                                    text: '中国各时期出国留学人数所占比例',
+                                    x: 'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c}%"
+                                },
+                                legend: {
+                                    orient : 'horizontal',
+                                    y : 'bottom',
+                                    data:['2000年至今','1978年到2000年','1978年以前']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel'],
+                                            option: {
+                                                funnel: {
+                                                    x: '25%',
+                                                    width: '50%',
+                                                    funnelAlign: 'center',
+                                                    max: 1548
+                                                }
+                                            }
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'中国各时期出国留学人数所占比例',
+                                        type:'pie',
+                                        radius : ['50%', '68%'],
+                                        itemStyle : {
+                                            normal : {
+                                                label : {
+                                                    show : false
+                                                },
+                                                labelLine : {
+                                                    show : false
+                                                }
+                                            },
+                                            emphasis : {
+                                                label : {
+                                                    show : true,
+                                                    position : 'center',
+                                                    textStyle : {
+                                                        fontSize : '25',
+                                                        fontWeight : 'bold'
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        data:[
+                                            {value:87, name:'2000年至今'},
+                                            {value:9, name:'1978年到2000年'},
+                                            {value:4, name:'1978年以前'}
+
+                                        ]
+                                    }
+                                ]
+                            };
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('right3'));
+                            var option = {
+                                title : {
+                                    text: '新世纪以来出国留学人员自费公费比例',
+                                    x: 'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c}%"
+                                },
+                                legend: {
+                                    orient : 'horizontal',
+                                    y : 'bottom',
+                                    data:['自费留学','国家公派','单位公派']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel'],
+                                            option: {
+                                                funnel: {
+                                                    x: '25%',
+                                                    width: '50%',
+                                                    funnelAlign: 'center',
+                                                    max: 1548
+                                                }
+                                            }
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'新世纪以来出国留学自费公费比例',
+                                        type:'pie',
+                                        radius : ['50%', '68%'],
+                                        itemStyle : {
+                                            normal : {
+                                                label : {
+                                                    show : false
+                                                },
+                                                labelLine : {
+                                                    show : false
+                                                }
+                                            },
+                                            emphasis : {
+                                                label : {
+                                                    show : true,
+                                                    position : 'center',
+                                                    textStyle : {
+                                                        fontSize : '25',
+                                                        fontWeight : 'bold'
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        data:[
+                                            {value:4.2, name:'国家公派'},
+                                            {value:3.8, name:'单位公派'},
+                                            {value:92, name:'自费留学'}
+
+                                        ]
+                                    }
+                                ]
+
+                            };
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+
+            <script>
+                // 路径配置
+                require.config({
+                    paths: {
+                        echarts: 'ec/dist'
+                    }
+                });
+
+                // 使用
+                require(
+                        [
+                            'echarts',
+                            'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                        ],
+                        function (ec) {// 基于准备好的dom，初始化echarts图表
+                            var myChart = ec.init(document.getElementById('middle3'));
+                            var option = {
+                                title : {
+                                    text: '2012年中国出国留学人员所学专业比例',
+                                    x: 'center'
+                                },
+                                tooltip : {
+                                    trigger: 'item',
+                                    formatter: "{a} <br/>{b} : {c}%"
+                                },
+                                legend: {
+                                    orient : 'horizontal',
+                                    y : 'bottom',
+                                    data:['经济学','工商管理','工程科学','社会科学','IT','教育学','其他']
+                                },
+                                toolbox: {
+                                    show : false,
+                                    feature : {
+                                        mark : {show: true},
+                                        dataView : {show: true, readOnly: false},
+                                        magicType : {
+                                            show: true,
+                                            type: ['pie', 'funnel'],
+                                            option: {
+                                                funnel: {
+                                                    x: '25%',
+                                                    width: '50%',
+                                                    funnelAlign: 'center',
+                                                    max: 1548
+                                                }
+                                            }
+                                        },
+                                        restore : {show: true},
+                                        saveAsImage : {show: true}
+                                    }
+                                },
+                                calculable : true,
+                                series : [
+                                    {
+                                        name:'2012年中国出国留学人员所学专业比例',
+                                        type:'pie',
+                                        radius : ['50%', '68%'],
+                                        itemStyle : {
+                                            normal : {
+                                                label : {
+                                                    show : false
+                                                },
+                                                labelLine : {
+                                                    show : false
+                                                }
+                                            },
+                                            emphasis : {
+                                                label : {
+                                                    show : true,
+                                                    position : 'center',
+                                                    textStyle : {
+                                                        fontSize : '25',
+                                                        fontWeight : 'bold'
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        data:[
+                                            {value:33.4, name:'经济学'},
+                                            {value:20.2, name:'工商管理'},
+                                            {value:12.5, name:'工程科学'},
+                                            {value:7.2, name:'社会科学'},
+                                            {value:6.1, name:'IT'},
+                                            {value:5.7, name:'教育学'},
+                                            {value:14.9, name:'其他'}
+
+                                        ]
+                                    }
+                                ]
+
+                            };
+
+
+                            // 为echarts对象加载数据
+                            myChart.setOption(option);
+
+                        }
+                );
+            </script>
+
+
+
+
+
+
+
+
+        </div>
+    
+        <!-- 中国梦标题 - Content -->
+
+        
+        <!-- 中国梦 -->
+        <div class="page-container pattern-2" id="news">
+        
+        	<div class="row">
+            	<div class="twelve columns page-content">
+
+                    <h2 class="page-subtitle">
+                        从历史出国留学人数可以看出21世纪出国留学人数的飞速增长，<span>1872～1978年百余年间</span>，中国出国留学人员总数为<sapn>13万</sapn>。<span>1978～2000年22年间</span>，中国出国留学人数约为<span>34万</span>人，根据最新的数据（2014年），进入<span>21世纪</span>之后十几年间，中国出国留学人数就达到了<span>318万</span>，占中国出国留学总人数的<span>87%</span>。
+
+                    </h2>
+                    <h2 class="page-subtitle">
+                        <span>1985年</span>国家提出“支持留学、鼓励回国、来去自由”的出国留学方针，鼓励自费留学。留学行业褪去了国家公派留学的“精英光环”，更多的工薪家庭加入了留学大军。尤其是进入21世纪随着中国经济的发展，留学逐渐从精英教育演变成大众化教育，最典型的体现是自费留学的规模日益扩大。自<span>2001年</span>开始，每年出国留学人员的自费留学比例都不曾低于<span>89%</span>。新世纪以来，自费出国留学的人数更是占到总人数的<span>92%</span>，而国家公派人数和单位公派人数加起来都不到总人数的<span>10%</span>。从增长率看，21世纪以后，国家公派留学人数基本维持在<span>2-3万</span>人的水平，每年的增长速度只有<span>5%</span>，相比之下，自费出国留学的人数则大幅递增。
+
+                    </h2>
+                    <h2 class="page-subtitle">
+                        <span>20世纪80年代</span>以前，留学人员大多是公派出国，主要学习理工科专业，毕业回国要继续回到原单位服务。而<span>20世纪90年代</span>以后，我国留学已经市场化，留学群体的主体逐渐转变为自费出国留学人员。同时，受中国入世的影响，留学学习的专业多集中在高新技术、工商、管理、经济、法律、金融、财务和其他人文学科。《2009中国留学报告》的调查也证实，<span>2000年</span>以后出国留学人员的专业选择中，不再像20世纪80、90年代那样以理工科居多。越来越多人开始选择商科，经济和工商管理几乎占到一半以上，人文社会学科和法律专业也占到很大的比例。与从前有所不同，新一代的留学生群体，涉及的学科领域前所未有地广阔，涵盖了经济、社会、科技、文化的各个方面。
+                    </h2>
+                    <h2 class="page-subtitle">
+                        <span>21世纪</span>之后，新一代海归很多是体制外的，没有原单位。这批留学人员回国后，会适应国内经济和社会的发展，大量加入到创业和就业的领域中去。由于高新技术产业、金融、管理等非传统领域增长潜力大，发展前景好，留学回国人员主要的就业和创业方向多在这些领域。由此可见，海归回国后将会对中国的金融服务，经济管理，高新技术产业等领域发挥重要的作用。
+                    </h2>
+                    <h2 class="page-subtitle">
+                        海归回国后都去哪发展了？根据《2013年中国海归发展报告》，<span>55.8%</span>的海归创业者选择北上广创业，北京是海归创业最集中的地区，<span>36.1%</span>的海归选择在北京创业。海归回国就业也呈类似的态势，海归回国就业主要集中于北京、上海、广东、江浙、山东等沿海区域。这样的地域分布会促进中国东部沿海的经济发展，但同时海归人才都扎堆东部沿海会加剧我国东西部发展的不平衡。
+                    </h2>
+                </div>
+                
+
+                
+            </div>
+        </div>
+    
+        <!-- 数据来源标题 - Content -->
+
+        
+        <!-- 数据来源 -->
+        <div class="page-container pattern-1" id="contact">
+        
+        	<div class="row">
+                <div class="twelve columns page-content">
+                    <h1 class="page-title">特别鸣谢</h1>
+                    <h2 class="page-subtitle">本篇报道所涉及的<span>新闻报道</span>来源于人民日报、中国日报、新华社、网易新闻客户端、腾讯新闻客户端、新浪新闻客户端等；<span>数据统计</span>资料来源于中国教育部官网、中国国家统计局官网、启德教育研究所等；<span>技术支持</span>-百度echart、网页前端技术等；</h2>
+                </div>
+            </div>
+        
+        
+        	<div class="row">
+                
+            	<div class="twelve columns contact">
+                    <div id="contact-slider">
+                    
+                    	<!--研究机构-->
+                        <div class="contact-details" data-thumb="images/contact-details.png">
+                            <div class="four columns first-column mobile-three-one contact-margin">
+                                <h3 class="contact-title">中国知网</h3>
+                                <div class="contact-image hide-for-760">
+                                    <div class="contact-divider-top"></div>
+                                    <img src="images/CNKI.png" alt="CNKI">
+                                    <div class="contact-divider-bottom"></div>
+                                </div>
+                                <p class="contact-text">《2012年中国海归发展现状和趋势》</p><p class="contact-text"><span>Link：</span>www.cnki.net</p>
+                            </div>
+                            <div class="four columns middle-column mobile-three-one contact-margin">
+                                <h3 class="contact-title">中国教育国际交流学会</h3>
+                                <div class="contact-image hide-for-760">
+                                    <div class="contact-divider-top"></div>
+                                    <img src="images/ZJGJ.jpg" alt="Los Angeles">
+                                    <div class="contact-divider-bottom"></div>
+                                </div>
+                                <p class="contact-text">《2011中国出国留学趋势报告》</p><p class="contact-text"><span>Link:</span>www.cciee.cn</p>
+                            </div>
+                            <div class="four columns last-column mobile-three-one contact-margin">
+                                <h3 class="contact-title">启德国际教育研究院</h3>
+                                <div class="contact-image hide-for-760">
+                                    <div class="contact-divider-top"></div>
+                                    <img src="images/QDJY.jpg" alt="London">
+                                    <div class="contact-divider-bottom"></div>
+                                </div>
+                                <p class="contact-text">《2011年海归就业力调查报告》</p><p class="contact-text"><span>Link:</span>www.eic.org.cn</p>
+
+                            </div>
+                        </div>
+                        
+                        <!--媒体支持-->
+                        <div class="contact-details" data-thumb="images/contact-form.png">
+                            <div class="four columns first-column mobile-three-one contact-margin">
+                                <h3 class="contact-title">凤凰网·教育</h3>
+                                <div class="contact-image hide-for-760">
+                                    <div class="contact-divider-top"></div>
+                                    <img src="images/FHW.jpg" alt="PHONEX">
+                                    <div class="contact-divider-bottom"></div>
+                                </div>
+                                <p class="contact-text">留学•这十年 ——2002年至2012年中国留学市场变化盘点》</p><p class="contact-text"><span>Link：</span>www.edu.ifeng.com</p>
+                            </div>
+                            <div class="four columns middle-column mobile-three-one contact-margin">
+                                <h3 class="contact-title">腾讯新闻</h3>
+                                <div class="contact-image hide-for-760">
+                                    <div class="contact-divider-top"></div>
+                                    <img src="images/TXXW.jpg" alt="Los Angeles">
+                                    <div class="contact-divider-bottom"></div>
+                                </div>
+                                <p class="contact-text">《中国海归发展报告2013》</p><p class="contact-text">"海归‘水货’报道"</p><p class="contact-text"><span>Link:</span>news.qq.com</p>
+                            </div>
+                            <div class="four columns last-column mobile-three-one contact-margin">
+                                <h3 class="contact-title">新华网</h3>
+                                <div class="contact-image hide-for-760">
+                                    <div class="contact-divider-top"></div>
+                                    <img src="images/XHW.jpg" alt="London">
+                                    <div class="contact-divider-bottom"></div>
+                                </div>
+                                <p class="contact-text">清末海归历史报道</p><p class="contact-text">民国期间海归情况报道</p><p class="contact-text"><span>Link:</span>www.xinhuanet.com</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   <!--底边-->
+            	<div class="twelve columns">
+                    <div class="section-divider">
+                        <img src="images/social-media.png" alt="Read More About Us">
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <!--footer-->
+        <div class="footer-container">
+        	<div class="row">
+            	<div class="four columns first-column hide-for-small">
+                	<p class="footer-left">中国传媒大学®  数据新闻实验班</p>
+                </div>
+            	<div class="four columns middle-column back-to-top hide-for-small">
+           	    	<a href="#homepage"><img src="images/back-to-top.png" alt="Go Back To Top"></a>
+                </div>
+            	<div class="four columns last-column mobile-four">
+                	<p class="footer-right"><a href="#/user/AVAThemes/portfolio" target="_blank">制作人：毛元超 邢其超</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pop Up Windows - Single Project With Video 被封杀-->
+
+    
+    <!-- Pop Up Windows - Single Project With Photo 仅限钱学森部分弹出 -->
+
+	<div id="single-project-photo-qian" class="reveal-modal large">
+    
+    	<div class="single-project-image-video">
+   	    	<img src="images/portfolio/single-project/1.jpg" alt="Project Image">
+        </div>
+        
+    	<h3 class="single-project-title">钱学森人物简介</h3>
+        
+    	<p class="single-project-details hide-for-small">
+            <span>中国航天之父</span>
+            <span class="category">资料来源：</span> 维基百科；钱学森同志100周年讲话
+        </p>
+        <!--三个首字母有变化的中间段落部分 -->
+        <div class="four columns first-column">
+    		<p class="single-project-content"><span class="dropcap-1">钱学森</span>世界著名科学家，空气动力学家，中国载人航天奠基人，中国科学院及中国工程院院士，中国两弹一星功勋奖章获得者，被誉为“中国航天之父”“中国导弹之父”“中国自动化控制之父”和“火箭之王”。<br>在他心里，国为重，家为轻，科学最重，名利最轻。五年归国路，十年两弹成。开创祖国航天，他是先行人，劈荆斩棘，把智慧锻造成阶梯，留给后来的攀登者。他是知识的宝藏，是科学的旗帜，是中华民族知识分子的典范。</p>
+        </div>
+        <div class="four columns middle-column">
+    		<p class="single-project-content"><span class="dropcap-1">主要事迹</span>1934年，毕业于国立交通大学机械与动力工程学院，曾任美国麻省理工学院和加州理工学院教授。1955年，在毛泽东主席和周恩来总理的争取下回到中国。1959年加入中国共产党，先后担任了中国科学技术大学近代力学系主任，中国科学院力学研究所所长、第七机械工业部副部长、国防科工委副主任、中国科技协会名誉主席、中国人民政治协商会议第六、七、八届全国委员会副主席、中国科学院数理化学部委员、中国宇航学会名誉理事长、中国人民解放军总装备部科技委高级顾问等重要职务；他还兼任中国自动化学会第一、二届理事长。</p>
+        </div>
+        <div class="four columns last-column">
+    		<p class="single-project-content"><span class="dropcap-1">人物评价</span>美国人把钱学森当成5个师，在我看来，对我们说来钱学森比5个师的力量大多啦。--毛泽东<br>我们的朋友钱学森，是1945年我向美国空军科学顾问组推荐的专家之一。他是当时美国处于领导地位的第一流火箭专家，后来成了世界闻名的新闻人物。钱学森作为加州理工学院火箭小组的元老，曾在二次大战期间对美国火箭研究作出重大贡献。他是一个无可置疑的天才，他的工作大大促进了高速空气动力学和喷气推进科学的发展。他的这种天资是我不常遇到的。我发现他非常富有想象力，他具有天赋的数学才智。人们都这样说，似乎是我发现了钱学森，其实，是钱学森发现了我。--冯·卡门</p>
+        </div>
+        <!--中间标签卡 -->
+
+        <!--左边部分-->
+        <div class="eight columns first-column">
+    		<p class="single-project-content">中国航天工程的先驱<br>钱学森在火箭与航天领域提出了若干概念，主持完成了“喷气和火箭技术的建立”规划，将中国航天系统工程的实践提炼成航天系统工程理论。</p>
+        </div>
+        <!--右边部分-->
+        <div class="four columns middle-column">
+    		<p class="single-project-content">“卡门-钱公式”的创立<br>钱学森与冯·卡门合作进行的可压缩边界层的研究，创立了“卡门—钱近似”方程。</p>
+        </div>
+        
+
+        
+        <a class="close-reveal-modal">&#215;</a>
+	</div>
+    
+    <!-- Pop Up Windows - Single Blog Post 人物介绍部分弹出-->
+	<div id="single-news-DXP" class="reveal-modal single-news medium">
+    
+    	<div class="single-news-image-video">
+   	    	<img src="images/news/single/DXP.png" alt="Project Image">
+        </div>
+            
+        <h3 class="single-news-title">邓小平人物简介</h3>
+        
+        <p class="single-news-details hide-for-small">
+            <span>改革开放总设计师</span>
+            <span class="category">资料来源：</span>百度百科；人民网
+        </p>
+        
+        <div class="twelve columns first-column">
+    		<p class="single-news-content"><span class="dropcap-1">邓小平</span> 是我国中国共产党第二代领导核心领导者，马克思主义者，无产阶级革命家、政治家、军事家、外交家，同时也是中国人民解放军、中华人民共和国的主要领导人之一。</p>
+            
+        	<blockquote>
+              	<p>   邓小平对整个世界最大贡献就在于，他向全世界表明，中国可以如何管理和快速发展；而中国又能够因此向整个世界作出何等的贡献。
+              	<cite>英国前首相爱德华·希思</cite></p>
+            </blockquote>
+            
+    		<p class="single-news-content"> 1919年5月4日，北京爆发学生群众反帝爱国运动。1919年秋，考入重庆留法预备学校，同全校同学一起参加抵制日货、声讨卖国贼活动。
+                1920年10月，抵达法国，不久入诺曼底区巴耶男子中学学习。
+                1921年4月，到克鲁梭市施奈德钢铁总厂当轧钢工。月底，辞去工作赴巴黎。7月下旬，中国共产党成立。10月，进香布朗工厂做工，两个星期后被解雇。
+                1922年2月，进哈金森橡胶厂做工。1922年夏，参加旅欧中国少年共产党（次年改名为旅欧中国共产主义青年团，也称中国社会主义青年团旅欧支部）。     </p>
+            
+    		<p class="single-news-content">他是中国社会主义改革开放和现代化建设的总设计师，创立了邓小平理论。他所倡导的“改革开放”及“一国两制”政策理念，改变了20世纪后期的中国，也影响了世界，因此在1978年和1985年，曾两次当选《时代周刊》“年度风云人物”。</p>
+        </div>
+        
+
+        
+        <a class="close-reveal-modal">&#215;</a>
+	</div>
+    <div id="single-news-DJX" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/DJX.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">邓稼先人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>两弹元勋</span>
+            <span class="category">资料来源：</span>维基百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">邓稼先</span>中国科学院院士，著名核物理学家，中国核武器研制工作的开拓者和奠基者，为中国核武器、原子武器的研发做出了重要贡献。</p>
+
+            <blockquote>
+                <p> 邓稼先是中国知识分子的优秀代表，为了他的祖国的强盛，为了中国国防科研事业的发展，他甘当无名英雄，默默无闻地奋斗了数十年。
+                    <cite>人民网评论</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">1924年出生于安徽 怀宁县一个书香门第的家庭。1935年考入志成中学，在读书求学期间，深受爱国救亡运动的影响。1937年北平沦陷后，他曾秘密参加抗日聚会。后在父亲邓以蛰的安排下，他随大姐去往昆明，并于1941年考入西南联合大学物理系。1948年至1950年，他在 美国普渡大学留学，获得物理学博士学位，毕业当年，他就毅然回国。</p>
+
+            <p class="single-news-content">邓稼先是中国核武器研制与发展的主要组织者、领导者，邓稼先始终在中国武器制造的第一线，领导了许多学者和技术人员，成功地设计了中国原子弹和氢弹，把中国国防自卫武器引领到了世界先进水平。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="single-news-HLG" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/HLG.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">华罗庚人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>中国现代数学之父</span>
+            <span class="category">资料来源：</span>百度百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">华罗庚</span>世界著名数学家，中国科学院院士，美国国家科学院外籍院士，第三世界科学院院士，联邦德国巴伐利亚科学院院士。中国第一至第六届全国人大常委会委员。</p>
+
+            <blockquote>
+                <p> 先生起江南，读书清华。浮四海，从哈代，访俄师，游美国。创新求变，会意相得。堆垒素数，复变多元。雅篇艳什，迭互秀出。匹夫挽狂澜于即倒，成一家之言，卓尔出群，斯何人也，其先生乎。
+                    <cite>哈佛大学终身教授丘成桐</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">    1935年，数学家诺伯特·维纳（Norbert Wiener）访问中国，他注意到华罗庚的潜质，向当时英国著名数学家哈代极力推荐。
+                1936年，华罗庚前往英国剑桥大学，度过了关键性的两年。这时他已经在华林问题（Waring's problem）上有了很多结果，而且在英国的哈代—李特伍德学派的影响下受益。他至少有15篇文章是在剑桥的时期发表的。其中一篇关于高斯的论文给他在世界上赢得了声誉。</p>
+
+            <p class="single-news-content">他是中国解析数论、矩阵几何学、典型群、自守函数论与多元复变函数论等多方面研究的创始人和开拓者，也是中国在世界上最有影响力的数学家之一，被列为芝加哥科学技术博物馆中当今世界88位数学伟人之一。国际上以华氏命名的数学科研成果有“华氏定理”、“华氏不等式”、“华—王方法”等。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="single-news-WJL" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/WJL.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">吴敬琏人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>中国经济学界代表</span>
+            <span class="category">资料来源：</span>百度百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">吴敬琏</span>1930年1月24日出生于江苏南京，中国经济学界的泰斗。当代中国杰出经济学家、著名市场经济学者、北京天则经济研究所理事。</p>
+
+            <blockquote>
+                <p>当前社会上存在的种种丑恶现象，从根本上说是缘于经济改革没有完全到位、政治改革严重滞后、行政权力变本加厉地压制和干预民间正当经济活动，造成广泛寻租活动的结果。
+                    <cite>发表于《财经》杂志</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">1955年到1956年跟阿·毕尔曼，研究企业财务和国家财政问题。1956年到1957年参加全国范围的体制调查和体制改革研究。1983年至1984年7月一度赴美国耶鲁大学进行调查研究。</p>
+
+            <p class="single-news-content">现任国务院发展研究中心研究员、国务院信息化专家咨询委员会副主任、国务院发展研究中心学术委员会副主任，国务院历届总理的座上宾，中国企业发展研究中心顾问；《改革》、《比较》、《洪范评论》杂志主编；南京大学、复旦大学著名校友、香港浸会大学、香港大学荣誉社会科学博士。1984～1992年，连续五次获得中国“孙冶方经济科学奖”。2003年获得国际管理学会（IAM）“杰出成就奖”；2005年荣获首届“中国经济学奖杰出贡献奖”。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="single-news-XBH" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/XBH.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">徐悲鸿人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>中国近代绘画大师</span>
+            <span class="category">资料来源：</span>维基百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">徐悲鸿</span>中国现代画家、美术教育家。曾留学法国学西画，归国后长期从事美术教育，先后任教于国立中央大学艺术系、北平大学艺术学院和北平艺专。</p>
+
+            <blockquote>
+                <p>徐悲鸿先生是中国百年艺术史上“丹青巨擘、教育巨子”，他对中西方的审美和文化差异进行了比较，提倡对民族艺术加以取舍、改良，形成了自己的艺术改良理论：“古法之佳者守之，垂绝者继之，不佳者改之，未足者增之，西方画之可采入者融之。”
+                    <cite>《徐悲鸿》人物传记</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">1919年赴法国留学，考入巴黎国立美术学校学习油画、素描，并游历西欧诸国，观摩研究西方美术。在北洋政府的资助下，24岁的徐悲鸿到法国学习绘画。抵欧之初，他参观了英国的大英博物馆、国家画廊、皇家学院的展览会以及法国的卢佛宫美术馆，目睹了大量文艺复兴时期以来的优秀作品。</p>
+
+            <p class="single-news-content">1949年后任中央美术学院院长。擅长人物、走兽、花鸟，主张现实主义，于传统尤推崇任伯年，强调国画改革融入西画技法，作画主张光线、造型，讲求对象的解剖结构、骨骼的准确把握，并强调作品的思想内涵，对当时中国画坛影响甚大，与张书旗、柳子谷三人被称为画坛的“金陵三杰”。所作国画彩墨浑成，尤以奔马享名于世。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="single-news-LYF" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/LYF.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">林毅夫人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>中国现代经济学家</span>
+            <span class="category">资料来源：</span>百度百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">林毅夫</span>原北京大学中国经济研究中心主任、教授，博士生导师。中华人民共和国第七、八、九、十届政协全国委员会委员、全国政协经济委员会副主任、中华全国工商业联合会副主席，于2005年获选第三世界科学院院士，2008年2月，被任命为世界银行首席经济学家兼负责发展经济学的高级副行长。</p>
+
+            <blockquote>
+                <p>从1994年成立中国经济研究中心以后，国内主要政策的制定与讨论我们都参与了，包括电信改革、加入WTO、金融改革、农村发展、社保体系、农民工、粮食问题，等等。由于研究中心提出的许多政策建议独树一帜，一直都是比较受重视的声音，许多思想和观点都成为改革的主要内涵。
+                    <cite>北大演讲稿</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">1978年取得台湾国立政治大学企业管理研究所硕士；
+                北京大学经济系政治经济学专业硕士，
+                1982；美国芝加哥大学经济系博士，
+                1986；美国耶鲁大学经济发展中心博士后。 </p>
+            <p class="single-news-content">世行的首席经济学家在拟定研究计划及发展方向上扮演相当重要的决策角色，林毅夫出任世银首席经济学家将更进一步转变世银与中国的关系。林毅夫是首位在世界银行或国际货币基金组织获得如此高职位的中国人。目前为止在国外经济学期刊中发表论文最多的中国大陆经济学家。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="single-news-LYH" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/LYH.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">李彦宏人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>百度搜索CEO</span>
+            <span class="category">资料来源：</span>百度百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">李彦宏</span>百度公司创始人、董事长兼首席执行官，全面负责百度公司的战略规划和运营管理。</p>
+
+            <blockquote>
+                <p>虽然以前从事技术工作，但他的商业思维和市场眼光非常独到，对搜索产业方向的把握和商业竞争的规律和规则理解得非常到位。
+                     <cite>百度副总裁朱宏波</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">1991年，李彦宏收到美国布法罗纽约州立大学计算机系的录取通知书。白天上课，晚上补习英语，编写程序，经常忙碌到凌晨两点。 “现在回想起来，觉得当时挺苦的，但年轻就应该吃苦。”李彦宏评价这段经历。
+                “我出国不是一帆风顺。因为换专业，刚到美国学计算机，很多功课一开始都跟不上。有时和教授面谈时，由于较心急，谈一些自己不是很了解的领域，结果那些教授就觉得我不行。”
+                在学校呆了一年后，李彦宏顺利进入日本松下实习。“这三个多月的实习，对我后来职业道路的选择起了至关重要的作用。”李彦宏说。 </p>
+            <p class="single-news-content">   李彦宏为道.琼斯公司设计的实时金融系统，仍被广泛地应用于华尔街各大公司的网站。
+                其最先创建了ESP技术，并将它成功地应用于Infoseek/GO.COM的搜索引擎中；GO. COM的图像搜索引擎是他另一项极具应用价值的技术创新。
+                其拥有的“超链分析”技术专利，是奠定整个现代搜索引擎发展趋势和方向的基础发明之一。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="single-news-DZH" class="reveal-modal single-news medium">
+
+        <div class="single-news-image-video">
+            <img src="images/news/single/DZH.png" alt="Project Image">
+        </div>
+
+        <h3 class="single-news-title">邓中翰人物简介</h3>
+
+        <p class="single-news-details hide-for-small">
+            <span>中星微集团创始人</span>
+            <span class="category">资料来源：</span>维基百科
+        </p>
+
+        <div class="twelve columns first-column">
+            <p class="single-news-content"><span class="dropcap-1">邓中翰</span>中星微集团创建人，中国工程院院士、中国科协副主席、“星光中国芯工程”总指挥、国家重点实验室主任，兼任全国青联副主席、欧美同学会副会长及第十一届全国人大代表。</p>
+
+            <blockquote>
+                <p> ‘MADE IN　CHINA’不是‘中国制造’。MADE有新的含义。前面两个字母MA指的是Manufacture（制造），后面两个字母DE则指的是 Design（设计），所以‘MADE IN　CHINA’不能简单译成‘中国制造’，而应翻译成‘中国制造’加‘中国创新’，等于‘中国创造’
+                    <cite>“亚洲商业论坛”邓中翰讲话</cite></p>
+            </blockquote>
+
+            <p class="single-news-content">1987年考入中国科学技术大学。1992年邓中翰赴美国加州大学伯克利分校（UCBerkeley）读书。在五年时间内取得电子工程学博士、经济管理学硕士、物理学硕士三个学位，是该校建校130年来第一位横跨理、工、商3学科的学者。 </p>
+            <p class="single-news-content">  邓中翰是中国旅美科协常任理事，硅谷分会会长；2001年，被选为第六届中国科协全国委员，还被清华大学聘为客座教授，为数十名博士生和硕士生开设了“高等模拟集成电路设计”课程。中星微公司还与清华大学合作成立了“清华中星微集成电路设计研发中心”，邓中翰被聘为理事长。</p>
+        </div>
+
+
+
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+
+    <!-- Included JS Files (Uncompressed) -->
+    <!--
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+    <script src="javascripts/jquery.foundation.forms.js"></script>
+    <script src="javascripts/jquery.foundation.navigation.js"></script>
+    <script src="javascripts/jquery.foundation.buttons.js"></script>
+    <script src="javascripts/jquery.foundation.accordion.js"></script>
+    <script src="javascripts/jquery.placeholder.js"></script>
+    <script src="javascripts/jquery.foundation.alerts.js"></script>
+    <script src="javascripts/jquery.foundation.topbar.js"></script>
+    <script src="javascripts/jquery.foundation.joyride.js"></script>
+    <script src="javascripts/jquery.foundation.clearing.js"></script>
+    <script src="javascripts/jquery.foundation.magellan.js"></script>
+    -->
+    
+    <!-- Included JS Files (Compressed) -->
+	<script src="javascripts/foundation.min.js"></script>
+    
+    <!-- Parallax JS File -->
+    <script src="javascripts/jquery.parallax-1.1.3.js" type="text/javascript" ></script>
+    
+    <!-- prettyPhoto JS File -->
+    <script src="javascripts/jquery.prettyPhoto.js" type="text/javascript"></script>
+    
+    <!-- Portfolio Filter JS FIles -->
+	<script type="text/javascript" src="javascripts/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="javascripts/portfolio.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.quicksand.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-css-transform.js"></script>
+    
+    <!-- Supersized JS Files -->
+	<script type="text/javascript" src="javascripts/supersized.3.2.7.min.js"></script>
+	<script type="text/javascript" src="javascripts/supersized.shutter.min.js"></script>
+	
+	<script type="text/javascript">
+		jQuery(function($){
+			$.supersized({
+				// Functionality
+				slideshow               :   1,			// Slideshow on/off
+				autoplay				:	1,			// Slideshow starts playing automatically
+				start_slide             :   1,			// Start slide (0 is random)
+				stop_loop				:	0,			// Pauses slideshow on last slide
+				random					: 	0,			// Randomize slide order (Ignores start slide)
+				slide_interval          :   3000,		// Length between transitions
+				transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+				transition_speed		:	1500,		// Speed of transition
+				new_window				:	1,			// Image links open in new window/tab
+				pause_hover             :   0,			// Pause slideshow on hover
+				keyboard_nav            :   1,			// Keyboard navigation on/off
+				performance				:	1,			// 0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality, 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
+				image_protect			:	1,			// Disables image dragging and right click with Javascript								   
+				// Size & Position						   
+				min_width		        :   0,			// Min width allowed (in pixels)
+				min_height		        :   0,			// Min height allowed (in pixels)
+				vertical_center         :   1,			// Vertically center background
+				horizontal_center       :   1,			// Horizontally center background
+				fit_always				:	0,			// Image will never exceed browser width or height (Ignores min. dimensions)
+				fit_portrait         	:   1,			// Portrait images will not exceed browser height
+				fit_landscape			:   0,			// Landscape images will not exceed browser width
+				// Components							
+				slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+				thumb_links				:	1,			// Individual thumb links for each slide
+				thumbnail_navigation    :   0,			// Thumbnail navigation
+				slides 					:  	[			// Slideshow Images
+												{image : 'images/homepage-slideshow/1.jpg', title : 'Dreamer - Responsive One Page Parallax Template'},
+												{image : 'images/homepage-slideshow/2.jpg', title : 'Dreamer - Responsive One Page Parallax Template'},
+												{image : 'images/homepage-slideshow/3.jpg', title : 'Dreamer - Responsive One Page Parallax Template'}
+											],
+												
+				// Theme Options			   
+				progress_bar			:	1,			// Timer for each slide							
+				mouse_scrub				:	0
+					
+			});
+		});
+    </script>
+    
+    <!-- Initialize JS Plugins -->
+	<script src="javascripts/app.js"></script>
+    <script src="javascripts/jquery.foundation.tooltips.js"></script>
+    <script src="javascripts/jquery.foundation.reveal.js"></script>
+    <script src="javascripts/jquery.foundation.tabs.js"></script>
+    
+    <!-- Initialize Orbit -->
+    <script src="javascripts/jquery.foundation.orbit.js"></script>
+    <script type='text/javascript'>
+		$(window).load(function() {
+			var windowsize = $(window).width();
+
+			$(window).resize(function() {
+			  var windowsize = $(window).width();
+			});
+			
+			if (windowsize > 1024) {
+			  //if the window is greater than 1024px wide then load one orbit settings
+				$('#contact-slider').orbit({
+				   fluid: '16x5',
+				   timer: false,
+				   directionalNav: false,
+				   bullets: true,
+				   bulletThumbs:true,
+				   bulletThumbLocation:''
+				});
+				$('#news-slider').orbit({
+				   fluid: '16x12',
+				   timer: false,
+				   directionalNav: false,
+				   bullets: true,
+				   bulletThumbs:true,
+				   bulletThumbLocation:''
+				});
+			}
+			else {
+				if (windowsize > 765) {
+					$('#contact-slider').orbit({
+					   fluid: '16x6',
+					   timer: false,
+					   directionalNav: false,
+					   bullets: true,
+					   bulletThumbs:true,
+					   bulletThumbLocation:''
+					});
+					$('#news-slider').orbit({
+					   fluid: '16x23',
+					   timer: false,
+					   directionalNav: false,
+					   bullets: true,
+					   bulletThumbs:true,
+					   bulletThumbLocation:''
+					});
+				}
+			}
+		});
+	</script>
+    
+    <script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+	</script>
+    
+    <!-- Initialize FitVids Script -->
+    <script src="javascripts/jquery.fitvids.js"></script>
+	<script>
+		$(".single-project-image-video").fitVids();
+	</script>
+  
+</body>
+</html>
