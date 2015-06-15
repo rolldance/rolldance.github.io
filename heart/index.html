@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="show.css" rel="stylesheet">
     <link href="bootstrap.min.css" rel="stylesheet">
     <script src="jquery.js"></script>
@@ -85,13 +86,13 @@
                         var particle,
                                 center = {
                                     x: this.width / 2,
-                                    y: (this.height / 2) - (this.height / 4)
+                                    y: (this.height / 2) - (this.height/5)
                                 };
 
                         for (var i = 0; i < 400; i++) {
                             particle = new Particle();
-                            particle.x = center.x + 180 * Math.pow(Math.sin(i), 3);
-                            particle.y = center.y + 10 * (-(15 * Math.cos(i) - 5 * Math.cos(2 * i) - 2 * Math.cos(3 * i) - Math.cos(4 * i)));
+                            particle.x = center.x + 220 * Math.pow(Math.sin(i), 3);
+                            particle.y = center.y + 12 * (-(15 * Math.cos(i) - 5 * Math.cos(2 * i) - 2 * Math.cos(3 * i) - Math.cos(4 * i)));
                             particle.init();
                             particles.push(particle);
                         }
