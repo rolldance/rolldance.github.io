@@ -74,7 +74,7 @@
    <img src="images/move_up_tip.png" style="width:40px;height:15px; top:450px; left:140px;" id="array" class="resizer">
    <div class="swiper-pagination"></div>
 </div>
-<script src="js/idangerous.swiper.min.js"></script>
+<script src="js/swiper.min.js"></script>
 <script>
 //Resize the position of the elements
 scaleW=window.innerWidth/320;
@@ -86,16 +86,14 @@ var resizes = document.querySelectorAll('.resizer');
 	}
 //load SwiperJs
 var mySwiper = new Swiper ('.swiper-container', {
-   mode : 'vertical',
+   direction : 'vertical',
    mousewheelControl : true,
    onInit: function(swiper){
    swiperAnimateCache(swiper);
    swiperAnimate(swiper);
 	  },
-   onSlideNext:function(swiper){
-       if(swiper.ActiveIndex==11){
-    window.location.reload();
-       }
+   onReachEnd:function(swiper){
+        window.location.reload();
    },
    onSlideChangeEnd: function(swiper){
 	swiperAnimate(swiper);
