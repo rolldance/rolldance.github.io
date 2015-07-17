@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="1" selection-start="5885" selection-end="5885" vertical-scroll-proportion="-2.7916667" vertical-offset="983" max-vertical-offset="1650">
+            <state line="60" column="199" selection-start="4773" selection-end="4773" vertical-scroll-proportion="0.6071964" vertical-offset="495" max-vertical-offset="1650">
               <folding>
                 <element signature="n#style#0;n#img#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#1;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,10 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="swiper.min.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="swiper.min.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/swiper.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="3" selection-start="110" selection-end="110" vertical-scroll-proportion="0.067669176" vertical-offset="0" max-vertical-offset="665">
+            <state line="3" column="3" selection-start="110" selection-end="110" vertical-scroll-proportion="-1.7307693" vertical-offset="0" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
@@ -220,10 +220,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/upload" />
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/upload" />
     </key>
   </component>
   <component name="RunManager">
@@ -405,11 +405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/upload/s1-2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/upload/s4-2.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -494,9 +489,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/swiper.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="3" selection-start="110" selection-end="110" vertical-scroll-proportion="-1.7307693" vertical-offset="0" max-vertical-offset="330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="1" selection-start="5885" selection-end="5885" vertical-scroll-proportion="-2.7916667" vertical-offset="983" max-vertical-offset="1650">
+        <state line="60" column="199" selection-start="4773" selection-end="4773" vertical-scroll-proportion="0.6071964" vertical-offset="495" max-vertical-offset="1650">
           <folding>
             <element signature="n#style#0;n#img#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -522,13 +524,6 @@
             <element signature="n#style#0;n#img#3;n#section#9;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/swiper.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="3" selection-start="110" selection-end="110" vertical-scroll-proportion="0.067669176" vertical-offset="0" max-vertical-offset="665">
-          <folding />
         </state>
       </provider>
     </entry>
