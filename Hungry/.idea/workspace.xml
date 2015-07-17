@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="52" selection-start="411" selection-end="411" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="1665">
+            <state line="74" column="74" selection-start="6202" selection-end="6202" vertical-scroll-proportion="0.65217394" vertical-offset="675" max-vertical-offset="1665">
               <folding>
                 <element signature="n#style#0;n#img#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#1;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -77,16 +77,16 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="12" selection-start="0" selection-end="1648" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+            <state line="69" column="45" selection-start="1359" selection-end="1359" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sm-style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="sm-style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/sm-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="59" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.63778406" vertical-offset="586" max-vertical-offset="1290">
+            <state line="69" column="59" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
               <folding />
             </state>
           </provider>
@@ -103,9 +103,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/css/animate.min.css" />
+        <option value="$PROJECT_DIR$/css/sm-style.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/css/sm-style.css" />
       </list>
     </option>
   </component>
@@ -229,6 +229,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/css" />
       <recent name="$PROJECT_DIR$/upload" />
     </key>
@@ -358,11 +359,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/web-swipe-tip.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/upload/s4-2.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -400,13 +396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="12" selection-start="0" selection-end="1648" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/animate.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="10424" selection-start="10588" selection-end="10588" vertical-scroll-proportion="-3.4615386" vertical-offset="0" max-vertical-offset="195">
@@ -421,9 +410,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/sm-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="59" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="45" selection-start="1359" selection-end="1359" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/web-swipe-tip.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/move_up_tip.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="411" selection-end="411" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="1665">
+        <state line="74" column="74" selection-start="6202" selection-end="6202" vertical-scroll-proportion="0.65217394" vertical-offset="675" max-vertical-offset="1665">
           <folding>
             <element signature="n#style#0;n#img#0;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#section#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -449,13 +462,6 @@
             <element signature="n#style#0;n#img#2;n#section#9;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#3;n#section#9;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/sm-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="59" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.63778406" vertical-offset="586" max-vertical-offset="1290">
-          <folding />
         </state>
       </provider>
     </entry>
