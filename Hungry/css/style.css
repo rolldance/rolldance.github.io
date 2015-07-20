@@ -57,6 +57,10 @@ img{
     background: url("../upload/s8-1.png") no-repeat left top;
     background-size: 100% 100%;
 }
+.s9{
+    background: url("../upload/s9-1.png") no-repeat left top;
+    background-size: 100% 100%;
+}
 .swiper-pagination-bullet {
     width: 6px;
     height: 6px;
