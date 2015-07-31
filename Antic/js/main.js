@@ -280,10 +280,13 @@ $(document).ready(function(){
     //head
     var head = $("<div id='title'></div>").css({"width":"100%", "height":"80px", "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#fff"});
     $("#main").append(head);
-    var menu = $("<img id='menuImg' src='img/menu.png'>").css({"position":"absolute","width":"20px","height":"14px","margin-left":"27px","top":"30px"});
+    var menu = $("<img id='menuImg' src='img/menu.png'>").css({"position":"absolute","width":"20px","height":"14px","margin-left":"27px","top":"30px","cursor":"pointer"});
     $("#title").append(menu);
     var people = $("<img id='peopleImg' src='img/people.png'>").css({"width":"50px","height":"50px","margin-left":"128px","margin-top":"11px"});
     $("#title").append(people);
+    var legend = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"40px", "height":"40px" ,"cursor":"pointer", "margin-left":"70px", "margin-top":"20px"});
+    legend.attr("src",GLOBAL_URL+"img/legendx.png");
+    $("#title").append(legend);
     //content person
     var persons = $("<div id='persons'></div>").css({"width":"100%", "height":"100%"});
     $("#main").append(persons);
@@ -294,11 +297,11 @@ $(document).ready(function(){
     team.css({"margin-top":"20px", "color":"#ccc", "font-size":"12px", "text-align":"center"});
     var copyright = $("<a href='http://datanews.blog.caixin.com' target='_bank'>数据新闻与可视化实验室 | Data Journalism & Visualization Lab</a>");
     copyright.css({"display":"block", "margin-top":"10px", "color":"#ccc", "font-size":"10px", "text-align":"center"});
-    var logo = $("<p><a href='http://www.caixin.com/' target='_bank'><img src='http://file.caixin.com/datanews/patrol_storm_phone/pics/logo/logo_white.png' border='0' width='60px'></img></a></p>");
-    logo.css({"margin-top":"20px", "height":"100px", "text-align":"center"});
+    // var logo = $("<p><a href='http://www.caixin.com/' target='_bank'><img src='http://file.caixin.com/datanews/patrol_storm_phone/pics/logo/logo_white.png' border='0' width='60px'></img></a></p>");
+    // logo.css({"margin-top":"20px", "height":"100px", "text-align":"center"});
     foot.append(team);
     foot.append(copyright);
-    foot.append(logo);
+    // foot.append(logo);
     //footend
     
 
@@ -313,7 +316,8 @@ $(document).ready(function(){
     $("#menu").append(menu_title);
     var menu_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#menu_title").append(menu_title_img);
-    var menu_title_closeButton = $("<button id='menu_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"30px", "height":"40px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"265px", "margin-top":"35px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
+    var menu_title_closeButton = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px" ,"cursor":"pointer", "margin-left":"230px", "margin-top":"20px", });
+    menu_title_closeButton.attr("src",GLOBAL_URL+"img/legend.png");
     $("#menu_title").append(menu_title_closeButton);
     var menu_content_choose = $("<div id='menu_content_choose'></div>").css({"margin-top":"50px"});
     $("#menu_content").append(menu_content_choose);
@@ -349,8 +353,64 @@ $(document).ready(function(){
     var menu_content_choose_age_text6=$("<p class='menu_content_choose_age_text_d'></p>");
     $("#6").append(menu_content_choose_age_text6);
     menu_content_choose_age_text6.text("任职系统");
-    $(".menu_content_choose_age_d").css({"position":"relative","width":WIDTH,"height":"70px","border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
-    $(".menu_content_choose_age_text_d").css({"padding-top":"20px","height":"40px","margin-left":"60px","line-height":"30px","font-size":"20px","color":"#FFF"});
+
+    var menu_content_choose_age_img11=$("<img class='menu_content_choose_age_img_d'></img>");
+    menu_content_choose_age_img11.attr("src", GLOBAL_URL + "img/age.png");
+    //console.log("1");
+    $("#1").append(menu_content_choose_age_img11);
+    var menu_content_choose_age_img21=$("<img class='menu_content_choose_age_img_d'></img>");
+    menu_content_choose_age_img21.attr("src", GLOBAL_URL + "img/dob.png");
+    //console.log("2");
+    $("#2").append(menu_content_choose_age_img21);
+    var menu_content_choose_age_img31=$("<img class='menu_content_choose_age_img_d'></img>");
+    menu_content_choose_age_img31.attr("src", GLOBAL_URL + "img/pob.png");
+    //console.log("3");
+    $("#3").append(menu_content_choose_age_img31);
+    var menu_content_choose_age_img41=$("<img class='menu_content_choose_age_img_d'></img>");
+    menu_content_choose_age_img41.attr("src", GLOBAL_URL + "img/school.png");
+    //console.log("4");
+    $("#4").append(menu_content_choose_age_img41);
+    var menu_content_choose_age_img51=$("<img class='menu_content_choose_age_img_d'></img>");
+    menu_content_choose_age_img51.attr("src", GLOBAL_URL + "img/region.png");
+    //console.log("5");
+    $("#5").append(menu_content_choose_age_img51);
+    var menu_content_choose_age_img61=$("<img class='menu_content_choose_age_img_d'></img>");
+    menu_content_choose_age_img61.attr("src", GLOBAL_URL + "img/system.png");
+    //console.log("6");
+    $("#6").append(menu_content_choose_age_img61);
+
+
+
+    var menu_content_choose_age_img1=$("<img class='menu_content_choose_age_img2_d'></img>");
+    menu_content_choose_age_img1.attr("src", GLOBAL_URL + "img/circle1.png");
+    //console.log("1");
+    $("#1").append(menu_content_choose_age_img1);
+    var menu_content_choose_age_img2=$("<img class='menu_content_choose_age_img2_d'></img>");
+    menu_content_choose_age_img2.attr("src", GLOBAL_URL + "img/circle2.png");
+    //console.log("2");
+    $("#2").append(menu_content_choose_age_img2);
+    var menu_content_choose_age_img3=$("<img class='menu_content_choose_age_img2_d'></img>");
+    menu_content_choose_age_img3.attr("src", GLOBAL_URL + "img/circle3.png");
+    //console.log("3");
+    $("#3").append(menu_content_choose_age_img3);
+    var menu_content_choose_age_img4=$("<img class='menu_content_choose_age_img2_d'></img>");
+    menu_content_choose_age_img4.attr("src", GLOBAL_URL + "img/circle4.png");
+    //console.log("4");
+    $("#4").append(menu_content_choose_age_img4);
+    var menu_content_choose_age_img5=$("<img class='menu_content_choose_age_img2_d'></img>");
+    menu_content_choose_age_img5.attr("src", GLOBAL_URL + "img/circle5.png");
+    //console.log("5");
+    $("#5").append(menu_content_choose_age_img5);
+    var menu_content_choose_age_img6=$("<img class='menu_content_choose_age_img2_d'></img>");
+    menu_content_choose_age_img6.attr("src", GLOBAL_URL + "img/circle6.png");
+    //console.log("6");
+    $("#6").append(menu_content_choose_age_img6);
+
+
+    $(".menu_content_choose_age_d").css({"position":"relative","width":WIDTH,"height":"70px","border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999","z-index":"0","cursor":"pointer"});
+    $(".menu_content_choose_age_text_d").css({"padding-top":"20px","height":"40px","margin-left":"80px","line-height":"30px","font-size":"20px","color":"#FFF"});
+    $(".menu_content_choose_age_img_d").css({"margin-left":"20px","width":"20px","height":"20px","margin-top":"-35px"});
+    $(".menu_content_choose_age_img2_d").css({"margin-left":"205px","width":"20px","height":"20px","margin-top":"-35px"});
 
 
     
@@ -433,7 +493,8 @@ $(document).ready(function(){
     $("#choose").append(choose_title);
     var choose_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#choose_title").append(choose_title_img);
-    var choose_title_closeButton = $("<button id='choose_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"30px", "height":"40px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"265px", "margin-top":"35px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
+    var choose_title_closeButton = $("<img id='choose_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px",  "cursor":"pointer", "margin-left":"230px", "margin-top":"20px"});
+    choose_title_closeButton.attr("src",GLOBAL_URL+"img/legend.png");
     $("#choose_title").append(choose_title_closeButton);
     // var choose_foot = $("<div id='choosefoot'></div>").css({"width":"100%", "height":"1000px", "border-top-style":"solid", "border-top-width":"3px", "border-top-color":"#999"});
     // $("#choose").append(choose_foot);
@@ -711,7 +772,7 @@ $(document).ready(function(){
     	console.log("choose:"+imgId);
     	var x = s%4*80; 
         var y = parseInt(s/4+1)*(80+10);
-        var person = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
+        var person = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
         choose_content.append(person);
         person.attr("id",imgId);
         person.css("left", x);
@@ -848,7 +909,9 @@ $(document).ready(function(){
     $("#relate").append(relate_title);
     var relate_title_photo=$("<div id='relate_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"5px","margin-left":"2px"});
     $("#relate_title").append(relate_title_photo);
-    var relate_title_closeButton = $("<button id='relate_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"30px", "height":"40px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"265px", "margin-top":"35px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
+    var relate_title_closeButton = $("<img id='relate_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"230px", "margin-top":"20px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
+    relate_title_closeButton.attr("src", GLOBAL_URL + "img/legend.png");
+
     $("#relate_title").append(relate_title_closeButton);
 
 
@@ -1064,7 +1127,7 @@ $(document).ready(function(){
     for(var i=0; i<names.length; i++){
         var x = i%4*80; 
         var y = parseInt(i/4+1)*(80+10);
-        var person = $("<div id='person" + i + "'></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
+        var person = $("<div id='person" + i + "'></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
         person.css("left", x);
         person.css("top", y);
         persons.append(person);
