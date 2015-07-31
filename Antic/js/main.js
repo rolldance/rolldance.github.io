@@ -284,7 +284,7 @@ $(document).ready(function(){
     $("#title").append(menu);
     var people = $("<img id='peopleImg' src='img/people.png'>").css({"width":"50px","height":"50px","margin-left":"128px","margin-top":"11px"});
     $("#title").append(people);
-    var legend = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"40px", "height":"40px" ,"cursor":"pointer", "margin-left":"70px", "margin-top":"20px"});
+    var legend = $("<img id='legendImg'></img>").css({"position":"absolute", "width":"40px", "height":"40px","margin-left":"70px", "margin-top":"20px"});
     legend.attr("src",GLOBAL_URL+"img/legendx.png");
     $("#title").append(legend);
     //content person
@@ -316,7 +316,7 @@ $(document).ready(function(){
     $("#menu").append(menu_title);
     var menu_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#menu_title").append(menu_title_img);
-    var menu_title_closeButton = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px" ,"cursor":"pointer", "margin-left":"230px", "margin-top":"20px", });
+    var menu_title_closeButton = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px" ,"cursor":"pointer", "margin-left":"230px", "margin-top":"20px","cursor":"pointer"});
     menu_title_closeButton.attr("src",GLOBAL_URL+"img/legend.png");
     $("#menu_title").append(menu_title_closeButton);
     var menu_content_choose = $("<div id='menu_content_choose'></div>").css({"margin-top":"50px"});
