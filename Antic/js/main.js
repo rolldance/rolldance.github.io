@@ -275,67 +275,13 @@ var names = ["cairongsheng", "chenanzhong", "chenbaihuai", "chentiexin", "jiangs
 $(document).ready(function(){
 	document.getElementById("font2").addEventListener("mousedown",fontMousedown,false);
 	function fontMousedown(){
-		$("#main").show();
+		$("#menu").show();
 		$("#cover").hide();
 	}
 
     //prepare
     $("body").css({"font-family":"'Arial'", "width":"320px", "height":"100%", "background-color":"#666", "-moz-user-select":"none", "-webkit-user-select":"none", "-ms-user-select":"none", "-khtml-user-select":"none", "user-select":"none"});
-    $("#main").css({"width":"100%", "height":"100%"});
-    //head
-    var head = $("<div id='title'></div>").css({"width":"100%", "height":"80px", "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#fff"});
-    $("#main").append(head);
-    var menu = $("<img id='menuImg' src='img/menu.png'>").css({"position":"absolute","width":"20px","height":"14px","margin-left":"27px","top":"30px","cursor":"pointer"});
-    $("#title").append(menu);
-    var people = $("<img id='peopleImg' src='img/people.png'>").css({"width":"50px","height":"50px","margin-left":"128px","margin-top":"11px"});
-    $("#title").append(people);
-    var legend = $("<img id='legendImg'></img>").css({"position":"absolute", "width":"40px", "height":"40px","margin-left":"70px", "margin-top":"20px"});
-    legend.attr("src",GLOBAL_URL+"img/legendx.png");
-    $("#title").append(legend);
-    //content person
-    var persons = $("<div id='persons'></div>").css({"width":"100%", "height":"100%"});
-    $("#main").append(persons);
-    //footstart
-    var foot = $("<div id='foot'></div>").css({"width":"100%", "height":"80px", "margin-top":"680px", "border-top-style":"solid", "border-top-width":"1px", "border-top-color":"#999"});
-    $("#main").append(foot);
-    var team = $("<p></p>").html("编辑：黄晨、田川&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设计、开发：任远");
-    team.css({"margin-top":"20px", "color":"#ccc", "font-size":"12px", "text-align":"center"});
-    var copyright = $("<a href='http://datanews.blog.caixin.com' target='_bank'>数据新闻与可视化实验室 | Data Journalism & Visualization Lab</a>");
-    copyright.css({"display":"block", "margin-top":"10px", "color":"#ccc", "font-size":"10px", "text-align":"center"});
-    // var logo = $("<p><a href='http://www.caixin.com/' target='_bank'><img src='http://file.caixin.com/datanews/patrol_storm_phone/pics/logo/logo_white.png' border='0' width='60px'></img></a></p>");
-    // logo.css({"margin-top":"20px", "height":"100px", "text-align":"center"});
-    foot.append(team);
-    foot.append(copyright);
-    // foot.append(logo);
-    //footend
-    
-    //load index person
-    for(var i=0; i<names.length; i++){
-        var x = i%4*80; 
-        var y = parseInt(i/4+1)*(80+10);
-        var person = $("<div id='person" + i + "'></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
-        person.css("left", x);
-        person.css("top", y);
-        persons.append(person);
-        var person_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"12px", "margin-top":"12px",});
-        person_circle.attr("src", GLOBAL_URL + "img/circle.png");
-        person.append(person_circle);
-        var person_image = $("<img></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"15px", "margin-top":"15px",});
-        person_image.attr("src", GLOBAL_URL + "img/" + names[i] + ".png");
-        person.append(person_image);
-        var person_name = $("<p id='person'></p>").css({"position":"absolute", "width":"80px", "margin-left":"0px", "margin-top":"70px", "font-size":"12px", "color":"#fff", "text-align":"center"});
-        person_name.text(names[i]);
-        person.append(person_name);
-        var person_top = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
-        person.append(person_top);
-
-        document.getElementById("person"+i).addEventListener("mousedown", infoMousedown, false);
-    }
-    //end show person
-    document.getElementById("main").addEventListener("mousemove", infoMousemove, false);
-    //document.getElementById("main").addEventListener("mouseup", mouseup, false);
-    
-
+ 
     //show menu
     $("#menu").css({"width":WIDTH});
     $("#menu").hide();
@@ -473,36 +419,36 @@ $(document).ready(function(){
         document.getElementById(n).addEventListener("mouseout",menuMouseout,false);
     };
     
-    document.getElementById("menuImg").addEventListener("mousedown",menuMousedown,false);
-    function menuMousedown(e){
-    	//console.log(e.currentTarget.id);
-    	scrollTop=$(window).scrollTop();
-        e.preventDefault();
-        e.stopPropagation();
-        updateMenu();
-    };
+    // document.getElementById("menuImg").addEventListener("mousedown",menuMousedown,false);
+    // function menuMousedown(e){
+    // 	//console.log(e.currentTarget.id);
+    // 	scrollTop=$(window).scrollTop();
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     updateMenu();
+    // };
 
-    function updateMenu(){
+    // function updateMenu(){
     
-    scrollTop = $(window).scrollTop();
-        $("#main").hide();
-        $("#info").hide();
-        $("#menu").show();
-        $("#choose").hide();
-        $("#relate").hide();
-        document.body.scrollTop = 0;
-    $("#menu_title_closeButton").click(function(){
-            $("#menu").hide();
-            $("#info").hide();
-            $("#main").show();
-            $("#choose").hide();
-            $("#relate").hide();
-            document.body.scrollTop = scrollTop;
-            //console.log("ok");
-        });
+    // scrollTop = $(window).scrollTop();
+    //     $("#main").hide();
+    //     $("#info").hide();
+    //     $("#menu").show();
+    //     $("#choose").hide();
+    //     $("#relate").hide();
+    //     document.body.scrollTop = 0;
+    // $("#menu_title_closeButton").click(function(){
+    //         $("#menu").hide();
+    //         $("#info").hide();
+    //         $("#main").show();
+    //         $("#choose").hide();
+    //         $("#relate").hide();
+    //         document.body.scrollTop = scrollTop;
+    //         //console.log("ok");
+    //     });
    
   
-    };
+    // };
     //end menu
 
 
@@ -844,21 +790,25 @@ $(document).ready(function(){
         person.append(person_name);
         var person_top = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
         person.append(person_top);
-
+        
     }
 
     function displayRelateTitleImg(OfficerData){
+    	var id=OfficerData.id;
         var name=OfficerData.name_en;
         $("#relate_title_photo").empty();
-        var relate_title_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"12px", "margin-top":"12px"});//bug1
-        person_circle.attr("src", GLOBAL_URL + "img/circle.png");
-        $("#relate_title_photo").append(person_circle);
-        var relate_title_img = $("<img ></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"15.5px", "margin-top":"15.5px",});
+        var relate_title_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"13px", "margin-top":"13px"});//bug1
+        relate_title_circle.attr("src", GLOBAL_URL + "img/circle.png");
+        $("#relate_title_photo").append(relate_title_circle);
+        var relate_title_img = $("<img ></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"15.5px", "margin-top":"15.5px","cursor":"pointer"});
         relate_title_img.attr("src", GLOBAL_URL + "img/" + name + ".png");
+        relate_title_img.attr("id",id);
         $("#relate_title_photo").append(relate_title_img);  
         var  relate_title_text=$("<p></p>").css({"position":"relative","font-size":"14px","color":"white","margin-top":"72px","text-align":"center"});
         relate_title_text.text(name);
         $("#relate_title_photo").append(relate_title_text);
+        console.log(id);
+        document.getElementById(id).addEventListener("mousedown",infoMousedown,false);
     };
 
 
@@ -1163,9 +1113,9 @@ $(document).ready(function(){
         dragging = false;
         offsetX = e.clientX - this.offsetLeft;
         offsetY = e.clientY - this.offsetTop;
-        object = document.getElementById(e.currentTarget.id);
+        //object = document.getElementById(e.currentTarget.id);
         console.log("info:"+e.currentTarget.id);
-        persons.append(object);
+        //persons.append(object);
         scrollTop=$(window).scrollTop();
         e.preventDefault();
         e.stopPropagation();
@@ -1309,7 +1259,7 @@ $(document).ready(function(){
         $(".info_introduce_name_d").css({"margin-top":"26px","min-height":"26px"});
         $(".info_introduce_name_text_d").css({"margin-left":"63px", "margin-top":"16px", "width":"226px", "color":"#FFF", "font-size":"12px", "line-height":"30px"});
         $(".info_introduce_name_title_d").css({"margin-left":"28px","margin-top":"16px","width":"226px","color":"#FFF","font-size":"16px"});
-
+        
         scrollTop = $(window).scrollTop();
         $("#main").hide();
         $("#menu").hide();
@@ -1321,9 +1271,9 @@ $(document).ready(function(){
         $("#info_title_closeButton").click(function(){
             $("#info").hide();
             $("#menu").hide();
-            $("#main").show();
+            $("#main").hide();
             $("#choose").hide();
-            $("#relate").hide();
+            $("#relate").show();
             document.body.scrollTop = scrollTop;
         });
         $("#info").click(function(e){
