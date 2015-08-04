@@ -1,0 +1,111 @@
+    @-webkit-keyframes ball1_animation{
+0%  {background:white; left:167px; top:190.5px;width: 5px;height: 5px;}
+25%  {background: white; left:146px; top:171px;width: 7px;height: 7px;}
+50%  {background: white; left:124px; top:149.5px;width: 9px;height: 9px;}
+75%  {background: white; left:102px; top:128px;width: 7px;height: 7px;}
+100% {background: white; left:78px; top:138px;width: 5px;height: 5px;}
+    }
+ @-webkit-keyframes ball2_animation
+      {
+0%  {background:white; left:192px; top:80.75px;width: 7px;height: 7px;}
+33%  {background: white; left:214.75px; top:98.25px;width: 5px;height: 5px;}
+66%  {background: white; left:231.25px; top:113.75px;width: 3px;height: 3px;}
+100%  {background: white; left:251.25px; top:133.25px;width: 1px;height: 1px;}
+      }
+@-webkit-keyframes ball3_animation
+      {
+0%  {background:white; left:106px; top:57px;width: 7px;height: 7px;}
+33%  {background: white; left:79.875px; top:68.812px;width: 5px;height: 5px;}
+66%  {background: white; left:49.188px; top:77.625px;width: 3px;height: 3px;}
+100%  {background: white; left:19.188px; top:90.812px;width: 1px;height: 1px;}
+      }
+@-webkit-keyframes ball4_animation
+      {
+0%  {background:white; left:158px; top:65.5px;width: 1px;height: 1px;}
+33%  {background: white; left:134.5px; top:42.5px;width: 5px;height: 5px;}
+66%  {background: white; left:111.5px; top:21.5px;width: 3px;height: 3px;}
+100%  {background: white; left:92px; top:14px;width: 1px;height: 1px;}
+      }
+@-webkit-keyframes ball5_animation
+      {
+0%  {background:white; left:136.5px; top:190.5px;width: 1px;height: 1px;}
+50%  {background: white; left:132px; top:204.5px;width: 3px;height: 3px;}
+100%  {background: white; left:122.5px; top:239px;width: 1px;height: 1px;}
+      }
+@-webkit-keyframes ball6_animation
+      {
+0%  { left:166px; top:188.5px; }
+50%  { left:172px; top:162px; }
+100%  {left:182px; top:136px; }
+      }
+           #cover{
+           	background-color: #072f4a;
+            width: 320px;
+            height:100%;
+           	position: absolute;
+           	left: 0px;
+           	top: 0px;
+            z-index: 999;
+            overflow: hidden;
+           }
+           #ball {
+            background: url("../img/cover1.jpg");
+            position: relative;
+            background-repeat: no-repeat;
+            margin-top:150px;
+            margin-left:24px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+           }
+           #ball1{
+            -webkit-animation: ball1_animation 2s infinite linear;
+            position: relative;
+            border-radius: 50%;
+           }
+           #ball2{
+            -webkit-animation: ball2_animation 1s infinite linear;
+            position: relative;
+            border-radius: 50%;
+           }
+           #ball3{
+            -webkit-animation:ball3_animation 1s infinite linear;
+            position: relative;
+            border-radius: 50%;
+          }
+          #ball4{
+            -webkit-animation:ball4_animation 1s infinite linear;
+            position: relative;
+            border-radius: 50%;
+          }
+          #ball5{
+           -webkit-animation:ball5_animation 0.8s infinite linear;
+            position: relative;
+            border-radius: 50%; 
+          }
+          #ball6{
+            background: url("../img/ball3.png") no-repeat ;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            -webkit-transform:rotate(20deg);
+            -webkit-animation:ball6_animation 0.8s infinite linear;
+          }
+          #font1{
+            background: url("../img/cover_font1.png");
+            background-repeat: no-repeat;
+            position: absolute;
+            top:40px;
+            left:50px;
+            width: 100%;
+            height: 40px;
+          }
+          #font2{
+            background: url("../img/cover_font2.png");
+            background-repeat: no-repeat;
+            position: absolute;
+            top:500px;
+            left:110px;
+            width: 100%;
+            height:50px;
+          }

@@ -273,6 +273,11 @@ var s=-1;//选择框图片计数
 var names = ["cairongsheng", "chenanzhong", "chenbaihuai", "chentiexin", "jiangshan", "dushanxue", "guoyouming", "hanxiancong", "jindaoming", "liaoshaohua", "lingzhengce", "zhuzuoli", "luoou", "quanjunliang", "shenpeiping", "surong", "tanli", "tanxiwei", "tongmingqian", "wangjunguo", "wangsuyi", "wangwenke", "wanqingliang", "wuchangshun", "xugefei", "yangbaohua", "yaomugen", "zhangtianxin"];
 
 $(document).ready(function(){
+	document.getElementById("font2").addEventListener("mousedown",fontMousedown,false);
+	function fontMousedown(){
+		$("#main").show();
+		$("#cover").hide();
+	}
 
     //prepare
     $("body").css({"font-family":"'Arial'", "width":"320px", "height":"100%", "background-color":"#666", "-moz-user-select":"none", "-webkit-user-select":"none", "-ms-user-select":"none", "-khtml-user-select":"none", "user-select":"none"});
@@ -303,6 +308,32 @@ $(document).ready(function(){
     foot.append(copyright);
     // foot.append(logo);
     //footend
+    
+    //load index person
+    for(var i=0; i<names.length; i++){
+        var x = i%4*80; 
+        var y = parseInt(i/4+1)*(80+10);
+        var person = $("<div id='person" + i + "'></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
+        person.css("left", x);
+        person.css("top", y);
+        persons.append(person);
+        var person_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"12px", "margin-top":"12px",});
+        person_circle.attr("src", GLOBAL_URL + "img/circle.png");
+        person.append(person_circle);
+        var person_image = $("<img></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"15px", "margin-top":"15px",});
+        person_image.attr("src", GLOBAL_URL + "img/" + names[i] + ".png");
+        person.append(person_image);
+        var person_name = $("<p id='person'></p>").css({"position":"absolute", "width":"80px", "margin-left":"0px", "margin-top":"70px", "font-size":"12px", "color":"#fff", "text-align":"center"});
+        person_name.text(names[i]);
+        person.append(person_name);
+        var person_top = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
+        person.append(person_top);
+
+        document.getElementById("person"+i).addEventListener("mousedown", infoMousedown, false);
+    }
+    //end show person
+    document.getElementById("main").addEventListener("mousemove", infoMousemove, false);
+    //document.getElementById("main").addEventListener("mouseup", mouseup, false);
     
 
     //show menu
@@ -1123,31 +1154,7 @@ $(document).ready(function(){
     //end relate
 
 
-    //load index person
-    for(var i=0; i<names.length; i++){
-        var x = i%4*80; 
-        var y = parseInt(i/4+1)*(80+10);
-        var person = $("<div id='person" + i + "'></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
-        person.css("left", x);
-        person.css("top", y);
-        persons.append(person);
-        var person_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"12px", "margin-top":"12px",});
-        person_circle.attr("src", GLOBAL_URL + "img/circle.png");
-        person.append(person_circle);
-        var person_image = $("<img></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"15px", "margin-top":"15px",});
-        person_image.attr("src", GLOBAL_URL + "img/" + names[i] + ".png");
-        person.append(person_image);
-        var person_name = $("<p id='person'></p>").css({"position":"absolute", "width":"80px", "margin-left":"0px", "margin-top":"70px", "font-size":"12px", "color":"#fff", "text-align":"center"});
-        person_name.text(names[i]);
-        person.append(person_name);
-        var person_top = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
-        person.append(person_top);
-
-        document.getElementById("person"+i).addEventListener("mousedown", infoMousedown, false);
-    }
-    //end show person
-    document.getElementById("main").addEventListener("mousemove", infoMousemove, false);
-    //document.getElementById("main").addEventListener("mouseup", mouseup, false);
+    
     
    
     
