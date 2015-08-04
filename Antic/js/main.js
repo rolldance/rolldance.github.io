@@ -419,36 +419,7 @@ $(document).ready(function(){
         document.getElementById(n).addEventListener("mouseout",menuMouseout,false);
     };
     
-    // document.getElementById("menuImg").addEventListener("mousedown",menuMousedown,false);
-    // function menuMousedown(e){
-    // 	//console.log(e.currentTarget.id);
-    // 	scrollTop=$(window).scrollTop();
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     updateMenu();
-    // };
 
-    // function updateMenu(){
-    
-    // scrollTop = $(window).scrollTop();
-    //     $("#main").hide();
-    //     $("#info").hide();
-    //     $("#menu").show();
-    //     $("#choose").hide();
-    //     $("#relate").hide();
-    //     document.body.scrollTop = 0;
-    // $("#menu_title_closeButton").click(function(){
-    //         $("#menu").hide();
-    //         $("#info").hide();
-    //         $("#main").show();
-    //         $("#choose").hide();
-    //         $("#relate").hide();
-    //         document.body.scrollTop = scrollTop;
-    //         //console.log("ok");
-    //     });
-   
-  
-    // };
     //end menu
 
 
@@ -917,6 +888,7 @@ $(document).ready(function(){
     };
     
     function updateRelateData(data){
+
     	//deal with the data
     	for(var i=0;i<OfficerData.length;i++){
           	if(OfficerData[i].age == data.age){
@@ -956,8 +928,8 @@ $(document).ready(function(){
           	else{
           		OfficerData[i].relate6=0;
           	};
-          
-          	var x=OfficerData[i].relate1+OfficerData[i].relate2
+
+            var x=OfficerData[i].relate1+OfficerData[i].relate2
           	      +OfficerData[i].relate3+OfficerData[i].relate4
           	      +OfficerData[i].relate5+OfficerData[i].relate6;
           	var y=OfficerData[i].relate6.toString()+OfficerData[i].relate5.toString()
@@ -969,8 +941,13 @@ $(document).ready(function(){
           };
        //    data.relateorigin1=0;//通过计算和加载图片
     	  // data.relateorigin2="";//通过二进制字符串加载照片环
+    	  data.relateorigin1=0;
+    	  data.relateorigin2="000000";
+    	  console.log(data.relateorigin1);
+    	  console.log(data.name_en);
+    	  console.log(OfficerData);
+
           return OfficerData;
-           
 
     };
     
@@ -986,6 +963,9 @@ $(document).ready(function(){
         	else if(s%4 == 3){
         		return s;
         	}
+        	else if(s%4 == -1){
+        		return s;
+        	}
         	//console.log(s);
 
         }
@@ -995,6 +975,7 @@ $(document).ready(function(){
     }
 
     function updateRelate(OfficerData){
+    	console.log(OfficerData);
     	$("#relate_content").empty();
 
         for(var i=0; i<28; i++){
@@ -1009,7 +990,7 @@ $(document).ready(function(){
         }
         };
         s=adjustS2(s);
-        //console.log(s);
+        console.log(s);
         
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 5){
