@@ -3,6 +3,18 @@
  * 财新数据新闻与可视化实验室 | Data Journalism & Visualization Lab
  * 2014 08
  */
+ /*编辑：田川
+设计：王诗韵
+开发：邢其超
+
+项目指导：黄晨、任远
+监制：黄志敏
+
+数据可视化实验室
+Data Visualization Lab
+
+Logo*/
+
 var OfficerData = [
 {name:"熊伟", age:"5", dob:"1962", pob:"", school:"", region:"", system:"", resume:"1962年9月出生，原宜昌市委常委、市政协党组副书记、市委统战部部长", id:"person0",name_en:"cairongsheng",rank:"0",id2:"persons0"}, 
 {name:"谭春玉", age:"5", dob:"1955", pob:"", school:"", region:"", system:"", resume:"1955年2月出生原湖北省宜昌市人大常委会副主任", id:"person1",name_en:"chenanzhong",rank:"0",id2:"persons1"}, 
@@ -269,6 +281,9 @@ var dragging = false;
 var offsetX = 0;
 var offsetY = 0;
 var s=-1;//选择框图片计数
+var global_relate_legend_id="";//relate图例id初始化
+var legendArray={age:1,dob:1,pob:1,school:1,region:1,system:1};//判断加载
+
 
 var names = ["cairongsheng", "chenanzhong", "chenbaihuai", "chentiexin", "jiangshan", "dushanxue", "guoyouming", "hanxiancong", "jindaoming", "liaoshaohua", "lingzhengce", "zhuzuoli", "luoou", "quanjunliang", "shenpeiping", "surong", "tanli", "tanxiwei", "tongmingqian", "wangjunguo", "wangsuyi", "wangwenke", "wanqingliang", "wuchangshun", "xugefei", "yangbaohua", "yaomugen", "zhangtianxin"];
 
@@ -527,7 +542,7 @@ $(document).ready(function(){
         };
         
         ytop=parseInt(s/4+1)*90+110;
-        var choose_foot = $("<div id='choose_content_foot'></div>").css({"width":"100%", "height":ytop+"px", "border-top-style":"solid", "border-top-width":"3px", "border-top-color":"#999"});
+        var choose_foot = $("<div id='choose_content_foot'></div>").css({"position":"absolute","width":"100%", "top":ytop+"px", "border-top-style":"solid", "border-top-width":"3px", "border-top-color":"#999"});
         $("#choose_content").append(choose_foot);
 
         s=-1;
@@ -675,7 +690,7 @@ $(document).ready(function(){
         };
 
         ytop=parseInt(s/4+1)*90+110;
-        var choose_foot = $("<div id='choose_content_foot'></div>").css({"width":"100%", "height":ytop+"px", "border-top-style":"solid", "border-top-width":"3px", "border-top-color":"#999"});
+        var choose_foot = $("<div id='choose_content_foot'></div>").css({"width":"100%", "height":ytop+"px", "border-top-style":"solid", "border-top-width":"0.5px", "border-top-color":"#999"});
         $("#choose_content").append(choose_foot);
 
         s=-1;
@@ -714,7 +729,6 @@ $(document).ready(function(){
         	return s=s+7;
         }
     }
-
     function displayChooseImg(name,i){
     	var imgId="persons"+i;
     	console.log("choose:"+imgId);
@@ -737,7 +751,6 @@ $(document).ready(function(){
         var person_top = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px"});
         person.append(person_top);
         document.getElementById(imgId).addEventListener("mousedown",relateMousedown,false);
-
     }
 
     function displayRelateImg(name,circle){
@@ -855,27 +868,208 @@ $(document).ready(function(){
     $("#relate").hide();
     var relate_rect = $("<div id='relate_rect'></div>").css({"position":"fixed", "margin-top":"57px", "width":WIDTH, "height":"100%", "background-color":INFO_BACKGROUND_COLOR, "opacity":".95", "-moz-opacity":".95", "filter":"alpha(opacity=95)"});
     $("#relate").append(relate_rect);
-    var relate_content = $("<div id='relate_content'></div>").css({"position":"absolute", "width":WIDTH, "margin-top":"20px"});
+
+
+    var relate_legend = $("<div id='relate_legend'></div>").css({"position":"absolute","top":"80px","margin-top":"20px","width":WIDTH,"-webkit-transform":"scale(0.9)","left":"-10px"});
+    $("#relate").append(relate_legend);
+    var relate_legend_box1=$("<div id='relate_legend_box1'></div>").css({"position":"absolute","top":"20px","margin":"10px","height":"20px","width":"80px","left":"18px","cursor":"pointer"});
+    $("#relate_legend").append(relate_legend_box1);
+    var relate_legend_img1 = $("<img id='relate_legend_img1'></img>").css({"position":"absolute","height":"15px","width":"15px"});
+    relate_legend_img1.attr("src",GLOBAL_URL+"img/circle1.png"); 
+    $("#relate_legend_box1").append(relate_legend_img1);
+    var relate_legend_text1=$("<p>官员职级</p>").css({"position":"absolute","font-size":"10px","color":"white","left":"20px","top":"3px"});
+    $("#relate_legend_box1").append(relate_legend_text1);
+
+    var relate_legend_box2=$("<div id='relate_legend_box2'></div>").css({"position":"absolute","top":"20px","margin":"10px","height":"20px","width":"80px","left":"98px","cursor":"pointer"});
+    $("#relate_legend").append(relate_legend_box2);
+    var relate_legend_img2 = $("<img id='relate_legend_img2'></img>").css({"position":"absolute","height":"15px","width":"15px"});
+    relate_legend_img2.attr("src",GLOBAL_URL+"img/circle2.png"); 
+    $("#relate_legend_box2").append(relate_legend_img2);
+    var relate_legend_text2=$("<p>出生年月</p>").css({"position":"absolute","font-size":"10px","color":"white","left":"20px","top":"3px"});
+    $("#relate_legend_box2").append(relate_legend_text2);
+
+    var relate_legend_box3=$("<div id='relate_legend_box3'></div>").css({"position":"absolute","top":"20px","margin":"10px","height":"20px","width":"80px","left":"178px","cursor":"pointer"});
+    $("#relate_legend").append(relate_legend_box3);
+    var relate_legend_img3 = $("<img id='relate_legend_img3'></img>").css({"position":"absolute","height":"15px","width":"15px"});
+    relate_legend_img3.attr("src",GLOBAL_URL+"img/circle3.png"); 
+    $("#relate_legend_box3").append(relate_legend_img3);
+    var relate_legend_text3=$("<p>出生地区</p>").css({"position":"absolute","font-size":"10px","color":"white","left":"20px","top":"3px"});
+    $("#relate_legend_box3").append(relate_legend_text3);
+
+    var relate_legend_box4=$("<div id='relate_legend_box4'></div>").css({"position":"absolute","top":"20px","margin":"10px","height":"20px","width":"80px","left":"258px","cursor":"pointer"});
+    $("#relate_legend").append(relate_legend_box4);
+    var relate_legend_img4 = $("<img id='relate_legend_img4'></img>").css({"position":"absolute","height":"15px","width":"15px"});
+    relate_legend_img4.attr("src",GLOBAL_URL+"img/circle4.png");
+    $("#relate_legend_box4").append(relate_legend_img4);
+    var relate_legend_text4=$("<p>毕业院校</p>").css({"position":"absolute","font-size":"10px","color":"white","left":"20px","top":"3px"});
+    $("#relate_legend_box4").append(relate_legend_text4);
+
+    var relate_legend_box5=$("<div id='relate_legend_box5'></div>").css({"position":"absolute","top":"50px","margin":"10px","height":"20px","width":"80px","left":"18px","cursor":"pointer"});
+    $("#relate_legend").append(relate_legend_box5);
+    var relate_legend_img5 = $("<img id='relate_legend_img5'></img>").css({"position":"absolute","height":"15px","width":"15px"});
+    relate_legend_img5.attr("src",GLOBAL_URL+"img/circle5.png");
+    $("#relate_legend_box5").append(relate_legend_img5);
+    var relate_legend_text5=$("<p>任职地区</p>").css({"position":"absolute","font-size":"10px","color":"white","left":"20px","top":"3px"});
+    $("#relate_legend_box5").append(relate_legend_text5);
+
+    var relate_legend_box6=$("<div id='relate_legend_box6'></div>").css({"position":"absolute","top":"50px","margin":"10px","height":"20px","width":"80px","left":"98px","cursor":"pointer"});
+    $("#relate_legend").append(relate_legend_box6);
+    var relate_legend_img6 = $("<img id='relate_legend_img6'></img>").css({"position":"absolute","height":"15px","width":"15px"});
+    relate_legend_img6.attr("src",GLOBAL_URL+"img/circle6.png"); 
+    $("#relate_legend_box6").append(relate_legend_img6);
+    var relate_legend_text6=$("<p>任职系统</p>").css({"position":"absolute","font-size":"10px","color":"white","left":"20px","top":"3px"});
+    $("#relate_legend_box6").append(relate_legend_text6);
+
+    var relate_content = $("<div id='relate_content'></div>").css({"position":"absolute","top":"80px", "width":WIDTH, "margin-top":"20px"});
     $("#relate").append(relate_content);
     var relate_title = $("<div id='relate_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
     $("#relate").append(relate_title);
     var relate_title_photo=$("<div id='relate_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"5px","margin-left":"2px"});
     $("#relate_title").append(relate_title_photo);
-    var relate_title_closeButton = $("<img id='relate_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"230px", "margin-top":"20px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
-    relate_title_closeButton.attr("src", GLOBAL_URL + "img/legend.png");
+    var relate_title_closeButton = $("<button id='relate_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"230px", "margin-top":"20px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
 
     $("#relate_title").append(relate_title_closeButton);
+
+    document.getElementById("relate_legend_box1").addEventListener("mousedown",relateMousedown_legend_1,false);
+    document.getElementById("relate_legend_box2").addEventListener("mousedown",relateMousedown_legend_2,false);
+    document.getElementById("relate_legend_box3").addEventListener("mousedown",relateMousedown_legend_3,false);
+    document.getElementById("relate_legend_box4").addEventListener("mousedown",relateMousedown_legend_4,false);
+    document.getElementById("relate_legend_box5").addEventListener("mousedown",relateMousedown_legend_5,false);
+    document.getElementById("relate_legend_box6").addEventListener("mousedown",relateMousedown_legend_6,false);
+
 
 
     function relateMousedown(e){
     	e.stopPropagation();
     	e.preventDefault();
-    	//console.log("relate:"+e.currentTarget.id);
+    	console.log("relate:"+e.currentTarget.id);
+    	global_relate_legend_id=e.currentTarget.id;//全局变量赋值
         var TargetData=findRelateData(e.currentTarget.id);
         displayRelateTitleImg(TargetData);
-    	var NewData=updateRelateData(TargetData);
+    	var NewData=updateRelateData(TargetData,legendArray);
         updateRelate(NewData);
     };
+    
+    
+
+    var legend_1=true;
+    function relateMousedown_legend_1(e){
+    	var id_legend = global_relate_legend_id;
+    	if(legend_1){
+    	   legendArray.age=0;
+           legend_1=!legend_1;
+           $("#relate_legend_img1").attr("src",GLOBAL_URL+"img/circle5.png");
+        }else{
+        	legendArray.age=1;
+        	legend_1=!legend_1;
+           $("#relate_legend_img1").attr("src",GLOBAL_URL+"img/circle1.png");
+        }
+    	var legend_Array_number=legendArray;
+        e.stopPropagation();
+    	e.preventDefault();
+    	var TargetData=findRelateData(id_legend);
+        var NewData=updateRelateData(TargetData,legend_Array_number);
+        updateRelate(NewData);
+
+    }
+    var legend_2=true;
+    function relateMousedown_legend_2(e){
+        var id_legend = global_relate_legend_id;
+    	if(legend_2){
+    	   legendArray.dob=0;
+           legend_2=!legend_2;
+        }else{
+        	legendArray.dob=1;
+        	legend_2=!legend_2;
+
+        }
+    	console.log(legendArray);
+    	var legend_Array_number=legendArray;
+        e.stopPropagation();
+    	e.preventDefault();
+    	var TargetData=findRelateData(id_legend);
+    	var NewData=updateRelateData(TargetData,legend_Array_number);
+        updateRelate(NewData);
+    }
+    var legend_3=true;
+    function relateMousedown_legend_3(e){
+        var id_legend = global_relate_legend_id;
+    	if(legend_3){
+    	   legendArray.pob=0;
+           legend_3=!legend_3;
+        }else{
+        	legendArray.pob=1;
+        	legend_3=!legend_3;
+
+        }
+    	console.log(legendArray);
+    	var legend_Array_number=legendArray;
+        e.stopPropagation();
+    	e.preventDefault();
+    	var TargetData=findRelateData(id_legend);
+    	var NewData=updateRelateData(TargetData,legend_Array_number);
+        updateRelate(NewData);
+    };
+    var legend_4=true;
+    function relateMousedown_legend_4(e){
+        var id_legend = global_relate_legend_id;
+    	if(legend_4){
+    	   legendArray.school=0;
+           legend_4=!legend_4;
+        }else{
+        	legendArray.school=1;
+        	legend_4=!legend_4;
+
+        }
+    	console.log(legendArray);
+    	var legend_Array_number=legendArray;
+        e.stopPropagation();
+    	e.preventDefault();
+    	var TargetData=findRelateData(id_legend);
+    	var NewData=updateRelateData(TargetData,legend_Array_number);
+        updateRelate(NewData);
+    };
+    var legend_5=true;
+    function relateMousedown_legend_5(e){
+        var id_legend = global_relate_legend_id;
+    	if(legend_5){
+    	   legendArray.region=0;
+           legend_5=!legend_5;
+        }else{
+        	legendArray.region=1;
+        	legend_5=!legend_5;
+
+        }
+    	console.log(legendArray);
+    	var legend_Array_number=legendArray;
+        e.stopPropagation();
+    	e.preventDefault();
+    	var TargetData=findRelateData(id_legend);
+    	var NewData=updateRelateData(TargetData,legend_Array_number);
+        updateRelate(NewData);
+    };
+    var legend_6=true;
+    function relateMousedown_legend_6(e){
+        var id_legend = global_relate_legend_id;
+    	if(legend_6){
+    	   legendArray.system=0;
+           legend_6=!legend_6;
+        }else{
+        	legendArray.system=1;
+        	legend_6=!legend_6;
+
+        }
+    	console.log(legendArray);
+    	var legend_Array_number=legendArray;
+        e.stopPropagation();
+    	e.preventDefault();
+    	var TargetData=findRelateData(id_legend);
+    	var NewData=updateRelateData(TargetData,legend_Array_number);
+        updateRelate(NewData);
+    };
+
+
+   
 
     function findRelateData(id){
     	 for(var i=0;i<OfficerData.length;i++){
@@ -887,47 +1081,72 @@ $(document).ready(function(){
            return null;
     };
     
-    function updateRelateData(data){
+    function updateRelateData(data,legendArray){
 
     	//deal with the data
     	for(var i=0;i<OfficerData.length;i++){
-          	if(OfficerData[i].age == data.age){
+    		if(legendArray.age == 0){
+                OfficerData[i].relate1=0;
+    		}else{
+    			if(OfficerData[i].age == data.age){
           		OfficerData[i].relate1=1;
           	}
           	else{
           		OfficerData[i].relate1=0;
           	};
-          	if(OfficerData[i].dob == data.dob){
+          };
+          	if(legendArray.dob == 0){
+          		OfficerData[i].relate2=0;
+          	}else{
+            if(OfficerData[i].dob == data.dob){
           		OfficerData[i].relate2=1;
           	}
           	else{
           		OfficerData[i].relate2=0;
           	};
-          	if(OfficerData[i].pob == data.pob){
+          	};
+          	if(legendArray.pob == 0){
+          		OfficerData[i].relate3=0;
+          	}else{
+          		if(OfficerData[i].pob == data.pob){
           		OfficerData[i].relate3=1;
           	}
           	else{
           		OfficerData[i].relate3=0;
 
           	};
-          	if(OfficerData[i].school == data.school){
+          	};
+          	if(legendArray.school == 0){
+          		OfficerData[i].relate4=0;
+          	}else{
+          		if(OfficerData[i].school == data.school){
           		OfficerData[i].relate4=1;
           	}
           	else{
           		OfficerData[i].relate4=0;
           	};
-          	if(OfficerData[i].region == data.region){
+          	};
+            if(legendArray.region == 0){
+            	OfficerData[i].relate5=0;
+            }else{
+            	if(OfficerData[i].region == data.region){
           		OfficerData[i].relate5=1;
           	}
           	else{
           		OfficerData[i].relate5=0;
           	};
-          	if(OfficerData[i].system == data.system){
+            };
+          	if(legendArray.system == 0){
+          		OfficerData[i].relate6=0;
+          	}else{
+          		if(OfficerData[i].system == data.system){
           		OfficerData[i].relate6=1;
           	}
           	else{
           		OfficerData[i].relate6=0;
           	};
+          	};
+          	
 
             var x=OfficerData[i].relate1+OfficerData[i].relate2
           	      +OfficerData[i].relate3+OfficerData[i].relate4
@@ -937,19 +1156,17 @@ $(document).ready(function(){
           	      +OfficerData[i].relate2.toString()+OfficerData[i].relate1.toString();
           	OfficerData[i].relateorigin1=x;
           	OfficerData[i].relateorigin2=y;
-          	//console.log(y);
+          
           };
-       //    data.relateorigin1=0;//通过计算和加载图片
-    	  // data.relateorigin2="";//通过二进制字符串加载照片环
+       
     	  data.relateorigin1=0;
     	  data.relateorigin2="000000";
-    	  //console.log(data.relateorigin1);
-    	  //console.log(data.name_en);
-    	  //console.log(OfficerData);
-
+    	  
           return OfficerData;
 
     };
+
+    
     
     // show the image
     function adjustS2(s){
@@ -976,7 +1193,9 @@ $(document).ready(function(){
 
     function updateRelate(OfficerData){
     	//console.log(OfficerData);
-    	$("#relate_content").empty();
+        $("#relate_content").empty();
+
+        //load the photo
 
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 6){
@@ -1056,10 +1275,20 @@ $(document).ready(function(){
         displayRelateImg(names,circle);
         }
         };
+        
+        //load the foot;
 
         ytop=parseInt(s/4+1)*90+110;
-        var relate_foot = $("<div id='choose_content_foot'></div>").css({"width":"100%", "height":ytop+"px", "border-top-style":"solid", "border-top-width":"3px", "border-top-color":"#999"});
+        var relate_foot = $("<div id='relate_content_foot'></div>").css({"position":"absolute","width":"100%", "top":ytop+"px", "border-top-style":"solid", "height":"0.5px","border-top-width":"0.1px", "border-top-color":"#999"});
         $("#relate_content").append(relate_foot);
+
+        //load the photo end
+
+
+       
+
+        
+       
 
         s=-1;
         scrollTop = $(window).scrollTop();
