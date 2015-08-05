@@ -288,7 +288,7 @@ var legendArray={age:1,dob:1,pob:1,school:1,region:1,system:1};//判断加载
 var names = ["cairongsheng", "chenanzhong", "chenbaihuai", "chentiexin", "jiangshan", "dushanxue", "guoyouming", "hanxiancong", "jindaoming", "liaoshaohua", "lingzhengce", "zhuzuoli", "luoou", "quanjunliang", "shenpeiping", "surong", "tanli", "tanxiwei", "tongmingqian", "wangjunguo", "wangsuyi", "wangwenke", "wanqingliang", "wuchangshun", "xugefei", "yangbaohua", "yaomugen", "zhangtianxin"];
 
 $(document).ready(function(){
-	document.getElementById("font2").addEventListener("mousedown",fontMousedown,false);
+	document.getElementById("font2").addEventListener("mousedown",chooseageMousedown,false);
 	function fontMousedown(){
 		$("#menu").show();
 		$("#cover").hide();
@@ -465,7 +465,9 @@ $(document).ready(function(){
 
     function chooseageMousedown(e){
     	//console.log(e.currentTarget.id);
-    	scrollTop=$(window).scrollTop();
+    	$("#cover").hide();
+    	$("#choose").show();
+        scrollTop=$(window).scrollTop();
         e.preventDefault();
         var LoadData_age=findAgeData();
         //console.log(LoadData);
@@ -731,7 +733,7 @@ $(document).ready(function(){
     }
     function displayChooseImg(name,i){
     	var imgId="persons"+i;
-    	console.log("choose:"+imgId);
+    	//console.log("choose:"+imgId);
     	var x = s%4*80; 
         var y = parseInt(s/4+1)*(80+10);
         var person = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
@@ -983,7 +985,7 @@ $(document).ready(function(){
         	legend_2=!legend_2;
 
         }
-    	console.log(legendArray);
+    	//console.log(legendArray);
     	var legend_Array_number=legendArray;
         e.stopPropagation();
     	e.preventDefault();
@@ -1002,7 +1004,7 @@ $(document).ready(function(){
         	legend_3=!legend_3;
 
         }
-    	console.log(legendArray);
+    	//console.log(legendArray);
     	var legend_Array_number=legendArray;
         e.stopPropagation();
     	e.preventDefault();
@@ -1021,7 +1023,7 @@ $(document).ready(function(){
         	legend_4=!legend_4;
 
         }
-    	console.log(legendArray);
+    	//console.log(legendArray);
     	var legend_Array_number=legendArray;
         e.stopPropagation();
     	e.preventDefault();
@@ -1040,7 +1042,7 @@ $(document).ready(function(){
         	legend_5=!legend_5;
 
         }
-    	console.log(legendArray);
+    	//console.log(legendArray);
     	var legend_Array_number=legendArray;
         e.stopPropagation();
     	e.preventDefault();
@@ -1059,7 +1061,7 @@ $(document).ready(function(){
         	legend_6=!legend_6;
 
         }
-    	console.log(legendArray);
+    	//console.log(legendArray);
     	var legend_Array_number=legendArray;
         e.stopPropagation();
     	e.preventDefault();
