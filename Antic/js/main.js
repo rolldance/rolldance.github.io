@@ -778,7 +778,7 @@ $(document).ready(function(){
         var  relate_title_text=$("<p></p>").css({"position":"relative","font-size":"14px","color":"white","margin-top":"72px","text-align":"center"});
         relate_title_text.text(name);
         $("#relate_title_photo").append(relate_title_text);
-        console.log(id);
+        //console.log(id);
         document.getElementById(id).addEventListener("mousedown",infoMousedown,false);
     };
 
@@ -870,7 +870,7 @@ $(document).ready(function(){
     function relateMousedown(e){
     	e.stopPropagation();
     	e.preventDefault();
-    	console.log("relate:"+e.currentTarget.id);
+    	//console.log("relate:"+e.currentTarget.id);
         var TargetData=findRelateData(e.currentTarget.id);
         displayRelateTitleImg(TargetData);
     	var NewData=updateRelateData(TargetData);
@@ -881,7 +881,7 @@ $(document).ready(function(){
     	 for(var i=0;i<OfficerData.length;i++){
             if(OfficerData[i].id2 == id){
                 return OfficerData[i];
-                console.log(OfficerData[i]);
+                //console.log(OfficerData[i]);
             };
            } 
            return null;
@@ -943,9 +943,9 @@ $(document).ready(function(){
     	  // data.relateorigin2="";//通过二进制字符串加载照片环
     	  data.relateorigin1=0;
     	  data.relateorigin2="000000";
-    	  console.log(data.relateorigin1);
-    	  console.log(data.name_en);
-    	  console.log(OfficerData);
+    	  //console.log(data.relateorigin1);
+    	  //console.log(data.name_en);
+    	  //console.log(OfficerData);
 
           return OfficerData;
 
@@ -975,22 +975,21 @@ $(document).ready(function(){
     }
 
     function updateRelate(OfficerData){
-    	console.log(OfficerData);
+    	//console.log(OfficerData);
     	$("#relate_content").empty();
 
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 6){
         var names=OfficerData[i].name_en;
         var circle=OfficerData[i].relateorigin2;
-        console.log("relate6: "+names);
+        //console.log("relate6: "+names);
 
         s=s+1;
-        //console.log("age5"+s);
         displayRelateImg(names,circle);
         }
         };
         s=adjustS2(s);
-        console.log(s);
+        //console.log(s);
         
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 5){
@@ -999,8 +998,7 @@ $(document).ready(function(){
         var circle=OfficerData[i].relateorigin2;
 
         s=s+1;
-        //console.log("age4"+s);
-        console.log("relate5: "+names);
+        //console.log("relate5: "+names);
 
         displayRelateImg(names,circle);
         }
@@ -1013,8 +1011,7 @@ $(document).ready(function(){
         var circle=OfficerData[i].relateorigin2;
 
         s=s+1;
-        //console.log("age4"+s);
-        console.log("relate4: "+names);
+        //console.log("relate4: "+names);
 
         displayRelateImg(names,circle);
         }
@@ -1025,7 +1022,7 @@ $(document).ready(function(){
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 3){
         var names=OfficerData[i].name_en;
-        console.log("relate3: "+names);
+        //console.log("relate3: "+names);
         var circle=OfficerData[i].relateorigin2;
 
         s=s+1;
@@ -1038,7 +1035,7 @@ $(document).ready(function(){
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 2){
         var names=OfficerData[i].name_en;
-        console.log("relate2: "+names);
+        //console.log("relate2: "+names);
         var circle=OfficerData[i].relateorigin2;
 
         s=s+1;
@@ -1051,7 +1048,7 @@ $(document).ready(function(){
         for(var i=0; i<28; i++){
         if(OfficerData[i].relateorigin1 == 1){
         var names=OfficerData[i].name_en;
-        console.log("relate1: "+names);
+        //console.log("relate1: "+names);
         var circle=OfficerData[i].relateorigin2;
 
         s=s+1;
@@ -1268,7 +1265,7 @@ $(document).ready(function(){
            for(var i=0;i<OfficerData.length;i++){
             if(OfficerData[i].id == id){
                 return OfficerData[i];
-                console.log(OfficerData[i]);
+                //console.log(OfficerData[i]);
             };
            } 
            return null;
