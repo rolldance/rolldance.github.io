@@ -290,10 +290,7 @@ var names = ["cairongsheng", "chenanzhong", "chenbaihuai", "chentiexin", "jiangs
 
 $(document).ready(function(){
 	document.getElementById("font2").addEventListener("mousedown",chooseageMousedown,false);
-	function fontMousedown(){
-		$("#menu").show();
-		$("#cover").hide();
-	}
+
 
     //prepare
     $("body").css({"font-family":"'Arial'", "width":"320px", "height":"100%", "background-color":"#666", "-moz-user-select":"none", "-webkit-user-select":"none", "-ms-user-select":"none", "-khtml-user-select":"none", "user-select":"none"});
@@ -457,7 +454,7 @@ $(document).ready(function(){
     $("#choose").append(choose_title);
     var choose_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#choose_title").append(choose_title_img);
-    var choose_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"0","top":"-14px","left":"-10px"});
+    var choose_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
     choose_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
     $("#choose_title").append(choose_title_img_net);
     var choose_title_closeButton = $("<img id='choose_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px",  "cursor":"pointer", "margin-left":"230px", "margin-top":"20px"});
@@ -1222,7 +1219,7 @@ $(document).ready(function(){
     $("#relate").append(relate_title);
     var relate_title_photo=$("<div id='relate_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"5px","margin-left":"2px"});
     $("#relate_title").append(relate_title_photo);
-    var relate_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"0","top":"-14px","left":"-10px"});
+    var relate_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
     relate_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
     $("#relate_title").append(relate_title_img_net);
     var relate_title_closeButton = $("<button id='relate_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"230px", "margin-top":"20px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
@@ -1239,14 +1236,25 @@ $(document).ready(function(){
 
 
     function relateMousedown(e){
-    	e.stopPropagation();
+    	$("#relate_content").empty();
+    	$("#relate_title_img").empty();
+    	$("#relate_legend_img1").attr("src",GLOBAL_URL+"img/circle1.png"); 
+    	$("#relate_legend_img2").attr("src",GLOBAL_URL+"img/circle2.png");    	
+    	$("#relate_legend_img3").attr("src",GLOBAL_URL+"img/circle3.png");    	
+    	$("#relate_legend_img4").attr("src",GLOBAL_URL+"img/circle4.png");    	
+    	$("#relate_legend_img5").attr("src",GLOBAL_URL+"img/circle5.png");    	
+    	$("#relate_legend_img6").attr("src",GLOBAL_URL+"img/circle6.png");    	
+   	    e.stopPropagation();
     	e.preventDefault();
-    	console.log("relate:"+e.currentTarget.id);
+    	//console.log("relate:"+e.currentTarget.id);
     	global_relate_legend_id=e.currentTarget.id;//全局变量赋值
+        var legendArray={age:1,dob:1,pob:1,school:1,region:1,system:1};
+        var legend_1=legend_2=legend_3=legend_4=legend_5=legend_6=true;
         var TargetData=findRelateData(e.currentTarget.id);
         displayRelateTitleImg(TargetData);
-    	var NewData=updateRelateData(TargetData,legendArray);
+        var NewData=updateRelateData(TargetData,legendArray);
         updateRelate(NewData);
+        console.log(legendArray);
     };
     
     
@@ -1267,6 +1275,7 @@ $(document).ready(function(){
         e.stopPropagation();
     	e.preventDefault();
     	var TargetData=findRelateData(id_legend);
+    	//displayRelateTitleImg(TargetData);
         var NewData=updateRelateData(TargetData,legend_Array_number);
         updateRelate(NewData);
 
@@ -1290,6 +1299,7 @@ $(document).ready(function(){
         e.stopPropagation();
     	e.preventDefault();
     	var TargetData=findRelateData(id_legend);
+    	//displayRelateTitleImg(TargetData);
     	var NewData=updateRelateData(TargetData,legend_Array_number);
         updateRelate(NewData);
     }
@@ -1312,6 +1322,7 @@ $(document).ready(function(){
         e.stopPropagation();
     	e.preventDefault();
     	var TargetData=findRelateData(id_legend);
+    	//displayRelateTitleImg(TargetData);
     	var NewData=updateRelateData(TargetData,legend_Array_number);
         updateRelate(NewData);
     };
@@ -1334,6 +1345,7 @@ $(document).ready(function(){
         e.stopPropagation();
     	e.preventDefault();
     	var TargetData=findRelateData(id_legend);
+    	//displayRelateTitleImg(TargetData);
     	var NewData=updateRelateData(TargetData,legend_Array_number);
         updateRelate(NewData);
     };
@@ -1378,6 +1390,7 @@ $(document).ready(function(){
         e.stopPropagation();
     	e.preventDefault();
     	var TargetData=findRelateData(id_legend);
+    	//displayRelateTitleImg(TargetData);
     	var NewData=updateRelateData(TargetData,legend_Array_number);
         updateRelate(NewData);
     };
@@ -1386,7 +1399,7 @@ $(document).ready(function(){
    
     function displayRelateImg(name,circle,i){
     	var imgId="person"+i;
-    	console.log(imgId);
+    	//console.log(imgId);
     	var x = s%4*80; 
         var y = parseInt(s/4+1)*(80+10);
         var person = $("<div></div>").css({"position":"absolute", "width":"80px", "height":"80px","cursor":"pointer"});
@@ -1409,7 +1422,7 @@ $(document).ready(function(){
     };
 
     function displayRelateTitleImg(OfficerData){
-    	var id=OfficerData.id;
+    	var relate_title_id=OfficerData.id;
         var name=OfficerData.name_en;
         $("#relate_title_photo").empty();
         var relate_title_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"13px", "margin-top":"13px"});//bug1
@@ -1417,13 +1430,14 @@ $(document).ready(function(){
         $("#relate_title_photo").append(relate_title_circle);
         var relate_title_img = $("<img ></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"16px", "margin-top":"16.5px","cursor":"pointer"});
         relate_title_img.attr("src", GLOBAL_URL + "img/" + name + ".png");
-        relate_title_img.attr("id",id);
+        relate_title_img.attr("id",relate_title_id);
         $("#relate_title_photo").append(relate_title_img);  
         var  relate_title_text=$("<p></p>").css({"position":"relative","font-size":"14px","color":"white","margin-top":"72px","text-align":"center"});
         relate_title_text.text(name);
         $("#relate_title_photo").append(relate_title_text);
-        //console.log(id);
-        document.getElementById(id).addEventListener("mousedown",infoMousedown,false);
+        console.log("relate_title: "+relate_title_id);
+        document.getElementById(relate_title_id).addEventListener("mousedown",infoMousedown,false);
+
     };
 
 
@@ -1662,6 +1676,9 @@ $(document).ready(function(){
     	$("#main").hide();
     	$("#menu").hide();
     	$("#relate").hide();
+    	// var legendArray={age:1,dob:1,pob:1,school:1,region:1,system:1};
+    	// var legend_1=true;var legend_2=true;var legend_3=true;var legend_4=true;var legend_5=true;var legend_6=true; 
+    	console.log(legend_1);
     	});
     }
 
