@@ -302,12 +302,15 @@ $(document).ready(function(){
     $("#menu").append(menu_rect);
     var menu_content = $("<div id='menu_content'></div>").css({"position":"absolute", "width":WIDTH, "margin-top":"57px"});
     $("#menu").append(menu_content);
-    var menu_title = $("<div id='menu_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+    var menu_title = $("<div id='menu_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"90px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_TITLE_BACKGROUND_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
     $("#menu").append(menu_title);
     var menu_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#menu_title").append(menu_title_img);
-    var menu_title_closeButton = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px" ,"cursor":"pointer", "margin-left":"230px", "margin-top":"20px","cursor":"pointer"});
-    menu_title_closeButton.attr("src",GLOBAL_URL+"img/legend.png");
+    var menu_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
+    menu_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
+    $("#menu_title").append(menu_title_img_net);
+    var menu_title_closeButton = $("<img id='menu_title_closeButton'></img>").css({"position":"absolute", "width":"40px", "height":"40px" ,"cursor":"pointer", "margin-left":"250px", "margin-top":"25px","cursor":"pointer"});
+    menu_title_closeButton.attr("src",GLOBAL_URL+"img/triangle.png");
     $("#menu_title").append(menu_title_closeButton);
     var menu_content_choose = $("<div id='menu_content_choose'></div>").css({"margin-top":"50px"});
     $("#menu_content").append(menu_content_choose);
@@ -371,36 +374,36 @@ $(document).ready(function(){
 
 
 
-    var menu_content_choose_age_img1=$("<img class='menu_content_choose_age_img2_d'></img>");
-    menu_content_choose_age_img1.attr("src", GLOBAL_URL + "img/circle1.png");
-    //console.log("1");
-    $("#1").append(menu_content_choose_age_img1);
-    var menu_content_choose_age_img2=$("<img class='menu_content_choose_age_img2_d'></img>");
-    menu_content_choose_age_img2.attr("src", GLOBAL_URL + "img/circle2.png");
-    //console.log("2");
-    $("#2").append(menu_content_choose_age_img2);
-    var menu_content_choose_age_img3=$("<img class='menu_content_choose_age_img2_d'></img>");
-    menu_content_choose_age_img3.attr("src", GLOBAL_URL + "img/circle3.png");
-    //console.log("3");
-    $("#3").append(menu_content_choose_age_img3);
-    var menu_content_choose_age_img4=$("<img class='menu_content_choose_age_img2_d'></img>");
-    menu_content_choose_age_img4.attr("src", GLOBAL_URL + "img/circle4.png");
-    //console.log("4");
-    $("#4").append(menu_content_choose_age_img4);
-    var menu_content_choose_age_img5=$("<img class='menu_content_choose_age_img2_d'></img>");
-    menu_content_choose_age_img5.attr("src", GLOBAL_URL + "img/circle5.png");
-    //console.log("5");
-    $("#5").append(menu_content_choose_age_img5);
-    var menu_content_choose_age_img6=$("<img class='menu_content_choose_age_img2_d'></img>");
-    menu_content_choose_age_img6.attr("src", GLOBAL_URL + "img/circle6.png");
-    //console.log("6");
-    $("#6").append(menu_content_choose_age_img6);
+    // var menu_content_choose_age_img1=$("<img class='menu_content_choose_age_img2_d'></img>");
+    // menu_content_choose_age_img1.attr("src", GLOBAL_URL + "img/circle1.png");
+    // //console.log("1");
+    // $("#1").append(menu_content_choose_age_img1);
+    // var menu_content_choose_age_img2=$("<img class='menu_content_choose_age_img2_d'></img>");
+    // menu_content_choose_age_img2.attr("src", GLOBAL_URL + "img/circle2.png");
+    // //console.log("2");
+    // $("#2").append(menu_content_choose_age_img2);
+    // var menu_content_choose_age_img3=$("<img class='menu_content_choose_age_img2_d'></img>");
+    // menu_content_choose_age_img3.attr("src", GLOBAL_URL + "img/circle3.png");
+    // //console.log("3");
+    // $("#3").append(menu_content_choose_age_img3);
+    // var menu_content_choose_age_img4=$("<img class='menu_content_choose_age_img2_d'></img>");
+    // menu_content_choose_age_img4.attr("src", GLOBAL_URL + "img/circle4.png");
+    // //console.log("4");
+    // $("#4").append(menu_content_choose_age_img4);
+    // var menu_content_choose_age_img5=$("<img class='menu_content_choose_age_img2_d'></img>");
+    // menu_content_choose_age_img5.attr("src", GLOBAL_URL + "img/circle5.png");
+    // //console.log("5");
+    // $("#5").append(menu_content_choose_age_img5);
+    // var menu_content_choose_age_img6=$("<img class='menu_content_choose_age_img2_d'></img>");
+    // menu_content_choose_age_img6.attr("src", GLOBAL_URL + "img/circle6.png");
+    // //console.log("6");
+    // $("#6").append(menu_content_choose_age_img6);
 
 
-    $(".menu_content_choose_age_d").css({"position":"relative","width":WIDTH,"height":"70px","border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999","z-index":"0","cursor":"pointer"});
+    $(".menu_content_choose_age_d").css({"position":"relative","width":WIDTH,"height":"70px","border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#000","z-index":"0","cursor":"pointer"});
     $(".menu_content_choose_age_text_d").css({"padding-top":"20px","height":"40px","margin-left":"80px","line-height":"30px","font-size":"20px","color":"#FFF"});
     $(".menu_content_choose_age_img_d").css({"margin-left":"20px","width":"20px","height":"20px","margin-top":"-35px"});
-    $(".menu_content_choose_age_img2_d").css({"margin-left":"205px","width":"20px","height":"20px","margin-top":"-35px"});
+    // $(".menu_content_choose_age_img2_d").css({"margin-left":"205px","width":"20px","height":"20px","margin-top":"-35px"});
 
 
     
@@ -411,7 +414,7 @@ $(document).ready(function(){
         e.preventDefault();
         e.stopPropagation();
         var idName="#"+e.currentTarget.id.toString();
-        $(idName).css({"width":WIDTH,"height":"70px","background-color":INFO_BACKGROUND_COLOR,"border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+        $(idName).css({"width":WIDTH,"height":"70px","background-color":INFO_BACKGROUND_COLOR,"border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#000"});
 
     };
 
@@ -421,7 +424,7 @@ $(document).ready(function(){
         e.preventDefault();
         e.stopPropagation();
         var idName="#"+e.currentTarget.id.toString();
-        $(idName).css({"width":WIDTH,"height":"70px","background-color":"#5691c5","border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+        $(idName).css({"width":WIDTH,"height":"70px","background-color":"#5691c5","border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#000"});
     };
 
     for(var i=1;i<7;i++){
@@ -457,8 +460,8 @@ $(document).ready(function(){
     var choose_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
     choose_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
     $("#choose_title").append(choose_title_img_net);
-    var choose_title_closeButton = $("<img id='choose_title_closeButton'></img>").css({"position":"absolute", "width":"50px", "height":"50px",  "cursor":"pointer", "margin-left":"230px", "margin-top":"20px"});
-    choose_title_closeButton.attr("src",GLOBAL_URL+"img/legend.png");
+    var choose_title_closeButton = $("<img id='choose_title_closeButton'></img>").css({"position":"absolute", "width":"40px", "height":"40px",  "cursor":"pointer", "margin-left":"250px", "margin-top":"25px"});
+    choose_title_closeButton.attr("src",GLOBAL_URL+"img/triangle.png");
     $("#choose_title").append(choose_title_closeButton);
     // var choose_foot = $("<div id='choosefoot'></div>").css({"width":"100%", "height":"1000px", "border-top-style":"solid", "border-top-width":"3px", "border-top-color":"#999"});
     // $("#choose").append(choose_foot);
@@ -1222,7 +1225,7 @@ $(document).ready(function(){
     var relate_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
     relate_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
     $("#relate_title").append(relate_title_img_net);
-    var relate_title_closeButton = $("<button id='relate_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"230px", "margin-top":"20px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
+    var relate_title_closeButton = $("<button id='relate_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"250px", "margin-top":"25px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
 
     $("#relate_title").append(relate_title_closeButton);
 
@@ -1428,7 +1431,7 @@ $(document).ready(function(){
         var relate_title_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"13px", "margin-top":"13px"});//bug1
         relate_title_circle.attr("src", GLOBAL_URL + "img/circle.png");
         $("#relate_title_photo").append(relate_title_circle);
-        var relate_title_img = $("<img ></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"16px", "margin-top":"16.5px","cursor":"pointer"});
+        var relate_title_img = $("<img ></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"16px", "margin-top":"16px","cursor":"pointer"});
         relate_title_img.attr("src", GLOBAL_URL + "img/" + name + ".png");
         relate_title_img.attr("id",relate_title_id);
         $("#relate_title_photo").append(relate_title_img);  
@@ -1702,7 +1705,7 @@ $(document).ready(function(){
         e.preventDefault();
         e.stopPropagation();
         var OfficerData=findOfficerData(e.currentTarget.id);
-        updateInfo(OfficerData.name,OfficerData.age,OfficerData.dob,OfficerData.pob,OfficerData.school,OfficerData.region,OfficerData.system,OfficerData.resume);
+        updateInfo(OfficerData.name,OfficerData.age,OfficerData.dob,OfficerData.pob,OfficerData.school,OfficerData.region,OfficerData.system,OfficerData.resume,OfficerData.name_en);
     }
 
     function infoMousemove(e)
@@ -1736,19 +1739,37 @@ $(document).ready(function(){
     $("#info").append(info_rect);
      var info_problem_officer = $("<div id='info_problem_officer'></div>").css({"position":"absolute", "width":WIDTH, "margin-top":"57px"});
     $("#info").append(info_problem_officer);
-    var info_title = $("<div id='info_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"50px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+    var info_title = $("<div id='info_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
     $("#info").append(info_title);
-    var info_title_name = $("<p id='info_title_name'></p>").css({"position":"absolute", "margin-left":"16px", "margin-top":"7px", "color":"#FFF", "font-size":"24px",});
-    $("#info_title").append(info_title_name);
-    var info_title_closeButton = $("<button id='info_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"30px", "height":"40px", "background-color":INFO_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"265px", "margin-top":"0px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
+
+    var info_title_photo=$("<div id='info_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"5px","margin-left":"2px"});
+    $("#info_title").append(info_title_photo);
+    var info_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
+    info_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
+    $("#info_title").append(info_title_img_net);
+    
+   
+    var info_title_closeButton = $("<button id='info_title_closeButton' type='button'>x</button>").css({"position":"absolute", "width":"50px", "height":"50px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "cursor":"pointer", "margin-left":"250px", "margin-top":"25px", "color":"#FFF", "font-family":"'Arial'", "font-size":"24px"});
     $("#info_title").append(info_title_closeButton);
 
-    function updateInfo(name,age,dob,pob,school,region,system,resume){
+    function updateInfo(name,age,dob,pob,school,region,system,resume,name_en){
         $("#info_problem_officer").empty();
+        $("#info_title_photo").empty();
+        var info_title_circle = $("<img></img>").css({"position":"absolute", "width":"56px", "height":"56px", "border":"0", "margin-left":"13px", "margin-top":"13px"});//bug1
+        info_title_circle.attr("src", GLOBAL_URL + "img/circle.png");
+        $("#info_title_photo").append(info_title_circle);
+        var info_title_img = $("<img ></img>").css({"position":"absolute", "width":"50px", "height":"50px", "border":"0", "margin-left":"16px", "margin-top":"16px","cursor":"pointer"});
+        info_title_img.attr("src", GLOBAL_URL + "img/" + name_en + ".png");
+        $("#info_title_photo").append(info_title_img);
+        var info_title_text = $("<p id='info_title_text'></p>").css({"position":"relative","margin-top":"72px", "color":"#FFF", "font-size":"14px","text-align":"center"});
+        info_title_text.text(name_en);
+        $("#info_title_photo").append(info_title_text); 
+
+        
+
+        
         var info_introduce = $("<div id='info_introduce'></div>").css({"margin-left":"16px", "margin-right":"16px", "margin-top":"16px"});
         $("#info_problem_officer").append(info_introduce);
-        info_title_name.text(name);
-
         var info_introduce_title=$("<p id='info_introduce_title'></p>").css({"margin-bottom":"10px", "color":"#fff", "font-size":"16px"});
         info_introduce_title.text(INFO_INTRODUCE_TITLE);
         $("#info_introduce").append(info_introduce_title);
