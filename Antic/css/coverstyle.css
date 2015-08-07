@@ -1,4 +1,4 @@
-    @-webkit-keyframes ball1_animation{
+@-webkit-keyframes ball1_animation{
 0%  {background:white; left:167px; top:190.5px;width: 5px;height: 5px;}
 25%  {background: white; left:146px; top:171px;width: 7px;height: 7px;}
 50%  {background: white; left:124px; top:149.5px;width: 9px;height: 9px;}
@@ -39,26 +39,37 @@
 100%  {left:182px; top:136px; }
       }
 
-@media (max-width: :321px){
-    .resize{-webkit-transform:scale(1.2,1.2);}
+@media (min-width:321px){
+    .resize{-webkit-transform:scale(1.16,1.16);top: 0px;}
+    .resize_cover{-webkit-transform:scale(1.22,1.22);top: 100px;}
+    #font3{top:60px;}
+    #font2{top:55px;}
+    #ball{top:20px;}
 }
+        
+
            #cover{
            	background-color: #072f4a;
             width: 320px;
             height:1000px;
            	position: absolute;
-           	left: 0px;
-           	top: 0px;
-            z-index: 999;
+           	left: 50%;
+           	z-index: 999;
             overflow: hidden;
-            
+            margin-left: -160px;
            }
-           #ball {
+           .resize{
+            position: absolute;
+            left: 50%;
+            top: 0px;
+            margin-left: -160px;
+            }
+            #ball {
             background: url("../img/cover2.jpg");
             -webkit-transform:scale(0.95);
             position: absolute;
             background-repeat: no-repeat;
-            margin-top:100px;
+            margin-top:80px;
             margin-left:18px;
             width: 100%;
             height: 100%;
@@ -114,9 +125,19 @@
             background: url("../img/cover_font2.png");
             background-repeat: no-repeat;
             position: absolute;
-            top:440px;
+            margin-top:390px;
             left:120px;
             width: 100%;
             height:50px;
            
+          }
+          #font3{
+            background: url("../img/move_up_tip.png");
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 35px;
+            height: 20px;
+            left: 143px;
+            margin-top:435px;
+
           }
