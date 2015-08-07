@@ -294,7 +294,42 @@ $(document).ready(function(){
 
     //prepare
     $("body").css({"font-family":"'Arial'", "width":"320px", "height":"100%", "background-color":"#666", "-moz-user-select":"none", "-webkit-user-select":"none", "-ms-user-select":"none", "-khtml-user-select":"none", "user-select":"none"});
- 
+     
+
+    //cover
+    var move_up_tip=$("<img></img>").css({"position":"absolute","left":"143px","top":"485px","width":"35px","height":"20px"});
+    move_up_tip.attr("src",GLOBAL_URL+"img/move_up_tip.png");
+    $("#cover").append(move_up_tip);
+
+    var cover_info=$("<div id='cover_info'></div>").css({"position":"absolute","top":"600px","height":"100px","width":WIDTH});
+    $("#cover").append(cover_info);
+    var cover_info_text=$("<div id='cover_info_text'></div>").css({"position":"relative","margin-top":"20px","font-size":"10px","color":"white","text-align":"center"});
+    $("#cover_info").append(cover_info_text);
+    var cover_info_text_1=$("<p></p>").css({"margin-top":"10px","margin-bottom":"10px"});
+    cover_info_text_1.text("编辑：田川");
+    $("#cover_info_text").append(cover_info_text_1);
+    var cover_info_text_2=$("<p></p>").css({"margin-top":"10px","margin-bottom":"10px"});
+    cover_info_text_2.text("设计：王诗韵");
+    $("#cover_info_text").append(cover_info_text_2);
+    var cover_info_text_3=$("<p></p>").css({"margin-top":"10px","margin-bottom":"10px"});
+    cover_info_text_3.text("开发：邢其超");
+    $("#cover_info_text").append(cover_info_text_3);
+    var cover_info_text_4=$("<p></p>").css({"margin-top":"10px","margin-bottom":"10px"});
+    cover_info_text_4.text("项目指导：黄晨、任远");
+    $("#cover_info_text").append(cover_info_text_4);
+    var cover_info_text_5=$("<p></p>").css({"margin-top":"10px","margin-bottom":"10px"});
+    cover_info_text_5.text("监制：黄志敏");
+    $("#cover_info_text").append(cover_info_text_5);
+    var cover_info_text_6=$("<p></p>").css({"margin-top":"30px","margin-bottom":"10px"});
+    cover_info_text_6.text("数据可视化实验室");
+    $("#cover_info_text").append(cover_info_text_6);
+    var cover_info_text_7=$("<p></p>").css({"margin-top":"10px","margin-bottom":"10px"});
+    cover_info_text_7.text("Data Visualization Lab");
+    $("#cover_info_text").append(cover_info_text_7);
+    var cover_info_img=$("<img></img>").css({"position":"relative","margin-top":"30px","margin-left":"128px","width":"60px","height":"60px"});
+    cover_info_img.attr("src","http://file.caixin.com/datanews/yuanren/logo_white.png");
+    $("#cover_info").append(cover_info_img);
+
     //show menu
     $("#menu").css({"width":WIDTH});
     $("#menu").hide();
@@ -302,7 +337,7 @@ $(document).ready(function(){
     $("#menu").append(menu_rect);
     var menu_content = $("<div id='menu_content'></div>").css({"position":"absolute", "width":WIDTH, "margin-top":"57px"});
     $("#menu").append(menu_content);
-    var menu_title = $("<div id='menu_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"90px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_TITLE_BACKGROUND_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+    var menu_title = $("<div id='menu_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"90px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_TITLE_BACKGROUND_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#92C5F0"});
     $("#menu").append(menu_title);
     var menu_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#menu_title").append(menu_title_img);
@@ -453,7 +488,7 @@ $(document).ready(function(){
     $("#choose").append(choose_rect);
     var choose_content = $("<div id='choose_content'></div>").css({"position":"absolute", "width":WIDTH, "margin-top":"57px","top":"30px"});
     $("#choose").append(choose_content);
-    var choose_title = $("<div id='choose_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"90px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+    var choose_title = $("<div id='choose_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"90px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#92C5F0"});
     $("#choose").append(choose_title);
     var choose_title_img = $("<img src='img/people.png'></img>").css({"position":"absolute", "margin-left":"16px", "margin-top":"17px","width":"50px","height":"50px", "color":"#FFF",});
     $("#choose_title").append(choose_title_img);
@@ -1218,9 +1253,9 @@ $(document).ready(function(){
 
     var relate_content = $("<div id='relate_content'></div>").css({"position":"absolute","top":"80px", "width":WIDTH, "margin-top":"20px"});
     $("#relate").append(relate_content);
-    var relate_title = $("<div id='relate_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+    var relate_title = $("<div id='relate_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#92C5F0"});
     $("#relate").append(relate_title);
-    var relate_title_photo=$("<div id='relate_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"5px","margin-left":"2px"});
+    var relate_title_photo=$("<div id='relate_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"0px","margin-left":"2px"});
     $("#relate_title").append(relate_title_photo);
     var relate_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
     relate_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
@@ -1739,10 +1774,10 @@ $(document).ready(function(){
     $("#info").append(info_rect);
      var info_problem_officer = $("<div id='info_problem_officer'></div>").css({"position":"absolute", "width":WIDTH, "margin-top":"57px"});
     $("#info").append(info_problem_officer);
-    var info_title = $("<div id='info_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#999"});
+    var info_title = $("<div id='info_title'></div>").css({"position":"fixed", "width":WIDTH, "height":"100px", "background-color":INFO_TITLE_BACKGROUND_COLOR, "border-top-style":"solid", "border-top-width":"6.5px", "border-top-color":INFO_PROBLEM_OFFICER_TITLE_COLOR, "border-bottom-style":"solid", "border-bottom-width":"1px", "border-bottom-color":"#92C5F0"});
     $("#info").append(info_title);
 
-    var info_title_photo=$("<div id='info_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"5px","margin-left":"2px"});
+    var info_title_photo=$("<div id='info_title_photo'></div>").css({"position":"absolute", "width":"80px", "height":"85px","margin-top":"0px","margin-left":"2px"});
     $("#info_title").append(info_title_photo);
     var info_title_img_net = $("<img></img>").css({"position":"absolute","width":"200px","height":"100px","z-index":"-1","top":"-14px","left":"-10px"});
     info_title_img_net.attr("src",GLOBAL_URL+"img/title_net.png");
@@ -1768,7 +1803,7 @@ $(document).ready(function(){
         
 
         
-        var info_introduce = $("<div id='info_introduce'></div>").css({"margin-left":"16px", "margin-right":"16px", "margin-top":"16px"});
+        var info_introduce = $("<div id='info_introduce'></div>").css({"margin-left":"16px", "margin-right":"16px", "margin-top":"76px"});
         $("#info_problem_officer").append(info_introduce);
         var info_introduce_title=$("<p id='info_introduce_title'></p>").css({"margin-bottom":"10px", "color":"#fff", "font-size":"16px"});
         info_introduce_title.text(INFO_INTRODUCE_TITLE);
@@ -1860,7 +1895,7 @@ $(document).ready(function(){
             $("#info_introduce_resume").append(info_introduce_resume_text);
         };
         $(".info_introduce_name_d").css({"margin-top":"26px","min-height":"26px"});
-        $(".info_introduce_name_text_d").css({"margin-left":"63px", "margin-top":"16px", "width":"226px", "color":"#FFF", "font-size":"12px", "line-height":"30px"});
+        $(".info_introduce_name_text_d").css({"margin-left":"63px", "margin-top":"16px", "width":"226px", "color":"#FFF", "font-size":"14px", "line-height":"30px","margin-bottom":"5px"});
         $(".info_introduce_name_title_d").css({"margin-left":"28px","margin-top":"16px","width":"226px","color":"#FFF","font-size":"16px"});
         
         scrollTop = $(window).scrollTop();
