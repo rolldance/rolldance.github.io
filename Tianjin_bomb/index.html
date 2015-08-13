@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hungry</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" media="screen and (max-height:480px)"href="css/sm-style.css">
+<script type="text/javascript" src="http://file.caixin.com/datanews/yuanren/jquery-2.0.3.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+</head>
+
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!--slidecover-->
+        <div class="swiper-slide s6 swiper-slide-visible swiper-slide-active">
+        <img src="upload/s6-4.png" class="ani resize" style="width: 100%;height:auto;top:-6px;z-index: 4" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.0s">
+        <img src="upload/s6-3.png" class="ani resize" style="width: 100%;height:auto;top:-8px;z-index: 3" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s">
+        </div>
+        <!--slide1-->
+        <div class="swiper-slide s1">
+        <img src="img/logo_white.png" style="position:absolute;left:5%;top:40px;height:40px;width:40px">
+        <img src="img/1_fire.jpg" class="ani resize" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"  >
+        <div class="ani resize" style="width:90%;height:auto;left:5%;top:65%;z-index:3;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"  >
+          <p style="color:white;font-size:12px;text-align:left;text-indent:2em">8月12日，22时50分，天津消防总队接到报警称，天津滨海新区港务集团瑞海物流危化品堆垛发生火灾，天津消防总队9个中队的35辆消防车和港务局码头3个专职消防队赶赴现场扑救。23时06分消防官兵到达现场。</p>
+        </div>
+        </div>
+         <!--slide2-->
+        <div class="swiper-slide s2" id="map">
+        <img src="img/logo_white.png" id="map_trigger" style="position:absolute;left:5%;top:40px;height:40px;width:40px">
+        <img src="img/2_bomb.jpg" class="ani resize" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"  >
+        <div class="ani resize" style="width:90%;height:auto;left:5%;top:65%;z-index:3;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"  >
+        <p style="color:white;font-size:12px;text-align:left;text-indent:2em">火灾随后引起周围多家工厂强烈的爆炸，中国地震台网速报显示，爆炸发生在8月12日23时34分6秒，近震震级约2.3级，相当于3吨TNT。</p>
+        </div>
+        <div id="map_box"></div>
+
+        </div>
+         <!--slide3-->
+        <div class="swiper-slide s3">
+        <img src="img/logo_white.png" id="map-trigger" style="position:absolute;left:20px;top:40px;height:40px;width:40px">
+        <img src="img/3_bomb.jpg" class="ani resize" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" >
+        <div class="ani resize"style="width:90%;height:auto;left:5%;top:65%;z-index:3;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"  >
+        <p style="color:white;font-size:12px;text-align:left;text-indent:2em">30秒种后发生第二次爆炸，近震震级约2.9级，相当于21吨TNT——这已经达到一枚微型战术核武器的爆炸当量。</p>
+        </div>
+        </div>
+        <!--slide4-->
+        <div class="swiper-slide s4">
+        <img src="img/logo_white.png" style="position:absolute;left:20px;top:40px;height:40px;width:40px">
+        <img src="img/4_refire.jpg" class="ani resize" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"  >
+        <div class="ani resize" style="width:90%;height:auto;left:5%;top:65%;z-index:3;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s" >
+          <p style="color:white;font-size:12px;text-align:left;text-indent:2em">发生爆炸的天津滨海新区物流仓库复燃。</p>
+        </div>
+        </div>
+        <!--slide5-->
+        <div class="swiper-slide s5">
+            <img src="upload/s5-2.png" id="world" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+        </div>
+      
+        <div class="swiper-slide"></div>
+     </div>
+    
+   <img src="img/move_up_tip.png" style="width:40px;height:15px; top:450px; left:140px;" id="array" class="resizer">
+   <div class="swiper-pagination"></div>
+</div>
+<script src="js/swiper.min.js"></script>
+<script>
+//Resize the position of the elements
+scaleW=window.innerWidth/320;
+scaleH=window.innerHeight/480;
+var resizes = document.querySelectorAll('.resizer');
+          for (var j=0; j<resizes.length; j++) {
+           resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+		   resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px';
+	}
+//load SwiperJs
+var mySwiper = new Swiper ('.swiper-container', {
+   direction : 'vertical',
+   mousewheelControl : true,
+   onInit: function(swiper){
+   swiperAnimateCache(swiper);
+   swiperAnimate(swiper);
+	  },
+   onReachEnd: function(swiper){
+       window.location.reload();
+       },
+   onSlideChangeEnd: function(swiper){
+	swiperAnimate(swiper);
+    }	  
+	   });
+
+ $(document).ready(function(){
+    document.getElementById("map_trigger").addEventListener("mousedown",map_1,false);
+    
+    function map_1(e){
+       id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       console.log(id);
+       updateMapBox_1();
+       };
+
+    function updateMapBox_1(){
+        $("map_box").empty();
+        var map_box_1=$("<div class='map_box_1' id='map_box_1'></div>").css({"background-color":"black","opacity":".5","position":"absolute","top":"50px","left":"20px","width":"300px","height":"500px","z-index":"999"});
+        $("#map_box").append(map_box_1);
+        var map_box_1_img=$("<img></img>");
+        map_box_1.append(map_box_1_img);
+        var map_box_1_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"center","position":"absolute","top":"50px"});
+        map_box_1_text.text("sldflsflksfldksd");
+        map_box_1.append(map_box_1_text);
+        var map_box_button_1=$("<button id='map_box_button_1'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"150px","top":"50px","font-size":"20px"});
+        map_box_1.append(map_box_button_1);
+        $("#map_box_button_1").click(
+        function(){
+        console.log("xxx");
+        $("#map_box").empty();
+        })
+    }
+ })
+
+  </script>
+</body>
+</html>
