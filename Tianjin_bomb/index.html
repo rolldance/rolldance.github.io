@@ -16,7 +16,7 @@
 <div class="swiper-container">
     <div class="swiper-wrapper">
         <!--slidecover-->
-        <div class="swiper-slide s6 swiper-slide-visible swiper-slide-active">
+        <div class="swiper-slide s0 swiper-slide-visible swiper-slide-active">
         </div>
         <!--slide1-->
         <div class="swiper-slide s1">
@@ -28,17 +28,16 @@
         </div>
          <!--slide2-->
         <div class="swiper-slide s2">
-        <img src="img/logo_white.png" id="map_trigger_1" style="position:absolute;left:5%;top:40px;height:40px;width:40px">
+        <img src="img/logo_white.png" style="position:absolute;left:5%;top:40px;height:40px;width:40px">
         <img src="img/2_bomb.jpg" class="ani resize" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"  >
         <div class="ani resize" style="width:90%;height:auto;left:5%;top:68%;z-index:3;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"  >
         <p style="color:white;font-size:12px;text-align:left;text-indent:2em">火灾随后引起周围多家工厂强烈的爆炸，中国地震台网速报显示，爆炸发生在8月12日23时34分6秒，近震震级约2.3级，相当于3吨TNT。</p>
         </div>
-        <div id="map_box_one"></div>
 
         </div>
          <!--slide3-->
         <div class="swiper-slide s3">
-        <img src="img/logo_white.png" id="map-trigger" style="position:absolute;left:20px;top:40px;height:40px;width:40px">
+        <img src="img/logo_white.png" style="position:absolute;left:20px;top:40px;height:40px;width:40px">
         <img src="img/3_bomb.jpg" class="ani resize" style="width:90%;height:auto;left:5%;top:25%;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s" >
         <div class="ani resize"style="width:90%;height:auto;left:5%;top:68%;z-index:3;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"  >
         <p style="color:white;font-size:12px;text-align:left;text-indent:2em">30秒种后发生第二次爆炸，近震震级约2.9级，相当于21吨TNT——这已经达到一枚微型战术核武器的爆炸当量。</p>
@@ -54,7 +53,27 @@
         </div>
         <!--slide5-->
         <div class="swiper-slide s5">
-            <img src="img/Map.png" id="map" style="position:absolute;width:320px;height:auto;left:50%;margin-left:-160px;z-index:4;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            <div id="map_cover">
+            <img src="img/Map.png" style="position:absolute;width:320px;height:auto;z-index:0;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            <div id="ball1" style="z-index:1;"></div>
+            <div id="ball2" style="z-index:1"></div>
+            <div id="ball3" style="z-index:1" ></div>
+            <div id="ball4" style="z-index:1" ></div>
+            <div id="ball5" style="z-index:1" ></div>
+            <div id="ball6" style="z-index:1" ></div>
+            <div id="ball7" style="z-index:1" ></div>
+
+
+           
+            <div id="map_box_one"></div>
+            <div id="map_box_two"></div>
+            <div id="map_box_three"></div>
+            <div id="map_box_four"></div>
+            <div id="map_box_five"></div>
+            <div id="map_box_six"></div>
+
+
+            </div>
         </div>
       
         <div class="swiper-slide"></div>
@@ -90,7 +109,13 @@ var mySwiper = new Swiper ('.swiper-container', {
 	   });
 
  $(document).ready(function(){
-    document.getElementById("map_trigger_1").addEventListener("mousedown",map_1,false);
+    document.getElementById("ball1").addEventListener("mousedown",map_1,false);
+    document.getElementById("ball2").addEventListener("mousedown",map_2,false);
+    document.getElementById("ball3").addEventListener("mousedown",map_3,false);
+    document.getElementById("ball4").addEventListener("mousedown",map_4,false);
+    document.getElementById("ball5").addEventListener("mousedown",map_5,false);
+    document.getElementById("ball6").addEventListener("mousedown",map_6,false);
+
     //one
     function map_1(e){
        id=e.currentTarget.id;
@@ -127,9 +152,9 @@ var mySwiper = new Swiper ('.swiper-container', {
     function updateMapBox_2(){
         var map_box_2=$("<div class='map_box_2' id='map_box_2'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"50px","left":"10%","width":"80%","height":"400px","z-index":"10"});
         $("#map_box_two").append(map_box_2);
-        var map_box_2_img=$("<img src='img/5-1_hospital.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
-        map_box_1.append(map_box_2_img);
-        var map_box_1_text=$("<p></p>").css({"color":"white","font-size":"10px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
+        var map_box_2_img=$("<img src='img/5-2_park.png'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+        map_box_2.append(map_box_2_img);
+        var map_box_2_text=$("<p></p>").css({"color":"white","font-size":"10px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
         map_box_2_text.text("爆炸现场附近停车场，近千辆汽车被毁。");
         map_box_2.append(map_box_2_text);
         var map_box_button_2=$("<button id='map_box_button_2'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"95%","top":"2%","font-size":"20px","border-width":"0px"});
@@ -145,19 +170,18 @@ var mySwiper = new Swiper ('.swiper-container', {
        e.stopPropagation();
        e.preventDefault();
        console.log(id);
-       updateMapBox_1();
+       updateMapBox_3();
        };
 
     function updateMapBox_3(){
-        $("map_box_three").empty();
         var map_box_3=$("<div class='map_box_3' id='map_box_3'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"50px","left":"10%","width":"80%","height":"400px","z-index":"10"});
-        $("#map_box").append(map_box_3);
-        var map_box_3_img=$("<img src='img/5-1_hospital.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+        $("#map_box_three").append(map_box_3);
+        var map_box_3_img=$("<img src='img/5-3_construction.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_3.append(map_box_3_img);
         var map_box_3_text=$("<p></p>").css({"color":"white","font-size":"10px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
         map_box_3_text.text("爆炸现场附近，有两个建筑工地的生活区，临时建筑，大概有两百多名工人，这里受伤比海港城更严重，工人说受伤去医院的很多，但是很多也都回来了。");
         map_box_3.append(map_box_3_text);
-        var map_box_button_1=$("<button id='map_box_button_3'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"95%","top":"2%","font-size":"20px","border-width":"0px"});
+        var map_box_button_3=$("<button id='map_box_button_3'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"95%","top":"2%","font-size":"20px","border-width":"0px"});
         map_box_3.append(map_box_button_3);
         $("#map_box_button_3").click(function(){
         console.log("xxx");
@@ -170,14 +194,13 @@ var mySwiper = new Swiper ('.swiper-container', {
        e.stopPropagation();
        e.preventDefault();
        console.log(id);
-       updateMapBox_1();
+       updateMapBox_4();
        };
 
     function updateMapBox_4(){
-        $("map_box_four").empty();
         var map_box_4=$("<div class='map_box_4' id='map_box_4'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"50px","left":"10%","width":"80%","height":"400px","z-index":"10"});
-        $("#map_box").append(map_box_4);
-        var map_box_4_img=$("<img src='img/5-1_hospital.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+        $("#map_box_four").append(map_box_4);
+        var map_box_4_img=$("<img src='img/5-4_pumper.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_4.append(map_box_4_img);
         var map_box_4_text=$("<p></p>").css({"color":"white","font-size":"10px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
         map_box_4_text.text("津滨海新区爆炸事故点东侧的跃进路上，五辆消防车受损严重损毁，车内已无消防员，消防装备散落周围。跃进路上还停放着大量被炸毁的大货车，部分车辆仍处于点火状态。");
@@ -195,20 +218,19 @@ var mySwiper = new Swiper ('.swiper-container', {
        e.stopPropagation();
        e.preventDefault();
        console.log(id);
-       updateMapBox_1();
+       updateMapBox_5();
        };
 
     function updateMapBox_5(){
-        $("map_box_five").empty();
         var map_box_5=$("<div class='map_box_5' id='map_box_5'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"50px","left":"10%","width":"80%","height":"400px","z-index":"10"});
-        $("#map_box").append(map_box_5);
-        var map_box_5_img=$("<img src='img/5-1_hospital.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+        $("#map_box_five").append(map_box_5);
+        var map_box_5_img=$("<img src='img/5-5_subway.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_5.append(map_box_5_img);
         var map_box_5_text=$("<p></p>").css({"color":"white","font-size":"10px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
         map_box_5_text.text("据爆炸现场最近的津滨轻轨东海站已被震毁。");
-        map_box_5.append(map_box_1_text);
+        map_box_5.append(map_box_5_text);
         var map_box_button_5=$("<button id='map_box_button_5'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"95%","top":"2%","font-size":"20px","border-width":"0px"});
-        map_box_5.append(map_box_button_1);
+        map_box_5.append(map_box_button_5);
         $("#map_box_button_5").click(function(){
         console.log("xxx");
         $("#map_box_five").empty();
@@ -220,14 +242,13 @@ var mySwiper = new Swiper ('.swiper-container', {
        e.stopPropagation();
        e.preventDefault();
        console.log(id);
-       updateMapBox_1();
+       updateMapBox_6();
        };
 
     function updateMapBox_6(){
-        $("map_box_six").empty();
         var map_box_6=$("<div class='map_box_6' id='map_box_6'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"50px","left":"10%","width":"80%","height":"400px","z-index":"10"});
-        $("#map_box").append(map_box_6);
-        var map_box_6_img=$("<img src='img/5-1_hospital.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+        $("#map_box_six").append(map_box_6);
+        var map_box_6_img=$("<img src='img/5-6_building.jpeg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_6.append(map_box_6_img);
         var map_box_6_text=$("<p></p>").css({"color":"white","font-size":"10px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
         map_box_6_text.text("爆炸现场附近双子座、玉兰花、海港城等几个小区均受到爆炸影响，目前居民已撤离。");
@@ -236,7 +257,7 @@ var mySwiper = new Swiper ('.swiper-container', {
         map_box_6.append(map_box_button_6);
         $("#map_box_button_6").click(function(){
         console.log("xxx");
-        $("#map_box").empty();
+        $("#map_box_six").empty();
         })
     }
      //seven
@@ -245,7 +266,7 @@ var mySwiper = new Swiper ('.swiper-container', {
        e.stopPropagation();
        e.preventDefault();
        console.log(id);
-       updateMapBox_1();
+       updateMapBox_7();
        };
 
     function updateMapBox_7(){
