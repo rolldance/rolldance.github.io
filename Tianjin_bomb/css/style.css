@@ -1,51 +1,51 @@
 @-webkit-keyframes ball1_animation{
-0%  {background:white; left:15px; top:345px;width: 5px;height: 5px;}
-25%  {background: white; left:15px; top:345px;width: 8px;height: 8px;}
-50%  {background: white; left:15px; top:345px;width: 12px;height: 12px;}
-75%  {background: white; left:15px; top:345px;width: 8px;height: 8px;}
-100% {background: white; left:15px; top:345px;width: 5px;height: 5px;}
+0%  {background:white; left:0px; top:0px;width: 5px;height: 5px;}
+25%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+50%  {background: white; left:0px; top:0px;width: 12px;height: 12px;}
+75%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+100% {background: white; left:0px; top:0px;width: 5px;height: 5px;}
     }
 
 @-webkit-keyframes ball2_animation{
-0%  {background:white; left:240px; top:255px;width: 5px;height: 5px;}
-25%  {background: white; left:240px; top:255px;width: 8px;height: 8px;}
-50%  {background: white; left:240px; top:255px;width: 12px;height: 12px;}
-75%  {background: white; left:240px; top:255px;width: 8px;height: 8px;}
-100% {background: white; left:240px; top:255px;width: 5px;height: 5px;}
+0%  {background:white; left:0px; top:0px;width: 5px;height: 5px;}
+25%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+50%  {background: white; left:0px; top:0px;width: 12px;height: 12px;}
+75%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+100% {background: white; left:0px; top:0px;width: 5px;height: 5px;}
     }
 
 
 @-webkit-keyframes ball3_animation{
-0%  {background:white; left:145px; top:345px;width: 5px;height: 5px;}
-25%  {background: white; left:145px; top:345px;width: 8px;height: 8px;}
-50%  {background: white; left:145px; top:345px;width: 12px;height: 12px;}
-75%  {background: white; left:145px; top:345px;width: 8px;height: 8px;}
-100% {background: white; left:145px; top:345px;width: 5px;height: 5px;}
+0%  {background:white; left:0px; top:0px;width: 5px;height: 5px;}
+25%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+50%  {background: white; left:0px; top:0px;width: 12px;height: 12px;}
+75%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+100% {background: white; left:0px; top:0px;width: 5px;height: 5px;}
     }
 
 
 @-webkit-keyframes ball4_animation{
-0%  {background:white; left:180px; top:226px;width: 5px;height: 5px;}
-25%  {background: white; left:180px; top:226px;width: 8px;height: 8px;}
-50%  {background: white; left:180px; top:226px;width: 12px;height: 12px;}
-75%  {background: white; left:180px; top:226px;width: 8px;height: 8px;}
-100% {background: white; left:180px; top:226px;width: 5px;height: 5px;}
+0%  {background:white; left:00px; top:0px;width: 5px;height: 5px;}
+25%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+50%  {background: white; left:0px; top:0px;width: 12px;height: 12px;}
+75%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+100% {background: white; left:0px; top:0px;width: 5px;height: 5px;}
     }
 
 @-webkit-keyframes ball5_animation{
-0%  {background:white; left:110px; top:245px;width: 5px;height: 5px;}
-25%  {background: white; left:110px; top:245px;width: 8px;height: 8px;}
-50%  {background: white; left:110px; top:245px;width: 12px;height: 12px;}
-75%  {background: white; left:110px; top:245px;width: 8px;height: 8px;}
-100% {background: white; left:110px; top:245px;width: 5px;height: 5px;}
+0%  {background:white; left:0px; top:0px;width: 5px;height: 5px;}
+25%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+50%  {background: white; left:0px; top:0px;width: 12px;height: 12px;}
+75%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+100% {background: white; left:0px; top:0px;width: 5px;height: 5px;}
     }
 
 @-webkit-keyframes ball6_animation{
-0%  {background:white; left:105px; top:300px;width: 5px;height: 5px;}
-25%  {background: white; left:105px; top:300px;width: 8px;height: 8px;}
-50%  {background: white; left:105px; top:300px;width: 12px;height: 12px;}
-75%  {background: white; left:105px; top:300px;width: 8px;height: 8px;}
-100% {background: white; left:105px; top:300px;width: 5px;height: 5px;}
+0%  {background:white; left:0px; top:0px;width: 5px;height: 5px;}
+25%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+50%  {background: white; left:0px; top:0px;width: 12px;height: 12px;}
+75%  {background: white; left:0px; top:0px;width: 8px;height: 8px;}
+100% {background: white; left:0px; top:0px;width: 5px;height: 5px;}
     }
 
 @-webkit-keyframes ball7_animation{
@@ -56,7 +56,48 @@
 100% {background: white; left:180px; top:290px;width: 5px;height: 5px;}
     }
 
-
+#frame1{
+    position: absolute;
+    top:345px;
+    left: 15px;
+    width: 50px;
+    height: 20px;
+}
+#frame2{
+    position: absolute;
+    top:253px;
+    left: 238px;
+    width: 50px;
+    height: 20px;
+}
+#frame3{
+    position: absolute;
+    top:345px;
+    left: 145px;
+    width: 50px;
+    height: 20px;
+}
+#frame4{
+    position: absolute;
+    top:223px;
+    left: 180px;
+    width: 50px;
+    height: 20px;
+}
+#frame5{
+    position: absolute;
+    top:245px;
+    left: 110px;
+    width: 50px;
+    height: 20px;
+}
+#frame6{
+    position: absolute;
+    top:300px;
+    left: 105px;
+    width: 50px;
+    height: 20px;
+}
 *{
     margin:0;
     padding:0;
@@ -76,7 +117,13 @@ body{
 
 }
 @media(min-width: 321px){
-    #map_cover{-webkit-transform:scale(1.25,1.25);position:absolute;top:0px;}
+    #map_cover{-webkit-transform:scale(1.25,1.25);position:absolute;top:0px;left: 0px;}
+    #map_box_1{margin-left: -10px;}
+    #map_box_2{margin-left: -10px;}
+    #map_box_3{margin-left: -10px;}
+    #map_box_4{margin-left: -10px;}
+    #map_box_5{margin-left: -10px;}
+    #map_box_6{margin-left: -10px;}
 }
 .swiper-slide{
     width:100%;
@@ -108,37 +155,37 @@ overflow: hidden;*/
 
 #ball1{
     -webkit-animation: ball1_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 #ball2{
     -webkit-animation: ball2_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 #ball3{
     -webkit-animation: ball3_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 #ball4{
     -webkit-animation: ball4_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 #ball5{
     -webkit-animation: ball5_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 #ball6{
     -webkit-animation: ball6_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 #ball7{
     -webkit-animation: ball7_animation 2s infinite linear;
-    position: absolute;
+    position: relative;
     border-radius: 50%;
 }
 
