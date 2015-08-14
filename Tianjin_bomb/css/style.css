@@ -12,69 +12,69 @@
 100% {background: red;opacity: .1; left:80px; top:170px;width: 240px;height: 240px;}
     }
 @-webkit-keyframes ball1_animation{
-0%  {background:white;opacity:.7;left:0px; top:0px;width: 5px;height: 5px;}
-25%  {background: white;opacity:.7;left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7;left:4px; top:4px;width: 6px;height: 6px;}
+25%  {background: white;opacity:.7;left:2px; top:2px;width: 8px;height: 8px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 @-webkit-keyframes ball2_animation{
-0%  {background:white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
-25%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
+25%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7; left:4px; top:4px;width: 5px;height: 5px;}
     }
 
 
 @-webkit-keyframes ball3_animation{
-0%  {background:white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
-25%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
+25%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 
 @-webkit-keyframes ball4_animation{
-0%  {background:white;opacity:.7; left:00px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
 25%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 @-webkit-keyframes ball5_animation{
-0%  {background:white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
 25%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 @-webkit-keyframes ball6_animation{
-0%  {background:white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
 25%  {background: white; opacity:.7;left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white; opacity:.7;left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white; opacity:.7;left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white; opacity:.7;left:0px; top:0px;width: 5px;height: 5px;}
+50%  {background: white; opacity:.7;left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white; opacity:.7;left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white; opacity:.7;left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 @-webkit-keyframes ball7_animation{
-0%  {background:white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
 25%  {background: white; opacity:.7;left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7;left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 @-webkit-keyframes ball8_animation{
-0%  {background:white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+0%  {background:white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
 25%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-50%  {background: white;opacity:.7; left:0px; top:0px;width: 12px;height: 12px;}
-75%  {background: white;opacity:.7; left:0px; top:0px;width: 8px;height: 8px;}
-100% {background: white;opacity:.7; left:0px; top:0px;width: 5px;height: 5px;}
+50%  {background: white;opacity:.7; left:0px; top:0px;width: 10px;height: 10px;}
+75%  {background: white;opacity:.7; left:2px; top:2px;width: 8px;height: 8px;}
+100% {background: white;opacity:.7; left:4px; top:4px;width: 6px;height: 6px;}
     }
 
 #frame0{
@@ -86,49 +86,49 @@
 }
 #frame1{
     position: absolute;
-    top:365px;
+    top:363px;
     left: 30px;
     width: 50px;
     height: 20px;
 }
 #frame2{
     position: absolute;
-    top:253px;
-    left: 238px;
+    top:251px;
+    left: 234px;
     width: 50px;
     height: 20px;
 }
 #frame3{
     position: absolute;
     top:345px;
-    left: 145px;
+    left: 140px;
     width: 50px;
     height: 20px;
 }
 #frame4{
     position: absolute;
-    top:223px;
-    left: 180px;
+    top:220px;
+    left: 176px;
     width: 50px;
     height: 20px;
 }
 #frame5{
     position: absolute;
     top:245px;
-    left: 110px;
+    left: 106px;
     width: 50px;
     height: 20px;
 }
 #frame6{
     position: absolute;
-    top:300px;
-    left: 120px;
+    top:298px;
+    left: 95px;
     width: 50px;
     height: 20px;
 }
 #frame7{
     position: absolute;
-    top:310px;
+    top:309px;
     left: 37px;
     width: 50px;
     height: 20px;
@@ -136,7 +136,7 @@
 #frame8{
     position: absolute;
     top:280px;
-    left: 30px;
+    left: 28px;
     width: 50px;
     height: 20px;
 }
