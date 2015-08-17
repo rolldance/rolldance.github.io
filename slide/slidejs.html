@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slidejs</title>
+	 <script type="text/javascript" src="http://file.caixin.com/datanews/yuanren/jquery-2.0.3.js"></script>
+	<script language="javascript" src="http://file.caixin.com/webjs/swipe.js"></script>
+	<style>
+   .swipe{
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+   }
+
+ .swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap li {
+  float:left;
+  width:100%;
+  position: relative;
+}
+	</style>
+
+</head>
+<body>
+<div id="slider" class="swipe">
+<ul class="swipe-wrap">
+	<li><p>sdfsfsfsdfsdf</p></li>
+	<li><p>sdfsfsfsdfsd</p></li>
+	<li><p>sfsdfsdfsdfsdfsd</p></li>
+</ul>
+<script type="text/javascript">
+	window.mySwipe=Swipe(document.getElementById("slider")),{
+		startSlide:2,
+        speed:400
+	};
+
+</script>
+</body>
+</html>
