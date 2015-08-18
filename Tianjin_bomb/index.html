@@ -109,7 +109,6 @@
             </div>
             <div id="frame9"></div>
 
-           
             <div id="map_box_one"></div>
             <div id="map_box_two"></div>
             <div id="map_box_three"></div>
@@ -119,9 +118,9 @@
             <div id="map_box_seven"></div>
             <div id="map_box_eight"></div>
             <div id="map_box_nine"></div>
-
-
+            
             </div>
+
         </div>
       <!-- 
         <div class="swiper-slide"></div> -->
@@ -166,7 +165,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     document.getElementById("frame8").addEventListener("mousedown",map_8,false);
     document.getElementById("frame9").addEventListener("mousedown",map_9,false);
 
-    //one
+    //one 医院
     function map_1(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -200,25 +199,31 @@ var mySwiper = new Swiper ('.swiper-container', {
     var map_box_1_atlas_list_1=$("<li></li>");
     map_box_1_atlas_list.append(map_box_1_atlas_list_1);
     var map_box_1_atlas_img_1=$("<img></img>");
-    map_box_1_atlas_img_1.attr("alt","财新直击：部分爆炸中的伤员被送往附近的泰达医院。医院辟出一间屋子作为失联家属接待室。");
-    map_box_1_atlas_img_1.attr("src","img/5-1_hospital.jpg");
+    map_box_1_atlas_img_1.attr("alt","财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。");
+    map_box_1_atlas_img_1.attr("src","img/1-1.jpg");
     map_box_1_atlas_list_1.append(map_box_1_atlas_img_1);
 
 
     var map_box_1_atlas_list_2=$("<li></li>");
     map_box_1_atlas_list.append(map_box_1_atlas_list_2);
     var map_box_1_atlas_img_2=$("<img></img>");
-    map_box_1_atlas_img_2.attr("alt","财新直击：爆炸现场附近停车场，近千辆汽车被毁。");
-    map_box_1_atlas_img_2.attr("src","img/5-2_park.jpg");
+    map_box_1_atlas_img_2.attr("alt","财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。");
+    map_box_1_atlas_img_2.attr("src","img/1-2.jpg");
     map_box_1_atlas_list_2.append(map_box_1_atlas_img_2);
 
-    var map_box_1_atlas_list_3=$("<li id='3'></li>");
+    var map_box_1_atlas_list_3=$("<li></li>");
     map_box_1_atlas_list.append(map_box_1_atlas_list_3);
     var map_box_1_atlas_img_3=$("<img></img>");
-    map_box_1_atlas_img_3.attr("alt","财新直击：爆炸现场附近，有两个建筑工地的生活区，大概有两百多名工人。工人说受伤去医院的很多，但是很多也都回来了。");
-    map_box_1_atlas_img_3.attr("src","img/5-3_construction.jpg");
+    map_box_1_atlas_img_3.attr("alt","财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。");
+    map_box_1_atlas_img_3.attr("src","img/1-3.jpg");
     map_box_1_atlas_list_3.append(map_box_1_atlas_img_3);
 
+    var map_box_1_atlas_list_4=$("<li></li>");
+    map_box_1_atlas_list.append(map_box_1_atlas_list_4);
+    var map_box_1_atlas_img_4=$("<img></img>");
+    map_box_1_atlas_img_4.attr("alt","财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。");
+    map_box_1_atlas_img_4.attr("src","img/1-4.jpg");
+    map_box_1_atlas_list_4.append(map_box_1_atlas_img_4);
     //append ol
     var map_box_1_ol=$("<div id='map_box_1_ol' class='slider-mo'></div>");
     map_box_1.append(map_box_1_ol);
@@ -230,9 +235,11 @@ var mySwiper = new Swiper ('.swiper-container', {
     map_box_1_ol_list.append(map_box_1_ol_list_2);
     var map_box_1_ol_list_3=$("<li class=''></li>");
     map_box_1_ol_list.append(map_box_1_ol_list_3);
+    var map_box_1_ol_list_4=$("<li class=''></li>");
+    map_box_1_ol_list.append(map_box_1_ol_list_4);
 
     //append text
-    var map_box_1_content=$("<div id='map_box_1_content' class='map_content'>财新直击：部分爆炸中的伤员被送往附近的泰达医院。医院辟出一间屋子作为失联家属接待室。</div>");
+    var map_box_1_content=$("<div id='map_box_1_content' class='map_content'>财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。</div>");
     map_box_1.append(map_box_1_content);
     //load the atlas
     var elem = document.getElementById('slider_1');
@@ -240,15 +247,15 @@ var mySwiper = new Swiper ('.swiper-container', {
     auto: 6000,
     continuous: true,
     callback: function(index, element) {
-    $("#map_box_1_ol ol>li").attr("class", ""),
+    $("#map_box_1_ol ol>li").attr("class",""),
     $("#map_box_1_ol ol>li").eq(index).attr("class", "current"),
     $("#map_box_1_content").text($("#slider_1 ul>li").eq(index).find("img").attr("alt"))
 }
 });
-
-
 };
-    //two
+
+
+    //two 公园
      function map_2(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -258,21 +265,27 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_2(){
+   //append map_box
         var map_box_2=$("<div class='map_box_2' id='map_box_2'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
         $("#map_box_two").append(map_box_2);
-        var map_box_2_img=$("<img src='img/5-2_park.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+      //append map content
+        var map_box_2_img=$("<img src='img/2-1.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_2.append(map_box_2_img);
-        var map_box_2_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
+        var map_box_2_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%","width":"90%","left":"5%"});
         map_box_2_text.text("财新直击：爆炸现场附近停车场，近千辆汽车被毁。");
         map_box_2.append(map_box_2_text);
-        var map_box_button_2=$("<button id='map_box_button_2'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_2.append(map_box_button_2);
-        $("#map_box_button_2").click(function(){
-        //console.log("xxx");
-        $("#map_box_two").empty();
-        })
-    }
-    //three
+        //append close button
+       var map_box_2_button_div=$("<div id='map_box_2_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+       map_box_2.append(map_box_2_button_div);
+       var map_box_2_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+       map_box_2_button_div.append(map_box_2_button);
+       $("#map_box_2_button_div").on("click",function(){
+       //console.log("xxx");
+       $("#map_box_two").empty();
+       });
+};
+    
+    //three 建筑工地
      function map_3(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -282,21 +295,25 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_3(){
+       //append map_box
         var map_box_3=$("<div class='map_box_3' id='map_box_3'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
         $("#map_box_three").append(map_box_3);
-        var map_box_3_img=$("<img src='img/5-3_construction.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+      //append map content
+        var map_box_3_img=$("<img src='img/3-1.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_3.append(map_box_3_img);
-        var map_box_3_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
+        var map_box_3_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%","width":"90%","left":"5%"});
         map_box_3_text.text("财新直击：爆炸现场附近，有两个建筑工地的生活区，大概有两百多名工人。工人说受伤去医院的很多，但是很多也都回来了。");
         map_box_3.append(map_box_3_text);
-        var map_box_button_3=$("<button id='map_box_button_3'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_3.append(map_box_button_3);
-        $("#map_box_button_3").click(function(){
-        //console.log("xxx");
-        $("#map_box_three").empty();
-        })
+        //append close button
+       var map_box_3_button_div=$("<div id='map_box_3_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+       map_box_3.append(map_box_3_button_div);
+       var map_box_3_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+       map_box_3_button_div.append(map_box_3_button);
+       $("#map_box_3_button_div").on("click",function(){
+       $("#map_box_three").empty();
+       });
     }
-     //four
+     //four 消防车
      function map_4(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -306,21 +323,77 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_4(){
-        var map_box_4=$("<div class='map_box_4' id='map_box_4'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
-        $("#map_box_four").append(map_box_4);
-        var map_box_4_img=$("<img src='img/5-4_pumper.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
-        map_box_4.append(map_box_4_img);
-        var map_box_4_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
-        map_box_4_text.text("财新直击：爆炸事故点东侧的跃进路上，五辆消防车受损严重损毁，车内已无消防员，消防装备散落周围。");
-        map_box_4.append(map_box_4_text);
-        var map_box_button_4=$("<button id='map_box_button_4'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_4.append(map_box_button_4);
-        $("#map_box_button_4").click(function(){
-        //console.log("xxx");
-        $("#map_box_four").empty();
-        })
+         //append base content
+   var map_box_4=$("<div class='map_box_4' id='map_box_4'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#map_box_four").append(map_box_4);
+    
+    //append close button 
+    var map_box_4_button_div=$("<div id='map_box_4_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      map_box_4.append(map_box_4_button_div);
+      var map_box_4_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      map_box_4_button_div.append(map_box_4_button);
+      $("#map_box_4_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#map_box_four").empty();
+      });
+
+    //append graph altas 
+    var map_box_4_atlas=$("<div class='slider-m' id='slider_4'></div>").css({"visibility":"visible"});
+    map_box_4.append(map_box_4_atlas);
+    var map_box_4_atlas_list=$("<ul></ul>");
+    map_box_4_atlas.append(map_box_4_atlas_list);
+    
+
+    var map_box_4_atlas_list_1=$("<li></li>");
+    map_box_4_atlas_list.append(map_box_4_atlas_list_1);
+    var map_box_4_atlas_img_1=$("<img></img>");
+    map_box_4_atlas_img_1.attr("alt","爆炸事故点东侧的跃进路上，五辆消防车受损严重损毁，车内已无消防员，消防装备散落周围。（东方IC）");
+    map_box_4_atlas_img_1.attr("src","img/4-1.jpg");
+    map_box_4_atlas_list_1.append(map_box_4_atlas_img_1);
+
+
+    var map_box_4_atlas_list_2=$("<li></li>");
+    map_box_4_atlas_list.append(map_box_4_atlas_list_2);
+    var map_box_4_atlas_img_2=$("<img></img>");
+    map_box_4_atlas_img_2.attr("alt","财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。");
+    map_box_4_atlas_img_2.attr("src","img/4-2.jpg");
+    map_box_4_atlas_list_2.append(map_box_4_atlas_img_2);
+
+    var map_box_4_atlas_list_3=$("<li></li>");
+    map_box_4_atlas_list.append(map_box_4_atlas_list_3);
+    var map_box_4_atlas_img_3=$("<img></img>");
+    map_box_4_atlas_img_3.attr("alt","财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。");
+    map_box_4_atlas_img_3.attr("src","img/4-3.jpg");
+    map_box_4_atlas_list_3.append(map_box_4_atlas_img_3);
+
+    //append ol
+    var map_box_4_ol=$("<div id='map_box_4_ol' class='slider-mo'></div>");
+    map_box_4.append(map_box_4_ol);
+    var map_box_4_ol_list=$("<ol></ol>");
+    map_box_4_ol.append(map_box_4_ol_list);
+    var map_box_4_ol_list_1=$("<li class='current'></li>");
+    map_box_4_ol_list.append(map_box_4_ol_list_1);
+    var map_box_4_ol_list_2=$("<li class=''></li>");
+    map_box_4_ol_list.append(map_box_4_ol_list_2);
+    var map_box_4_ol_list_3=$("<li class=''></li>");
+    map_box_4_ol_list.append(map_box_4_ol_list_3);
+ 
+    //append text
+    var map_box_4_content=$("<div id='map_box_4_content' class='map_content'>爆炸事故点东侧的跃进路上，五辆消防车受损严重损毁，车内已无消防员，消防装备散落周围。（东方IC）</div>");
+    map_box_4.append(map_box_4_content);
+    //load the atlas
+    var elem = document.getElementById('slider_4');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#map_box_4_ol ol>li").attr("class",""),
+    $("#map_box_4_ol ol>li").eq(index).attr("class", "current"),
+    $("#map_box_4_content").text($("#slider_4 ul>li").eq(index).find("img").attr("alt"))
+}
+});
     }
-     //five
+     //five 地铁
      function map_5(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -330,21 +403,25 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_5(){
+        //append map_box
         var map_box_5=$("<div class='map_box_5' id='map_box_5'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
         $("#map_box_five").append(map_box_5);
-        var map_box_5_img=$("<img src='img/5-5_subway.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+      //append map content
+        var map_box_5_img=$("<img src='img/5-1.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_5.append(map_box_5_img);
-        var map_box_5_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
+        var map_box_5_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%","width":"90%","left":"5%"});
         map_box_5_text.text("距爆炸现场最近的津滨轻轨东海站已被震毁。（新华社）");
         map_box_5.append(map_box_5_text);
-        var map_box_button_5=$("<button id='map_box_button_5'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_5.append(map_box_button_5);
-        $("#map_box_button_5").click(function(){
-        //console.log("xxx");
-        $("#map_box_five").empty();
-        })
+        //append close button
+       var map_box_5_button_div=$("<div id='map_box_5_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+       map_box_5.append(map_box_5_button_div);
+       var map_box_5_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+       map_box_5_button_div.append(map_box_5_button);
+       $("#map_box_5_button_div").on("click",function(){
+       $("#map_box_five").empty();
+       });
     }
-     //six
+     //six 建筑
      function map_6(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -354,21 +431,25 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_6(){
+       //append map_box
         var map_box_6=$("<div class='map_box_6' id='map_box_6'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
         $("#map_box_six").append(map_box_6);
-        var map_box_6_img=$("<img src='img/5-6_building.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
+      //append map content
+        var map_box_6_img=$("<img src='img/6-1.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_6.append(map_box_6_img);
-        var map_box_6_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
-        map_box_6_text.text("财新直击：爆炸现场附近海港城、双子座、玉兰花等几个小区均受到爆炸影响，目前居民已撤离。");
+        var map_box_6_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%","width":"90%","left":"5%"});
+        map_box_6_text.text("财新直击：爆炸现场附近万科清水湾、海港城、双子座、玉兰花等几个小区均受到爆炸影响，目前居民已撤离。");
         map_box_6.append(map_box_6_text);
-        var map_box_button_6=$("<button id='map_box_button_6'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_6.append(map_box_button_6);
-        $("#map_box_button_6").click(function(){
-       // console.log("xxx");
-        $("#map_box_six").empty();
-        })
+        //append close button
+       var map_box_6_button_div=$("<div id='map_box_6_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+       map_box_6.append(map_box_6_button_div);
+       var map_box_6_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+       map_box_6_button_div.append(map_box_6_button);
+       $("#map_box_6_button_div").on("click",function(){
+       $("#map_box_six").empty();
+       });
     }
-     //seven
+     //seven  第五大道
      function map_7(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -378,22 +459,78 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_7(){
-        var map_box_7=$("<div class='map_box_7' id='map_box_7'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
-        $("#map_box_seven").append(map_box_7);
-        var map_box_7_img=$("<img src='img/5-7_reserve.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
-        map_box_7.append(map_box_7_img);
-        var map_box_7_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
-        map_box_7_text.text("财新直击：天津市泰达开发区第二小学，为爆炸现场周边小区居民休息的安置点之一。 ");
-        map_box_7.append(map_box_7_text);
-        var map_box_button_7=$("<button id='map_box_button_7'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_7.append(map_box_button_7);
-        $("#map_box_button_7").click(function(){
-        //console.log("xxx");
-        $("#map_box_seven").empty();
-        })
+    //append base content
+   var map_box_7=$("<div class='map_box_7' id='map_box_7'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#map_box_seven").append(map_box_7);
+    
+    //append close button 
+    var map_box_7_button_div=$("<div id='map_box_7_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      map_box_7.append(map_box_7_button_div);
+      var map_box_7_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      map_box_7_button_div.append(map_box_7_button);
+      $("#map_box_7_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#map_box_seven").empty();
+      });
+
+    //append graph altas 
+    var map_box_7_atlas=$("<div class='slider-m' id='slider_7'></div>").css({"visibility":"visible"});
+    map_box_7.append(map_box_7_atlas);
+    var map_box_7_atlas_list=$("<ul></ul>");
+    map_box_7_atlas.append(map_box_7_atlas_list);
+    
+
+    var map_box_7_atlas_list_1=$("<li></li>");
+    map_box_7_atlas_list.append(map_box_7_atlas_list_1);
+    var map_box_7_atlas_img_1=$("<img></img>");
+    map_box_7_atlas_img_1.attr("alt","财新直击：第五大道执勤的武警封锁了进出的道路。");
+    map_box_7_atlas_img_1.attr("src","img/7-1.jpg");
+    map_box_7_atlas_list_1.append(map_box_7_atlas_img_1);
+
+
+    var map_box_7_atlas_list_2=$("<li></li>");
+    map_box_7_atlas_list.append(map_box_7_atlas_list_2);
+    var map_box_7_atlas_img_2=$("<img></img>");
+    map_box_7_atlas_img_2.attr("alt","财新直击：第五大道执勤的武警封锁了进出的道路。");
+    map_box_7_atlas_img_2.attr("src","img/7-2.jpg");
+    map_box_7_atlas_list_2.append(map_box_7_atlas_img_2);
+
+    var map_box_7_atlas_list_3=$("<li></li>");
+    map_box_7_atlas_list.append(map_box_7_atlas_list_3);
+    var map_box_7_atlas_img_3=$("<img></img>");
+    map_box_7_atlas_img_3.attr("alt","财新直击：第五大道执勤的武警封锁了进出的道路。");
+    map_box_7_atlas_img_3.attr("src","img/7-3.jpg");
+    map_box_7_atlas_list_3.append(map_box_7_atlas_img_3);
+
+    //append ol
+    var map_box_7_ol=$("<div id='map_box_7_ol' class='slider-mo'></div>");
+    map_box_7.append(map_box_7_ol);
+    var map_box_7_ol_list=$("<ol></ol>");
+    map_box_7_ol.append(map_box_7_ol_list);
+    var map_box_7_ol_list_1=$("<li class='current'></li>");
+    map_box_7_ol_list.append(map_box_7_ol_list_1);
+    var map_box_7_ol_list_2=$("<li class=''></li>");
+    map_box_7_ol_list.append(map_box_7_ol_list_2);
+    var map_box_7_ol_list_3=$("<li class=''></li>");
+    map_box_7_ol_list.append(map_box_7_ol_list_3);
+ 
+    //append text
+    var map_box_7_content=$("<div id='map_box_7_content' class='map_content'>财新直击：第五大道执勤的武警封锁了进出的道路。</div>");
+    map_box_7.append(map_box_7_content);
+    //load the atlas
+    var elem = document.getElementById('slider_7');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#map_box_7_ol ol>li").attr("class",""),
+    $("#map_box_7_ol ol>li").eq(index).attr("class", "current"),
+    $("#map_box_7_content").text($("#slider_7 ul>li").eq(index).find("img").attr("alt"))
+}
+});
     }
 
-         //eight
+     //eight 安置点
      function map_8(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -403,22 +540,78 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
     function updateMapBox_8(){
-        var map_box_8=$("<div class='map_box_8' id='map_box_8'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
-        $("#map_box_eight").append(map_box_8);
-        var map_box_8_img=$("<img src='img/5-8_five.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
-        map_box_8.append(map_box_8_img);
-        var map_box_8_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
-        map_box_8_text.text("财新直击：第五大道执勤的武警封锁了进出的道路。");
-        map_box_8.append(map_box_8_text);
-        var map_box_button_8=$("<button id='map_box_button_8'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_8.append(map_box_button_8);
-        $("#map_box_button_8").click(function(){
-        //console.log("xxx");
-        $("#map_box_eight").empty();
-        })
+          //append base content
+   var map_box_8=$("<div class='map_box_8' id='map_box_8'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#map_box_eight").append(map_box_8);
+    
+    //append close button 
+    var map_box_8_button_div=$("<div id='map_box_8_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      map_box_8.append(map_box_8_button_div);
+      var map_box_8_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      map_box_8_button_div.append(map_box_8_button);
+      $("#map_box_8_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#map_box_eight").empty();
+      });
+
+    //append graph altas 
+    var map_box_8_atlas=$("<div class='slider-m' id='slider_8'></div>").css({"visibility":"visible"});
+    map_box_8.append(map_box_8_atlas);
+    var map_box_8_atlas_list=$("<ul></ul>");
+    map_box_8_atlas.append(map_box_8_atlas_list);
+    
+
+    var map_box_8_atlas_list_1=$("<li></li>");
+    map_box_8_atlas_list.append(map_box_8_atlas_list_1);
+    var map_box_8_atlas_img_1=$("<img></img>");
+    map_box_8_atlas_img_1.attr("alt","财新直击：天津市泰达开发区第二小学，为爆炸现场周边小区居民休息的安置点之一。");
+    map_box_8_atlas_img_1.attr("src","img/8-1.jpg");
+    map_box_8_atlas_list_1.append(map_box_8_atlas_img_1);
+
+
+    var map_box_8_atlas_list_2=$("<li></li>");
+    map_box_8_atlas_list.append(map_box_8_atlas_list_2);
+    var map_box_8_atlas_img_2=$("<img></img>");
+    map_box_8_atlas_img_2.attr("alt","财新直击：天津市泰达开发区第二小学，为爆炸现场周边小区居民休息的安置点之一。");
+    map_box_8_atlas_img_2.attr("src","img/8-2.jpg");
+    map_box_8_atlas_list_2.append(map_box_8_atlas_img_2);
+
+    var map_box_8_atlas_list_3=$("<li></li>");
+    map_box_8_atlas_list.append(map_box_8_atlas_list_3);
+    var map_box_8_atlas_img_3=$("<img></img>");
+    map_box_8_atlas_img_3.attr("alt","财新直击：天津市泰达开发区第二小学，为爆炸现场周边小区居民休息的安置点之一。");
+    map_box_8_atlas_img_3.attr("src","img/8-3.jpg");
+    map_box_8_atlas_list_3.append(map_box_8_atlas_img_3);
+
+    //append ol
+    var map_box_8_ol=$("<div id='map_box_8_ol' class='slider-mo'></div>");
+    map_box_8.append(map_box_8_ol);
+    var map_box_8_ol_list=$("<ol></ol>");
+    map_box_8_ol.append(map_box_8_ol_list);
+    var map_box_8_ol_list_1=$("<li class='current'></li>");
+    map_box_8_ol_list.append(map_box_8_ol_list_1);
+    var map_box_8_ol_list_2=$("<li class=''></li>");
+    map_box_8_ol_list.append(map_box_8_ol_list_2);
+    var map_box_8_ol_list_3=$("<li class=''></li>");
+    map_box_8_ol_list.append(map_box_8_ol_list_3);
+ 
+    //append text
+    var map_box_8_content=$("<div id='map_box_8_content' class='map_content'>财新直击：天津市泰达开发区第二小学，为爆炸现场周边小区居民休息的安置点之一。</div>");
+    map_box_8.append(map_box_8_content);
+    //load the atlas
+    var elem = document.getElementById('slider_8');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#map_box_8_ol ol>li").attr("class",""),
+    $("#map_box_8_ol ol>li").eq(index).attr("class", "current"),
+    $("#map_box_8_content").text($("#slider_8 ul>li").eq(index).find("img").attr("alt"))
+}
+});
     };
 
-      //nine
+      //nine 爆炸点
       function map_9(e){
        //id=e.currentTarget.id;
        e.stopPropagation();
@@ -428,20 +621,27 @@ var mySwiper = new Swiper ('.swiper-container', {
        };
 
        function updateMapBox_9(){
+         //append map_box
         var map_box_9=$("<div class='map_box_9' id='map_box_9'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
         $("#map_box_nine").append(map_box_9);
+      //append map content
         var map_box_9_img=$("<img src='img/5-9_bomb.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_9.append(map_box_9_img);
-        var map_box_9_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%"});
+        var map_box_9_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%","width":"90%","left":"5%"});
         map_box_9_text.text("截至8月14日上午，事件遇难人数上升至55人，701人受伤，其中重症伤员71人；已确认10名公安消防官兵牺牲，13名消防官兵失联。天津市安监局称，瑞海公司许可储存的危险品种类较多，目前难掌握准确种类和数量。（数据持续更新）");
         map_box_9.append(map_box_9_text);
-        var map_box_button_9=$("<button id='map_box_button_9'>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"82%","top":"3%","font-size":"22px","border-width":"0px","width":"50px"});
-        map_box_9.append(map_box_button_9);
-        $("#map_box_button_9").click(function(){
-        //console.log("xxx");
-        $("#map_box_nine").empty();
-        })
-    }
+        //append close button
+       var map_box_9_button_div=$("<div id='map_box_9_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+       map_box_9.append(map_box_9_button_div);
+       var map_box_9_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+       map_box_9_button_div.append(map_box_9_button);
+       $("#map_box_9_button_div").on("click",function(){
+       $("#map_box_nine").empty();
+       });
+       
+       };
+
+       
  })
 
   </script>
