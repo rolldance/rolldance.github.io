@@ -76,8 +76,36 @@
         <img src="img/move_up_tip.png" style="width:40px;height:15px; top:450px; left:140px;" id="array" class="resizer">
 
         </div>
+
         <!--slide5-->
         <div class="swiper-slide s5">
+          <div id="time_cover">
+            <img src="img/Time.jpg" style="position:absolute;width:100%;height:auto;z-index:0;bottom:0" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            <div id="Time_frame_1"></div>
+            <div id="Time_frame_2"></div>
+            <div id="Time_frame_3"></div>
+            <div id="Time_frame_4"></div>
+            <div id="Time_frame_5"></div>
+            <div id="Time_frame_6"></div>
+            <div id="Time_frame_7"></div>
+
+          </div>
+
+          <div id="Time_tooltip">
+            <div id="time_box_one"></div>
+            <div id="time_box_two"></div>
+            <div id="time_box_three"></div>
+            <div id="time_box_four"></div>
+            <div id="time_box_five"></div>
+            <div id="time_box_six"></div>
+            <div id="time_box_seven"></div>
+          </div>
+          <img src="img/move_up_tip.png" style="width:40px;height:15px; top:450px; left:140px;" id="array" class="resizer">
+
+        </div>
+
+        <!--slide6-->
+        <div class="swiper-slide s6">
             <div id="map_cover">
             <img src="img/Map.png" style="position:absolute;width:320px;height:auto;z-index:0;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
             <div id="frame0">
@@ -161,9 +189,540 @@ var mySwiper = new Swiper ('.swiper-container', {
     document.getElementById("frame4").addEventListener("mousedown",map_4,false);
     document.getElementById("frame5").addEventListener("mousedown",map_5,false);
     document.getElementById("frame6").addEventListener("mousedown",map_6,false);
-    document.getElementById("frame7").addEventListener("mousedown",map_7,false);
-    document.getElementById("frame8").addEventListener("mousedown",map_8,false);
+    document.getElementById("frame7").addEventListener("mousedown",map_8,false);
+    document.getElementById("frame8").addEventListener("mousedown",map_7,false);
     document.getElementById("frame9").addEventListener("mousedown",map_9,false);
+
+    
+    //document.getElementById("frame1").addEventListener("mousedown",map_1,false);
+    document.getElementById("Time_frame_2").addEventListener("mousedown",time_2,false);
+    document.getElementById("Time_frame_3").addEventListener("mousedown",time_3,false);
+    document.getElementById("Time_frame_4").addEventListener("mousedown",time_4,false);
+    document.getElementById("Time_frame_5").addEventListener("mousedown",time_5,false);
+    document.getElementById("Time_frame_6").addEventListener("mousedown",time_6,false);
+    document.getElementById("Time_frame_7").addEventListener("mousedown",time_7,false);
+
+
+        //Time 8.13
+    function time_2(e){
+       //id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       //console.log("a");
+       updateTimeBox_2();
+       };
+
+    function updateTimeBox_2(){
+  //append base content
+   var time_box_2=$("<div class='time_box_2' id='time_box_2'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#time_box_two").append(time_box_2);
+    
+    //append close button 
+    var time_box_2_button_div=$("<div id='time_box_2_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      time_box_2.append(time_box_2_button_div);
+      var time_box_2_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      time_box_2_button_div.append(time_box_2_button);
+      $("#time_box_2_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#time_box_two").empty();
+      });
+
+    //append graph altas 
+    var time_box_2_atlas=$("<div class='slider-m' id='slider_time_2'></div>").css({"visibility":"visible"});
+    time_box_2.append(time_box_2_atlas);
+    var time_box_2_atlas_list=$("<ul></ul>");
+    time_box_2_atlas.append(time_box_2_atlas_list);
+    
+
+    var time_box_2_atlas_list_1=$("<li></li>");
+    time_box_2_atlas_list.append(time_box_2_atlas_list_1);
+    var time_box_2_atlas_img_1=$("<img></img>");
+    time_box_2_atlas_img_1.attr("alt","上午，之前发生爆炸的天津滨海新区物流仓库发生复燃。");
+    time_box_2_atlas_img_1.attr("src","img/13-01.jpg");
+    time_box_2_atlas_list_1.append(time_box_2_atlas_img_1);
+
+
+    var time_box_2_atlas_list_2=$("<li></li>");
+    time_box_2_atlas_list.append(time_box_2_atlas_list_2);
+    var time_box_2_atlas_img_2=$("<img></img>");
+    time_box_2_atlas_img_2.attr("alt","下午，滨海新区危险品爆炸事故第一次新闻发布会召开。（图片来源：新华社）");
+    time_box_2_atlas_img_2.attr("src","img/13-02.jpg");
+    time_box_2_atlas_list_2.append(time_box_2_atlas_img_2);
+
+    var time_box_2_atlas_list_3=$("<li></li>");
+    time_box_2_atlas_list.append(time_box_2_atlas_list_3);
+    var time_box_2_atlas_img_3=$("<img></img>");
+    time_box_2_atlas_img_3.attr("alt","夜晚，财新记者在天津滨海新区的安置点——开发区第二小学，距离爆炸点2公里左右，看到天空中有火光，几乎没有听到声音，安置点的人群惊呼又爆炸了。");
+    time_box_2_atlas_img_3.attr("src","img/13-03.jpg");
+    time_box_2_atlas_list_3.append(time_box_2_atlas_img_3);
+
+    //append ol
+    var time_box_2_ol=$("<div id='time_box_2_ol' class='slider-mo'></div>");
+    time_box_2.append(time_box_2_ol);
+    var time_box_2_ol_list=$("<ol></ol>");
+    time_box_2_ol.append(time_box_2_ol_list);
+    var time_box_2_ol_list_1=$("<li class='current'></li>");
+    time_box_2_ol_list.append(time_box_2_ol_list_1);
+    var time_box_2_ol_list_2=$("<li class=''></li>");
+    time_box_2_ol_list.append(time_box_2_ol_list_2);
+    var time_box_2_ol_list_3=$("<li class=''></li>");
+    time_box_2_ol_list.append(time_box_2_ol_list_3);
+   
+
+    //append text
+    var time_box_2_content=$("<div id='time_box_2_content' class='map_content'>财新直击：泰达医院门口的志愿者和不少市民和出租车司机来来往往，运送伤员、物资。</div>");
+    time_box_2.append(time_box_2_content);
+    //load the atlas
+    var elem = document.getElementById('slider_time_2');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#time_box_2_ol ol>li").attr("class",""),
+    $("#time_box_2_ol ol>li").eq(index).attr("class", "current"),
+    $("#time_box_2_content").text($("#slider_time_2 ul>li").eq(index).find("img").attr("alt"))
+}
+});
+};
+
+        //Time 8.14
+    function time_3(e){
+       //id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       //console.log("a");
+       updateTimeBox_3();
+       };
+
+    function updateTimeBox_3(){
+  //append base content
+   var time_box_3=$("<div class='time_box_3' id='time_box_3'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#time_box_three").append(time_box_3);
+    
+    //append close button 
+    var time_box_3_button_div=$("<div id='time_box_3_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      time_box_3.append(time_box_3_button_div);
+      var time_box_3_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      time_box_3_button_div.append(time_box_3_button);
+      $("#time_box_3_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#time_box_three").empty();
+      });
+
+    //append graph altas 
+    var time_box_3_atlas=$("<div class='slider-m' id='slider_time_3'></div>").css({"visibility":"visible"});
+    time_box_3.append(time_box_3_atlas);
+    var time_box_3_atlas_list=$("<ul></ul>");
+    time_box_3_atlas.append(time_box_3_atlas_list);
+    
+
+    var time_box_3_atlas_list_1=$("<li></li>");
+    time_box_3_atlas_list.append(time_box_3_atlas_list_1);
+    var time_box_3_atlas_img_1=$("<img></img>");
+    time_box_3_atlas_img_1.attr("alt","早上，爆炸安置点之一的天津市泰达开发区第二小学内，民众从睡梦中醒来。");
+    time_box_3_atlas_img_1.attr("src","img/14-01.jpg");
+    time_box_3_atlas_list_1.append(time_box_3_atlas_img_1);
+
+
+    var time_box_3_atlas_list_2=$("<li></li>");
+    time_box_3_atlas_list.append(time_box_3_atlas_list_2);
+    var time_box_3_atlas_img_2=$("<img></img>");
+    time_box_3_atlas_img_2.attr("alt","下午，环保部在天津开展应急工作，“事故区域被封堵两个排放口内地下管道检出COD（化学需氧量）、氰化物分别超标3到8倍，但它们目前都未进入周边环境造成污染”。（图片来源：新华社）");
+    time_box_3_atlas_img_2.attr("src","img/14-03.jpg");
+    time_box_3_atlas_list_2.append(time_box_3_atlas_img_2);
+
+    var time_box_3_atlas_list_3=$("<li></li>");
+    time_box_3_atlas_list.append(time_box_3_atlas_list_3);
+    var time_box_3_atlas_img_3=$("<img></img>");
+    time_box_3_atlas_img_3.attr("alt","夜晚，天津滨海新区泰达医院门口，志愿者仍在忙碌，也有不少市民和出租车司机来来往往，运送伤员、物资。");
+    time_box_3_atlas_img_3.attr("src","img/14-02.jpg");
+    time_box_3_atlas_list_3.append(time_box_3_atlas_img_3);
+
+    //append ol
+    var time_box_3_ol=$("<div id='time_box_3_ol' class='slider-mo'></div>");
+    time_box_3.append(time_box_3_ol);
+    var time_box_3_ol_list=$("<ol></ol>");
+    time_box_3_ol.append(time_box_3_ol_list);
+    var time_box_3_ol_list_1=$("<li class='current'></li>");
+    time_box_3_ol_list.append(time_box_3_ol_list_1);
+    var time_box_3_ol_list_2=$("<li class=''></li>");
+    time_box_3_ol_list.append(time_box_3_ol_list_2);
+    var time_box_3_ol_list_3=$("<li class=''></li>");
+    time_box_3_ol_list.append(time_box_3_ol_list_3);
+   
+
+    //append text
+    var time_box_3_content=$("<div id='time_box_3_content' class='map_content'>早上，爆炸安置点之一的天津市泰达开发区第二小学内，民众从睡梦中醒来。</div>");
+    time_box_3.append(time_box_3_content);
+    //load the atlas
+    var elem = document.getElementById('slider_time_3');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#time_box_3_ol ol>li").attr("class",""),
+    $("#time_box_3_ol ol>li").eq(index).attr("class", "current"),
+    $("#time_box_3_content").text($("#slider_time_4 ul>li").eq(index).find("img").attr("alt"))
+}
+});
+};
+
+      //Time 8.15
+    function time_4(e){
+       //id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       console.log("a");
+       updateTimeBox_4();
+       };
+
+    function updateTimeBox_4(){
+  //append base content
+   var time_box_4=$("<div class='time_box_4' id='time_box_4'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#time_box_four").append(time_box_4);
+    
+
+    console.log("b");
+    //append close button 
+    var time_box_4_button_div=$("<div id='time_box_4_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      time_box_4.append(time_box_4_button_div);
+      var time_box_4_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      time_box_4_button_div.append(time_box_4_button);
+      $("#time_box_4_button_div").on("click",function(){
+      console.log("xxx");
+      $("#time_box_four").empty();
+      });
+
+    //append graph altas 
+    var time_box_4_atlas=$("<div class='slider-m' id='slider_time_4'></div>").css({"visibility":"visible"});
+    time_box_4.append(time_box_4_atlas);
+    var time_box_4_atlas_list=$("<ul></ul>");
+    time_box_4_atlas.append(time_box_4_atlas_list);
+    
+
+    var time_box_4_atlas_list_1=$("<li></li>");
+    time_box_4_atlas_list.append(time_box_4_atlas_list_1);
+    var time_box_4_atlas_img_1=$("<img></img>");
+    time_box_4_atlas_img_1.attr("alt","上午，失联消防员家属在第四场新闻发布会现场请愿。事发当天，距离事发现场较近的武警八大街中队进场救援，一人牺牲七人失联。编制并不属于中国消防系统的天津港公安局消防支队三支队伍率先抵达现场救火，截至14日，伤亡人数未明。");
+    time_box_4_atlas_img_1.attr("src","img/15-01.jpg");
+    time_box_4_atlas_list_1.append(time_box_4_atlas_img_1);
+
+
+    var time_box_4_atlas_list_2=$("<li></li>");
+    time_box_4_atlas_list.append(time_box_4_atlas_list_2);
+    var time_box_4_atlas_img_2=$("<img></img>");
+    time_box_4_atlas_img_2.attr("alt","上午，天津滨海新区爆炸点附近，财新记者看到，此前作为临时安置点的泰达开发区第二小学内民众集体撤离。");
+    time_box_4_atlas_img_2.attr("src","img/15-03.jpg");
+    time_box_4_atlas_list_2.append(time_box_4_atlas_img_2);
+
+    var time_box_4_atlas_list_3=$("<li></li>");
+    time_box_4_atlas_list.append(time_box_4_atlas_list_3);
+    var time_box_4_atlas_img_3=$("<img></img>");
+    time_box_4_atlas_img_3.attr("alt","中午，在爆炸点附近的“汽车坟墓”边缘，在之前爆炸中保存较完好的十几辆汽车发生燃烧。");
+    time_box_4_atlas_img_3.attr("src","img/15-04.jpg");
+    time_box_4_atlas_list_3.append(time_box_4_atlas_img_3);
+
+    //append ol
+    var time_box_4_ol=$("<div id='time_box_4_ol' class='slider-mo'></div>");
+    time_box_4.append(time_box_4_ol);
+    var time_box_4_ol_list=$("<ol></ol>");
+    time_box_4_ol.append(time_box_4_ol_list);
+    var time_box_4_ol_list_1=$("<li class='current'></li>");
+    time_box_4_ol_list.append(time_box_4_ol_list_1);
+    var time_box_4_ol_list_2=$("<li class=''></li>");
+    time_box_4_ol_list.append(time_box_4_ol_list_2);
+    var time_box_4_ol_list_3=$("<li class=''></li>");
+    time_box_4_ol_list.append(time_box_4_ol_list_3);
+   
+
+    //append text
+    var time_box_4_content=$("<div id='time_box_4_content' class='map_content'>上午，失联消防员家属在第四场新闻发布会现场请愿。事发当天，距离事发现场较近的武警八大街中队进场救援，一人牺牲七人失联。编制并不属于中国消防系统的天津港公安局消防支队三支队伍率先抵达现场救火，截至14日，伤亡人数未明。</div>");
+    time_box_4.append(time_box_4_content);
+    //load the atlas
+    var elem = document.getElementById('slider_time_4');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#time_box_4_ol ol>li").attr("class",""),
+    $("#time_box_4_ol ol>li").eq(index).attr("class", "current"),
+    $("#time_box_4_content").text($("#slider_time_4 ul>li").eq(index).find("img").attr("alt"))
+}
+});
+};
+
+
+//Time 8.16
+    function time_5(e){
+       //id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       //console.log("a");
+       updateTimeBox_5();
+       };
+
+    function updateTimeBox_5(){
+  //append base content
+   var time_box_5=$("<div class='time_box_5' id='time_box_5'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#time_box_five").append(time_box_5);
+    
+    //append close button 
+    var time_box_5_button_div=$("<div id='time_box_5_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      time_box_5.append(time_box_5_button_div);
+      var time_box_5_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      time_box_5_button_div.append(time_box_5_button);
+      $("#time_box_5_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#time_box_five").empty();
+      });
+
+    //append graph altas 
+    var time_box_5_atlas=$("<div class='slider-m' id='slider_time_5'></div>").css({"visibility":"visible"});
+    time_box_5.append(time_box_5_atlas);
+    var time_box_5_atlas_list=$("<ul></ul>");
+    time_box_5_atlas.append(time_box_5_atlas_list);
+    
+
+    var time_box_5_atlas_list_1=$("<li></li>");
+    time_box_5_atlas_list.append(time_box_5_atlas_list_1);
+    var time_box_5_atlas_img_1=$("<img></img>");
+    time_box_5_atlas_img_1.attr("alt","上午，第六场发布会召开：发言人在回答财新记者问题时表示不清楚总指挥是谁；军方确认找到氰化钠，具体数量未知。");
+    time_box_5_atlas_img_1.attr("src","img/16-01.jpg");
+    time_box_5_atlas_list_1.append(time_box_5_atlas_img_1);
+
+
+    var time_box_5_atlas_list_2=$("<li></li>");
+    time_box_5_atlas_list.append(time_box_5_atlas_list_2);
+    var time_box_5_atlas_img_2=$("<img></img>");
+    time_box_5_atlas_img_2.attr("alt","天津启航嘉园社区民众拉横幅请愿。");
+    time_box_5_atlas_img_2.attr("src","img/16-05.jpg");
+    time_box_5_atlas_list_2.append(time_box_5_atlas_img_2);
+
+    var time_box_5_atlas_list_3=$("<li></li>");
+    time_box_5_atlas_list.append(time_box_5_atlas_list_3);
+    var time_box_5_atlas_img_3=$("<img></img>");
+    time_box_5_atlas_img_3.attr("alt","最高人民检察院已派员介入天津港“8•12”瑞海公司危险品仓库特别重大火灾爆炸事故调查，将组织天津市检察机关，立足于检察职能，依法严查事故所涉渎职等职务犯罪。");
+    time_box_5_atlas_img_3.attr("src","img/16-02.jpg");
+    time_box_5_atlas_list_3.append(time_box_5_atlas_img_3);
+
+    var time_box_5_atlas_list_4=$("<li></li>");
+    time_box_5_atlas_list.append(time_box_5_atlas_list_4);
+    var time_box_5_atlas_img_4=$("<img></img>");
+    time_box_5_atlas_img_4.attr("alt","下午，李克强到达天津，部署救援工作，看望伤员并悼念牺牲消防员。在接受媒体采访时李克强称“英雄没有编外”。");
+    time_box_5_atlas_img_4.attr("src","img/16-03.jpg");
+    time_box_5_atlas_list_4.append(time_box_5_atlas_img_4);
+
+    var time_box_5_atlas_list_5=$("<li></li>");
+    time_box_5_atlas_list.append(time_box_5_atlas_list_5);
+    var time_box_5_atlas_img_5=$("<img></img>");
+    time_box_5_atlas_img_5.attr("alt","夜晚，天津民众自发到泰达医院悼念爆炸遇难者。");
+    time_box_5_atlas_img_5.attr("src","img/16-04.jpg");
+    time_box_5_atlas_list_5.append(time_box_5_atlas_img_5);
+
+    //append ol
+    var time_box_5_ol=$("<div id='time_box_5_ol' class='slider-mo'></div>");
+    time_box_5.append(time_box_5_ol);
+    var time_box_5_ol_list=$("<ol></ol>");
+    time_box_5_ol.append(time_box_5_ol_list);
+    var time_box_5_ol_list_1=$("<li class='current'></li>");
+    time_box_5_ol_list.append(time_box_5_ol_list_1);
+    var time_box_5_ol_list_2=$("<li class=''></li>");
+    time_box_5_ol_list.append(time_box_5_ol_list_2);
+    var time_box_5_ol_list_3=$("<li class=''></li>");
+    time_box_5_ol_list.append(time_box_5_ol_list_3);
+    var time_box_5_ol_list_4=$("<li class=''></li>");
+    time_box_5_ol_list.append(time_box_5_ol_list_4);
+    var time_box_5_ol_list_5=$("<li class=''></li>");
+    time_box_5_ol_list.append(time_box_5_ol_list_5);
+   
+
+    //append text
+    var time_box_5_content=$("<div id='time_box_5_content' class='map_content'>上午，第六场发布会召开：发言人在回答财新记者问题时表示不清楚总指挥是谁；军方确认找到氰化钠，具体数量未知。</div>");
+    time_box_5.append(time_box_5_content);
+    //load the atlas
+    var elem = document.getElementById('slider_time_5');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#time_box_5_ol ol>li").attr("class",""),
+    $("#time_box_5_ol ol>li").eq(index).attr("class", "current"),
+    $("#time_box_5_content").text($("#slider_time_5 ul>li").eq(index).find("img").attr("alt"))
+}
+});
+};
+
+//Time 8.17
+    function time_6(e){
+       //id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       //console.log("a");
+       updateTimeBox_6();
+       };
+
+    function updateTimeBox_6(){
+  //append base content
+   var time_box_6=$("<div class='time_box_6' id='time_box_6'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#time_box_six").append(time_box_6);
+    
+    //append close button 
+    var time_box_6_button_div=$("<div id='time_box_6_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      time_box_6.append(time_box_6_button_div);
+      var time_box_6_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      time_box_6_button_div.append(time_box_6_button);
+      $("#time_box_6_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#time_box_six").empty();
+      });
+
+    //append graph altas 
+    var time_box_6_atlas=$("<div class='slider-m' id='slider_time_6'></div>").css({"visibility":"visible"});
+    time_box_6.append(time_box_6_atlas);
+    var time_box_6_atlas_list=$("<ul></ul>");
+    time_box_6_atlas.append(time_box_6_atlas_list);
+    
+
+    var time_box_6_atlas_list_1=$("<li></li>");
+    time_box_6_atlas_list.append(time_box_6_atlas_list_1);
+    var time_box_6_atlas_img_1=$("<img></img>");
+    time_box_6_atlas_img_1.attr("alt","上午，第七场新闻发布会召开：已完成半径一公里和半径两公里范围内的散落危化品搜集工作，在傍晚前应能将三公里半径范围内的危化品搜集完毕。");
+    time_box_6_atlas_img_1.attr("src","img/17-01.jpg");
+    time_box_6_atlas_list_1.append(time_box_6_atlas_img_1);
+
+
+    var time_box_6_atlas_list_2=$("<li></li>");
+    time_box_6_atlas_list.append(time_box_6_atlas_list_2);
+    var time_box_6_atlas_img_2=$("<img></img>");
+    time_box_6_atlas_img_2.attr("alt","天津市环保局总工称事故区地表水氰化物超标严重。（图片来源：新华社）");
+    time_box_6_atlas_img_2.attr("src","img/17-02.jpg");
+    time_box_6_atlas_list_2.append(time_box_6_atlas_img_2);
+
+    var time_box_6_atlas_list_3=$("<li></li>");
+    time_box_6_atlas_list.append(time_box_6_atlas_list_3);
+    var time_box_6_atlas_img_3=$("<img></img>");
+    time_box_6_atlas_img_3.attr("alt","居住在天津万科海港城的居民在当地民警、武警和政府工作人员的陪同下返回家中取出物品。（图片来源：新华社）");
+    time_box_6_atlas_img_3.attr("src","img/17-03.jpg");
+    time_box_6_atlas_list_3.append(time_box_6_atlas_img_3);
+
+    //append ol
+    var time_box_6_ol=$("<div id='time_box_6_ol' class='slider-mo'></div>");
+    time_box_6.append(time_box_6_ol);
+    var time_box_6_ol_list=$("<ol></ol>");
+    time_box_6_ol.append(time_box_6_ol_list);
+    var time_box_6_ol_list_1=$("<li class='current'></li>");
+    time_box_6_ol_list.append(time_box_6_ol_list_1);
+    var time_box_6_ol_list_2=$("<li class=''></li>");
+    time_box_6_ol_list.append(time_box_6_ol_list_2);
+    var time_box_6_ol_list_3=$("<li class=''></li>");
+    time_box_6_ol_list.append(time_box_6_ol_list_3);
+   
+
+    //append text
+    var time_box_6_content=$("<div id='time_box_6_content' class='map_content'>上午，第七场新闻发布会召开：已完成半径一公里和半径两公里范围内的散落危化品搜集工作，在傍晚前应能将三公里半径范围内的危化品搜集完毕。</div>");
+    time_box_6.append(time_box_6_content);
+    //load the atlas
+    var elem = document.getElementById('slider_time_6');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#time_box_6_ol ol>li").attr("class",""),
+    $("#time_box_6_ol ol>li").eq(index).attr("class", "current"),
+    $("#time_box_6_content").text($("#slider_time_6 ul>li").eq(index).find("img").attr("alt"))
+}
+});
+};
+
+//Time 8.18
+    function time_7(e){
+       //id=e.currentTarget.id;
+       e.stopPropagation();
+       e.preventDefault();
+       //console.log("a");
+       updateTimeBox_7();
+       };
+
+    function updateTimeBox_7(){
+  //append base content
+   var time_box_7=$("<div class='time_box_7' id='time_box_7'></div>").css({"background-color":"black","opacity":".9","position":"absolute","top":"30px","left":"24px","width":"272px","height":"450px","z-index":"10"});
+   $("#time_box_seven").append(time_box_7);
+    
+    //append close button 
+    var time_box_7_button_div=$("<div id='time_box_7_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
+      time_box_7.append(time_box_7_button_div);
+      var time_box_7_button=$("<button>X</button>").css({"background-color":"black","opacity":".5","color":"white","position":"absolute","left":"45%","top":"15%","font-size":"22px","border-width":"0px","width":"50px"});
+      time_box_7_button_div.append(time_box_7_button);
+      $("#time_box_7_button_div").on("click",function(){
+      //console.log("xxx");
+      $("#time_box_seven").empty();
+      });
+
+    //append graph altas 
+    var time_box_7_atlas=$("<div class='slider-m' id='slider_time_7'></div>").css({"visibility":"visible"});
+    time_box_7.append(time_box_7_atlas);
+    var time_box_7_atlas_list=$("<ul></ul>");
+    time_box_7_atlas.append(time_box_7_atlas_list);
+    
+
+    var time_box_7_atlas_list_1=$("<li></li>");
+    time_box_7_atlas_list.append(time_box_7_atlas_list_1);
+    var time_box_7_atlas_img_1=$("<img></img>");
+    time_box_7_atlas_img_1.attr("alt","上午，天津港举行鸣笛悼念活动。");
+    time_box_7_atlas_img_1.attr("src","img/18-01.jpg");
+    time_box_7_atlas_list_1.append(time_box_7_atlas_img_1);
+
+
+    var time_box_7_atlas_list_2=$("<li></li>");
+    time_box_7_atlas_list.append(time_box_7_atlas_list_2);
+    var time_box_7_atlas_img_2=$("<img></img>");
+    time_box_7_atlas_img_2.attr("alt","上午9时许，救援部队、武警、公安在事故现场默哀悼念天津港“8·12”特别重大火灾爆炸事故遇难者。（图片来源：新华社）");
+    time_box_7_atlas_img_2.attr("src","img/18-02.jpg");
+    time_box_7_atlas_list_2.append(time_box_7_atlas_img_2);
+
+    var time_box_7_atlas_list_3=$("<li></li>");
+    time_box_7_atlas_list.append(time_box_7_atlas_list_3);
+    var time_box_7_atlas_img_3=$("<img></img>");
+    time_box_7_atlas_img_3.attr("alt","上午，降雨后的的天津路面上出现白色液体。");
+    time_box_7_atlas_img_3.attr("src","img/18-03.jpg");
+    time_box_7_atlas_list_3.append(time_box_7_atlas_img_3);
+
+    var time_box_7_atlas_list_4=$("<li></li>");
+    time_box_7_atlas_list.append(time_box_7_atlas_list_4);
+    var time_box_7_atlas_img_4=$("<img></img>");
+    time_box_7_atlas_img_4.attr("alt","金域蓝港业主在美华大酒店门前申请要求回购");
+    time_box_7_atlas_img_4.attr("src","img/18-04.jpg");
+    time_box_7_atlas_list_4.append(time_box_7_atlas_img_4);
+
+    //append ol
+    var time_box_7_ol=$("<div id='time_box_7_ol' class='slider-mo'></div>");
+    time_box_7.append(time_box_7_ol);
+    var time_box_7_ol_list=$("<ol></ol>");
+    time_box_7_ol.append(time_box_7_ol_list);
+    var time_box_7_ol_list_1=$("<li class='current'></li>");
+    time_box_7_ol_list.append(time_box_7_ol_list_1);
+    var time_box_7_ol_list_2=$("<li class=''></li>");
+    time_box_7_ol_list.append(time_box_7_ol_list_2);
+    var time_box_7_ol_list_3=$("<li class=''></li>");
+    time_box_7_ol_list.append(time_box_7_ol_list_3);
+    var time_box_7_ol_list_4=$("<li class=''></li>");
+    time_box_7_ol_list.append(time_box_7_ol_list_4);   
+
+    //append text
+    var time_box_7_content=$("<div id='time_box_7_content' class='map_content'>上午，天津港举行鸣笛悼念活动。</div>");
+    time_box_7.append(time_box_7_content);
+    //load the atlas
+    var elem = document.getElementById('slider_time_7');
+    window.mySwipe = Swipe(elem, {
+    auto: 6000,
+    continuous: true,
+    callback: function(index, element) {
+    $("#time_box_7_ol ol>li").attr("class",""),
+    $("#time_box_7_ol ol>li").eq(index).attr("class", "current"),
+    $("#time_box_7_content").text($("#slider_time_7 ul>li").eq(index).find("img").attr("alt"))
+}
+});
+};
 
     //one 医院
     function map_1(e){
@@ -628,7 +1187,7 @@ var mySwiper = new Swiper ('.swiper-container', {
         var map_box_9_img=$("<img src='img/5-9_bomb.jpg'></img>").css({"position":"absolute","width":"100%","height":"auto","top":"10%"});
         map_box_9.append(map_box_9_img);
         var map_box_9_text=$("<p></p>").css({"color":"white","font-size":"12px","text-align":"left","text-indent":"2em","position":"absolute","top":"68%","width":"90%","left":"5%"});
-        map_box_9_text.text("截至8月14日上午，事件遇难人数上升至55人，701人受伤，其中重症伤员71人；已确认10名公安消防官兵牺牲，13名消防官兵失联。天津市安监局称，瑞海公司许可储存的危险品种类较多，目前难掌握准确种类和数量。（数据持续更新）");
+        map_box_9_text.text("截至目前，天津港爆炸事故发现遇难者人数114人，确认身份54人，公安消防人员16人，天津港消防人员23人，民警5人，其他人员10人；未确认身份60人。失联人数70人，公安消防8人，天津港消防56人，其他人员6人。住院698人。");
         map_box_9.append(map_box_9_text);
         //append close button
        var map_box_9_button_div=$("<div id='map_box_9_button_div'>").css({"position":"absolute","left":"68%","width":"100px","height":"100px","z-index":"99"});
