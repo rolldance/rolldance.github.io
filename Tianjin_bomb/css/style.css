@@ -149,49 +149,49 @@
 }
 #Time_frame_1{
     position: absolute;
-    top:24%;
+    top:23%;
     width: 90%;
     left: 5%;
     height:50px;
 }
 #Time_frame_2{
     position: absolute;
-    top:31%;
+    top:30%;
     width: 90%;
     left: 5%;
     height:50px;
 }
 #Time_frame_3{
     position: absolute;
-    top:41%;
+    top:40%;
     width: 90%;
     left: 5%;
     height:50px;
 }
 #Time_frame_4{
     position: absolute;
-    top:52%;
+    top:50%;
     width: 90%;
     left: 5%;
     height:50px;
 }
 #Time_frame_5{
     position: absolute;
-    top:66%;
+    top:63%;
     width: 90%;
     left: 5%;
     height:50px;
 }
 #Time_frame_6{
     position: absolute;
-    top:78%;
+    top:76%;
     width: 90%;
     left: 5%;
     height:50px;
 }
 #Time_frame_7{
     position: absolute;
-    top:87%;
+    top:85%;
     width: 90%;
     left: 5%;
     height:50px;
@@ -263,8 +263,7 @@ background-color: black;    background-size: 100% 100%;
 background-color: black;    background-size: 100% 100%;
 }
 .s5{
-/*background:url("../img/5_map.png");    background-size: 100% 100%;
-overflow: hidden;*/
+background-color: black;
 }
 #ball0{
     -webkit-animation: ball0_animation 2s infinite linear;
