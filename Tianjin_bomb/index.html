@@ -80,7 +80,8 @@
         <!--slide5-->
         <div class="swiper-slide s5">
           <div id="time_cover">
-            <img src="img/Time.jpg" style="position:absolute;width:100%;height:auto;z-index:0;bottom:0" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            <img src="img/Time.jpg" style="position:absolute;width:100%;height:100%;z-index:0;bottom:0" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+            <div id="Time_frame">
             <div id="Time_frame_1"></div>
             <div id="Time_frame_2"></div>
             <div id="Time_frame_3"></div>
@@ -88,7 +89,7 @@
             <div id="Time_frame_5"></div>
             <div id="Time_frame_6"></div>
             <div id="Time_frame_7"></div>
-
+            </div>
           </div>
 
           <div id="Time_tooltip">
@@ -237,7 +238,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_2_atlas_list_1=$("<li></li>");
     time_box_2_atlas_list.append(time_box_2_atlas_list_1);
     var time_box_2_atlas_img_1=$("<img></img>");
-    time_box_2_atlas_img_1.attr("alt","上午，之前发生爆炸的天津滨海新区物流仓库发生复燃。");
+    time_box_2_atlas_img_1.attr("alt","上午，之前发生爆炸的天津滨海新区物流仓库发生复燃。（财新记者拍摄）");
     time_box_2_atlas_img_1.attr("src","img/13-01.jpg");
     time_box_2_atlas_list_1.append(time_box_2_atlas_img_1);
 
@@ -252,7 +253,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_2_atlas_list_3=$("<li></li>");
     time_box_2_atlas_list.append(time_box_2_atlas_list_3);
     var time_box_2_atlas_img_3=$("<img></img>");
-    time_box_2_atlas_img_3.attr("alt","夜晚，财新记者在天津滨海新区的安置点——开发区第二小学，距离爆炸点2公里左右，看到天空中有火光，几乎没有听到声音，安置点的人群惊呼又爆炸了。");
+    time_box_2_atlas_img_3.attr("alt","夜晚，财新记者在天津滨海新区的安置点——开发区第二小学，距离爆炸点2公里左右，看到天空中有火光，几乎没有听到声音，安置点的人群惊呼又爆炸了。（财新记者拍摄）");
     time_box_2_atlas_img_3.attr("src","img/13-03.jpg");
     time_box_2_atlas_list_3.append(time_box_2_atlas_img_3);
 
@@ -270,7 +271,7 @@ var mySwiper = new Swiper ('.swiper-container', {
    
 
     //append text
-    var time_box_2_content=$("<div id='time_box_2_content' class='map_content'>上午，之前发生爆炸的天津滨海新区物流仓库发生复燃。</div>");
+    var time_box_2_content=$("<div id='time_box_2_content' class='map_content'>上午，之前发生爆炸的天津滨海新区物流仓库发生复燃。（财新记者拍摄）</div>");
     time_box_2.append(time_box_2_content);
     //load the atlas
     var elem = document.getElementById('slider_time_2');
@@ -319,7 +320,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_3_atlas_list_1=$("<li></li>");
     time_box_3_atlas_list.append(time_box_3_atlas_list_1);
     var time_box_3_atlas_img_1=$("<img></img>");
-    time_box_3_atlas_img_1.attr("alt","早上，爆炸安置点之一的天津市泰达开发区第二小学内，民众从睡梦中醒来。");
+    time_box_3_atlas_img_1.attr("alt","早上，爆炸安置点之一的天津市泰达开发区第二小学内，民众从睡梦中醒来。（财新记者拍摄）");
     time_box_3_atlas_img_1.attr("src","img/14-01.jpg");
     time_box_3_atlas_list_1.append(time_box_3_atlas_img_1);
 
@@ -327,14 +328,14 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_3_atlas_list_2=$("<li></li>");
     time_box_3_atlas_list.append(time_box_3_atlas_list_2);
     var time_box_3_atlas_img_2=$("<img></img>");
-    time_box_3_atlas_img_2.attr("alt","下午，环保部在天津开展应急工作，“事故区域被封堵两个排放口内地下管道检出COD（化学需氧量）、氰化物分别超标3到8倍，但它们目前都未进入周边环境造成污染”。（图片来源：新华社）");
+    time_box_3_atlas_img_2.attr("alt","下午，环保部在天津召开展应急工作，称“事故区域被封堵两个排放口内地下管道检出COD（化学需氧量）、氰化物分别超标3到8倍，但它们目前都未进入周边环境造成污染。“（图片来源：新华社）");
     time_box_3_atlas_img_2.attr("src","img/14-03.jpg");
     time_box_3_atlas_list_2.append(time_box_3_atlas_img_2);
 
     var time_box_3_atlas_list_3=$("<li></li>");
     time_box_3_atlas_list.append(time_box_3_atlas_list_3);
     var time_box_3_atlas_img_3=$("<img></img>");
-    time_box_3_atlas_img_3.attr("alt","夜晚，天津滨海新区泰达医院门口，志愿者仍在忙碌，也有不少市民和出租车司机来来往往，运送伤员、物资。");
+    time_box_3_atlas_img_3.attr("alt","夜晚，天津滨海新区泰达医院门口，志愿者仍在忙碌，也有不少市民和出租车司机来来往往，运送伤员、物资。（财新记者拍摄）");
     time_box_3_atlas_img_3.attr("src","img/14-02.jpg");
     time_box_3_atlas_list_3.append(time_box_3_atlas_img_3);
 
@@ -352,7 +353,7 @@ var mySwiper = new Swiper ('.swiper-container', {
    
 
     //append text
-    var time_box_3_content=$("<div id='time_box_3_content' class='map_content'>早上，爆炸安置点之一的天津市泰达开发区第二小学内，民众从睡梦中醒来。</div>");
+    var time_box_3_content=$("<div id='time_box_3_content' class='map_content'>早上，爆炸安置点之一的天津市泰达开发区第二小学内，民众从睡梦中醒来。（财新记者拍摄）</div>");
     time_box_3.append(time_box_3_content);
     //load the atlas
     var elem = document.getElementById('slider_time_3');
@@ -403,7 +404,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_4_atlas_list_1=$("<li></li>");
     time_box_4_atlas_list.append(time_box_4_atlas_list_1);
     var time_box_4_atlas_img_1=$("<img></img>");
-    time_box_4_atlas_img_1.attr("alt","上午，失联消防员家属在第四场新闻发布会现场请愿。事发当天，距离事发现场较近的武警八大街中队进场救援，一人牺牲七人失联。编制并不属于中国消防系统的天津港公安局消防支队三支队伍率先抵达现场救火，截至14日，伤亡人数未明。");
+    time_box_4_atlas_img_1.attr("alt","上午，失联消防员家属在第四场新闻发布会现场请愿。事发当天，距离现场较近的武警八大街中队进场救援，一人牺牲七人失联。编制并不属于中国消防系统的天津港公安局消防支队三支队伍率先抵达现场救火，截至14日，伤亡人数未明。（财新记者拍摄）");
     time_box_4_atlas_img_1.attr("src","img/15-01.jpg");
     time_box_4_atlas_list_1.append(time_box_4_atlas_img_1);
 
@@ -411,14 +412,14 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_4_atlas_list_2=$("<li></li>");
     time_box_4_atlas_list.append(time_box_4_atlas_list_2);
     var time_box_4_atlas_img_2=$("<img></img>");
-    time_box_4_atlas_img_2.attr("alt","上午，天津滨海新区爆炸点附近，财新记者看到，此前作为临时安置点的泰达开发区第二小学内民众集体撤离。");
+    time_box_4_atlas_img_2.attr("alt","上午，天津滨海新区爆炸点附近，财新记者看到，此前作为临时安置点的泰达开发区第二小学内民众集体撤离。（财新记者拍摄）");
     time_box_4_atlas_img_2.attr("src","img/15-03.jpg");
     time_box_4_atlas_list_2.append(time_box_4_atlas_img_2);
 
     var time_box_4_atlas_list_3=$("<li></li>");
     time_box_4_atlas_list.append(time_box_4_atlas_list_3);
     var time_box_4_atlas_img_3=$("<img></img>");
-    time_box_4_atlas_img_3.attr("alt","中午，在爆炸点附近的“汽车坟墓”边缘，在之前爆炸中保存较完好的十几辆汽车发生燃烧。");
+    time_box_4_atlas_img_3.attr("alt","中午，在爆炸点附近的“汽车坟墓”边缘，在之前爆炸中保存较完好的十几辆汽车发生燃烧。（财新记者拍摄）");
     time_box_4_atlas_img_3.attr("src","img/15-04.jpg");
     time_box_4_atlas_list_3.append(time_box_4_atlas_img_3);
 
@@ -436,7 +437,7 @@ var mySwiper = new Swiper ('.swiper-container', {
    
 
     //append text
-    var time_box_4_content=$("<div id='time_box_4_content' class='map_content'>上午，失联消防员家属在第四场新闻发布会现场请愿。事发当天，距离事发现场较近的武警八大街中队进场救援，一人牺牲七人失联。编制并不属于中国消防系统的天津港公安局消防支队三支队伍率先抵达现场救火，截至14日，伤亡人数未明。</div>");
+    var time_box_4_content=$("<div id='time_box_4_content' class='map_content'>上午，失联消防员家属在第四场新闻发布会现场请愿。事发当天，距离事发现场较近的武警八大街中队进场救援，一人牺牲七人失联。编制并不属于中国消防系统的天津港公安局消防支队三支队伍率先抵达现场救火，截至14日，伤亡人数未明。（财新记者拍摄）</div>");
     time_box_4.append(time_box_4_content);
     //load the atlas
     var elem = document.getElementById('slider_time_4');
@@ -494,28 +495,28 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_5_atlas_list_2=$("<li></li>");
     time_box_5_atlas_list.append(time_box_5_atlas_list_2);
     var time_box_5_atlas_img_2=$("<img></img>");
-    time_box_5_atlas_img_2.attr("alt","天津启航嘉园社区民众拉横幅请愿。");
+    time_box_5_atlas_img_2.attr("alt","天津启航嘉园社区民众拉横幅请愿。（财新记者拍摄）");
     time_box_5_atlas_img_2.attr("src","img/16-05.jpg");
     time_box_5_atlas_list_2.append(time_box_5_atlas_img_2);
 
     var time_box_5_atlas_list_3=$("<li></li>");
     time_box_5_atlas_list.append(time_box_5_atlas_list_3);
     var time_box_5_atlas_img_3=$("<img></img>");
-    time_box_5_atlas_img_3.attr("alt","最高人民检察院已派员介入天津港“8•12”瑞海公司危险品仓库特别重大火灾爆炸事故调查，将组织天津市检察机关，立足于检察职能，依法严查事故所涉渎职等职务犯罪。");
+    time_box_5_atlas_img_3.attr("alt","最高人民检察院已派员介入天津港“8•12”瑞海公司危险品仓库特别重大火灾爆炸事故调查，将组织天津市检察机关，立足于检察职能，依法严查事故所涉渎职等职务犯罪。（财新记者拍摄）");
     time_box_5_atlas_img_3.attr("src","img/16-02.jpg");
     time_box_5_atlas_list_3.append(time_box_5_atlas_img_3);
 
     var time_box_5_atlas_list_4=$("<li></li>");
     time_box_5_atlas_list.append(time_box_5_atlas_list_4);
     var time_box_5_atlas_img_4=$("<img></img>");
-    time_box_5_atlas_img_4.attr("alt","下午，李克强到达天津，部署救援工作，看望伤员并悼念牺牲消防员。在接受媒体采访时李克强称“英雄没有编外”。");
+    time_box_5_atlas_img_4.attr("alt","下午，李克强到达天津，部署救援工作，看望伤员并悼念牺牲消防员。在接受媒体采访时李克强称“英雄没有编外”。（新华社）");
     time_box_5_atlas_img_4.attr("src","img/16-03.jpg");
     time_box_5_atlas_list_4.append(time_box_5_atlas_img_4);
 
     var time_box_5_atlas_list_5=$("<li></li>");
     time_box_5_atlas_list.append(time_box_5_atlas_list_5);
     var time_box_5_atlas_img_5=$("<img></img>");
-    time_box_5_atlas_img_5.attr("alt","夜晚，天津民众自发到泰达医院悼念爆炸遇难者。");
+    time_box_5_atlas_img_5.attr("alt","夜晚，天津民众自发到泰达医院悼念爆炸遇难者。（财新记者拍摄）");
     time_box_5_atlas_img_5.attr("src","img/16-04.jpg");
     time_box_5_atlas_list_5.append(time_box_5_atlas_img_5);
 
@@ -586,7 +587,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_6_atlas_list_1=$("<li></li>");
     time_box_6_atlas_list.append(time_box_6_atlas_list_1);
     var time_box_6_atlas_img_1=$("<img></img>");
-    time_box_6_atlas_img_1.attr("alt","上午，第七场新闻发布会召开：已完成半径一公里和半径两公里范围内的散落危化品搜集工作，在傍晚前应能将三公里半径范围内的危化品搜集完毕。");
+    time_box_6_atlas_img_1.attr("alt","上午，第七场新闻发布会召开：已完成半径一公里和半径两公里范围内的散落危化品搜集工作，在傍晚前应能将三公里半径范围内的危化品搜集完毕。据天气预报，天津未来几日有阵雨，这对危化品爆炸事故处置来说，将是严峻的考验。（新华社）");
     time_box_6_atlas_img_1.attr("src","img/17-01.jpg");
     time_box_6_atlas_list_1.append(time_box_6_atlas_img_1);
 
@@ -594,14 +595,14 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_6_atlas_list_2=$("<li></li>");
     time_box_6_atlas_list.append(time_box_6_atlas_list_2);
     var time_box_6_atlas_img_2=$("<img></img>");
-    time_box_6_atlas_img_2.attr("alt","天津市环保局总工称事故区地表水氰化物超标严重。（图片来源：新华社）");
+    time_box_6_atlas_img_2.attr("alt","天津市环保局总工称事故区地表水氰化物超标严重。（新华社）");
     time_box_6_atlas_img_2.attr("src","img/17-02.jpg");
     time_box_6_atlas_list_2.append(time_box_6_atlas_img_2);
 
     var time_box_6_atlas_list_3=$("<li></li>");
     time_box_6_atlas_list.append(time_box_6_atlas_list_3);
     var time_box_6_atlas_img_3=$("<img></img>");
-    time_box_6_atlas_img_3.attr("alt","居住在天津万科海港城的居民在当地民警、武警和政府工作人员的陪同下返回家中取出物品。（图片来源：新华社）");
+    time_box_6_atlas_img_3.attr("alt","居住在天津万科海港城的居民在当地民警、武警和政府工作人员的陪同下返回家中取出物品。（新华社）");
     time_box_6_atlas_img_3.attr("src","img/17-03.jpg");
     time_box_6_atlas_list_3.append(time_box_6_atlas_img_3);
 
@@ -619,7 +620,7 @@ var mySwiper = new Swiper ('.swiper-container', {
    
 
     //append text
-    var time_box_6_content=$("<div id='time_box_6_content' class='map_content'>上午，第七场新闻发布会召开：已完成半径一公里和半径两公里范围内的散落危化品搜集工作，在傍晚前应能将三公里半径范围内的危化品搜集完毕。</div>");
+    var time_box_6_content=$("<div id='time_box_6_content' class='map_content'>上午，第七场新闻发布会召开：已完成半径一公里和半径两公里范围内的散落危化品搜集工作，在傍晚前应能将三公里半径范围内的危化品搜集完毕。据天气预报，天津未来几日有阵雨，这对危化品爆炸事故处置来说，将是严峻的考验。（新华社）</div>");
     time_box_6.append(time_box_6_content);
     //load the atlas
     var elem = document.getElementById('slider_time_6');
@@ -668,7 +669,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_7_atlas_list_1=$("<li></li>");
     time_box_7_atlas_list.append(time_box_7_atlas_list_1);
     var time_box_7_atlas_img_1=$("<img></img>");
-    time_box_7_atlas_img_1.attr("alt","上午，天津港举行鸣笛悼念活动。");
+    time_box_7_atlas_img_1.attr("alt","上午，天津港举行鸣笛悼念活动。（财新记者拍摄）");
     time_box_7_atlas_img_1.attr("src","img/18-01.jpg");
     time_box_7_atlas_list_1.append(time_box_7_atlas_img_1);
 
@@ -683,14 +684,14 @@ var mySwiper = new Swiper ('.swiper-container', {
     var time_box_7_atlas_list_3=$("<li></li>");
     time_box_7_atlas_list.append(time_box_7_atlas_list_3);
     var time_box_7_atlas_img_3=$("<img></img>");
-    time_box_7_atlas_img_3.attr("alt","上午，降雨后的的天津路面上出现白色液体。");
+    time_box_7_atlas_img_3.attr("alt","上午降雨，滨海新区黄海路第一大街路段路面出现白色泡沫。记者淋雨后出现不同反应：面部嘴唇处有灼烧感等。目前出现泡沫原因不明。（财新记者拍摄）");
     time_box_7_atlas_img_3.attr("src","img/18-03.jpg");
     time_box_7_atlas_list_3.append(time_box_7_atlas_img_3);
 
     var time_box_7_atlas_list_4=$("<li></li>");
     time_box_7_atlas_list.append(time_box_7_atlas_list_4);
     var time_box_7_atlas_img_4=$("<img></img>");
-    time_box_7_atlas_img_4.attr("alt","金域蓝港业主在美华大酒店门前申请要求回购");
+    time_box_7_atlas_img_4.attr("alt","金域蓝港业主在美华大酒店门前申请要求回购。（财新记者拍摄）");
     time_box_7_atlas_img_4.attr("src","img/18-04.jpg");
     time_box_7_atlas_list_4.append(time_box_7_atlas_img_4);
 
@@ -709,7 +710,7 @@ var mySwiper = new Swiper ('.swiper-container', {
     time_box_7_ol_list.append(time_box_7_ol_list_4);   
 
     //append text
-    var time_box_7_content=$("<div id='time_box_7_content' class='map_content'>上午，天津港举行鸣笛悼念活动。</div>");
+    var time_box_7_content=$("<div id='time_box_7_content' class='map_content'>上午，天津港举行鸣笛悼念活动。（财新记者拍摄）</div>");
     time_box_7.append(time_box_7_content);
     //load the atlas
     var elem = document.getElementById('slider_time_7');
