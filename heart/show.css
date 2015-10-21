@@ -37,3 +37,9 @@ body {
     color: gainsboro;
     text-align: center;
 }
+p{
+    padding-top: 30px;
+    padding-left:30px;
+    padding-right:30px;
+    color:gainsboro;
+}
