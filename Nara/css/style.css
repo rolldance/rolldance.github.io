@@ -38,6 +38,10 @@ body{
     overflow: hidden;
 
 }
+.fifthPage{
+    background:url(../upload/nara.jpg) left top;
+    overflow:hidden;
+}
 img{
     display:block;
 }
