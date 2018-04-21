@@ -10,14 +10,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 h1,
-h2,
 h3,
 h4,
-h5,
-h6 {
+h5{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #778492;
+  /*color: #778492;*/
+  color:black;
+}
+h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  /*color: #778492;*/
+  color:#b51c1c;
+}
+h6{
+  /*font-family: 'Montserrat', sans-serif;*/
+  /*font-weight: bold;*/
+  /*color: #778492;*/
+  color:#778492;
 }
 a {
   color: #9f7e0b;
@@ -131,17 +142,30 @@ iframe {
 .header .profile-content .name {
   color:black;
   font-size: 28px;
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
   margin-top: 20px;
+}
+.header .profile-content .second{
+  /*color:black;*/
+  font-size:12px;
+  color:#9f7e0b;
 }
 .header .profile-content .desc {
   color: black;
   font-family: "Lato", arial, sans-serif;
-  font-weight: 400;
+  font-weight: bold;
   font-size: 14px;
   margin-top: 10px;
   margin-bottom: 8px;
   line-height:20px;
+}
+.desc_s{
+  color:#9f7e0b;
+  font-size:10px;
+  font-weight:bold;
+  font-family: "Lato", arial, sans-serif;
+  line-height:18px;
+
 }
 .header .profile-content .social a {
   background: #9f7e0b;
@@ -190,12 +214,17 @@ iframe {
   font-size: 14px;
 }
 /* About Section */
+.about .content .fa{
+  color: #9f7e0b;
+}
 /* Latest Section */
 .latest .item {
   margin-bottom: 30px;
 }
 .latest .item .title {
   font-size: 18px;
+  color: #778492;
+
   margin-top: 0;
 }
 .latest .item .title .label {
@@ -382,6 +411,9 @@ iframe {
   height: 15px;
   background: #9f7e0b;
 }
+.skills .item .fa{
+  color: #9f7e0b;
+}
 /* Testimonials section */
 .testimonials .item {
   margin-bottom: 30px;
@@ -433,6 +465,9 @@ iframe {
   color:black;
   /*font-weight: 500;*/
 }
+.projects .item .fa{
+  color: #9f7e0b;
+}
 /* Language Section */
 .languages .item {
   margin-bottom: 15px;
@@ -448,6 +483,9 @@ iframe {
 }
 .languages .item .fa {
   color: #9f7e0b;
+}
+.languages .item .fa .special{
+  color:#778492;
 }
 /* Blog Section */
 .blog .item {
@@ -465,6 +503,10 @@ iframe {
 }
 .blog .item:last-child {
   margin-bottom: 0;
+}
+
+.music .fa{
+  color: #9f7e0b;
 }
 /* List section */
 .list ul li {
@@ -499,14 +541,15 @@ iframe {
 }
 /* ======= Footer ======= */
 .footer {
-  background: #32383e;
+  background: #b51c1c;
   color: #fff;
   padding: 10px 0;
+  border-bottom: 5px solid #9f7e0b;
 }
 .footer .copyright {
   line-height: 1.6;
-  color: #a1aab4;
-  font-size: 14px;
+  color: black;
+  font-size: 12px;
 }
 .footer a {
   color: #9f7e0b;
